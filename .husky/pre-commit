@@ -1,1 +1,1 @@
-npx lint-staged
+npx playwright test && npx lint-staged
