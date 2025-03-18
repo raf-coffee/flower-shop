@@ -11,6 +11,14 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        "main-pink": {
+          400: "#FFF0E4",
+          600: "#EDD5C2",
+        },
+        "icons-pink": "#EB8671",
+      },
+      fontFamily: {
+        montserrat: "var(--font-montserrat)",
       },
     },
   },
