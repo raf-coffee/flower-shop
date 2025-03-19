@@ -14,7 +14,7 @@ export default function MobileMenu() {
         {isOpen ? <IconX /> : <IconMenu2 />}
       </button>
       {isOpen && (
-        <ul className="absolute left-0 right-0 top-16 bg-main-pink-400 font-montserrat font-medium">
+        <ul className="absolute left-0 right-0 top-16 z-10 bg-main-pink-400 font-montserrat font-medium">
           <li className="border-b-2 border-b-main-pink-600 p-4">Цветы</li>
           <li className="border-b-2 border-b-main-pink-600 p-4">Сладости</li>
           <li className="border-b-2 border-b-main-pink-600 p-4">Подарки</li>
