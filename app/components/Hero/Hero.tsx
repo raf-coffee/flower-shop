@@ -9,7 +9,7 @@ export default function Hero({
   description?: string;
 }) {
   return (
-    <div className="relative h-[255px] bg-main-pink-400 p-4">
+    <div className="relative h-[255px] bg-main-pink-300 p-4">
       <Image src={hero} alt="" fill />
       <h1 className="absolute bottom-20 w-[272px] text-2xl font-bold">
         {heading}
