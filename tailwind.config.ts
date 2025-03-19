@@ -12,6 +12,7 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         "main-pink": {
+          300: "#FFF8F5",
           400: "#FFF0E4",
           600: "#EDD5C2",
         },
