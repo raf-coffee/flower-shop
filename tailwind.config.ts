@@ -16,6 +16,7 @@ export default {
           400: "#FFF0E4",
           600: "#EDD5C2",
         },
+        "secondary-pink": "#D7537A",
         "icons-pink": "#EB8671",
       },
       fontFamily: {
