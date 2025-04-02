@@ -22,6 +22,9 @@ export default {
       fontFamily: {
         montserrat: "var(--font-montserrat)",
       },
+      fontSize: {
+        xxs: ".7rem",
+      },
     },
   },
   plugins: [],
