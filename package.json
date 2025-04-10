@@ -11,11 +11,13 @@
   },
   "dependencies": {
     "@tabler/icons-react": "^3.31.0",
+    "class-variance-authority": "^0.7.1",
     "next": "15.2.4",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "react": "^19.0.0",
     "react-dom": "^19.1.0",
-    "swiper": "^11.2.6"
+    "swiper": "^11.2.6",
+    "tailwind-merge": "2.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
