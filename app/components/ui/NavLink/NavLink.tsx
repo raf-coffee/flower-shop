@@ -13,14 +13,14 @@ interface NavLinkVariantsProps
 const navLink = cva("font-medium", {
   variants: {
     variant: {
-      mobile: ["border-b-2 border-b-main-pink-600 flex flex-col p-4"],
+      mobile: ["border-b-main-pink-600 p-4 block"],
       desktop: [
-        "sm:rounded-sm sm:px-2 min-[765px]:px-4 min-[765px]:py-2  sm:hover:bg-main-pink-600 sm:transition-colors sm:flex sm:text-center sm:items-cente sm:border-2 sm:border-transparent",
+        "sm:rounded-sm sm:px-2 min-[765px]:px-4 min-[765px]:py-2 sm:text-center",
       ],
     },
     isActive: {
       false: null,
-      true: ["font-bold"],
+      true: ["bg-main-pink-600"],
     },
   },
 });
