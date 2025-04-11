@@ -5,3 +5,11 @@
 .swiper-wrapper > div {
   height: auto;
 }
+
+div .swiper {
+  padding: 0 0 3rem 0;
+}
+
+div .swiper-pagination-bullet-active {
+  background-color: #eb8671;
+}

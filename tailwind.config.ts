@@ -17,6 +17,7 @@ export default {
           600: "#EDD5C2",
         },
         "secondary-pink": "#D7537A",
+        "hover-pink": "#FD4F79",
         "icons-pink": "#EB8671",
       },
       fontFamily: {
