@@ -15,7 +15,7 @@ const navLink = cva("font-medium", {
     variant: {
       mobile: ["border-b-main-pink-600 p-4 block"],
       desktop: [
-        "sm:rounded-sm sm:px-2 min-[765px]:px-4 min-[765px]:py-2 sm:text-center",
+        "sm:text-sm md:text-base sm:rounded-sm sm:px-2 sm:py-2 sm:text-center",
       ],
     },
     isActive: {
