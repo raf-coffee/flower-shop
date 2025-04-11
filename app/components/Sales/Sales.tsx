@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/pagination";
 
 type Items = {
   id: string;
@@ -74,32 +76,59 @@ const items: Items = [
 export default function Sales() {
   return (
     <section className="bg-main-pink-400 p-4">
-      <h2 className="mb-4 text-center text-lg font-bold">Скидки</h2>
-      <div>
-        <Swiper spaceBetween={17} slidesPerView={2} loop>
-          {items.map((item) => (
-            <SwiperSlide key={item.id} className="rounded-lg bg-white p-1">
-              <div className="flex h-full flex-col justify-between">
-                <div>
-                  <Image
-                    src={item.image.src}
-                    alt={item.image.alt}
-                    width={170}
-                    height={135}
-                    className="rounded-t-lg"
-                  />
-                  <h3 className="text-xs">{item.title}</h3>
+      <div className="mx-auto max-w-7xl">
+        <h2 className="mb-4 text-center text-lg font-bold md:text-start md:text-2xl">
+          Скидки
+        </h2>
+        <div>
+          <Swiper
+            modules={[Pagination]}
+            spaceBetween={17}
+            slidesPerView={2}
+            loop
+            breakpoints={{
+              640: {
+                slidesPerView: 3,
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+              1280: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+              },
+            }}
+            pagination={{
+              type: "bullets",
+              clickable: true,
+            }}
+          >
+            {items.map((item) => (
+              <SwiperSlide key={item.id} className="rounded-lg bg-white p-1">
+                <div className="flex h-full flex-col justify-between">
+                  <div className="relative mx-auto h-[135px] w-[170px] min-[900px]:h-[180px] min-[900px]:w-[225px] lg:h-[225px] lg:w-[265px]">
+                    <Image
+                      src={item.image.src}
+                      alt={item.image.alt}
+                      fill
+                      className="rounded-t-lg"
+                    />
+                  </div>
+                  <div className="mx-auto max-w-[170px] min-[900px]:max-w-[225px] lg:max-w-[265px]">
+                    <h3 className="text-xs md:text-sm">{item.title}</h3>
+                  </div>
+                  <div className="my-2 flex items-center justify-evenly">
+                    <p className="text-green-800">{item.price}&#8381;</p>
+                    <button className="rounded-2xl bg-secondary-pink px-4 py-1 text-xs font-semibold text-white transition-colors hover:bg-hover-pink lg:py-2">
+                      Заказать
+                    </button>
+                  </div>
                 </div>
-                <div className="my-2 flex items-center justify-evenly">
-                  <p className="text-green-800">{item.price}&#8381;</p>
-                  <button className="rounded-2xl bg-secondary-pink px-4 py-1 text-xs font-semibold text-white">
-                    Заказать
-                  </button>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
     </section>
   );
