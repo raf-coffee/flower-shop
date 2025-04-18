@@ -1,7 +1,8 @@
-import Delivery from "./components/Delivery/Delivery";
 import Hero from "./components/Hero/Hero";
 import Sales from "./components/Sales/Sales";
 import WhyUs from "./components/WhyUs/WhyUs";
+import Form from "./components/Form/Form";
+import Delivery from "./components/Delivery/Delivery";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Sales />
       <WhyUs />
       <Delivery />
+      <Form />
     </>
   );
 }
