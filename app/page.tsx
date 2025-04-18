@@ -1,3 +1,4 @@
+import Delivery from "./components/Delivery/Delivery";
 import Hero from "./components/Hero/Hero";
 import Sales from "./components/Sales/Sales";
 import WhyUs from "./components/WhyUs/WhyUs";
@@ -11,6 +12,7 @@ export default function Home() {
       />
       <Sales />
       <WhyUs />
+      <Delivery />
     </>
   );
 }

@@ -7,7 +7,7 @@ export default function WhyUs() {
   return (
     <section className="bg-main-pink-300 p-4">
       <div className="mx-auto max-w-7xl">
-        <h2 className="mb-4 text-center text-lg font-bold">
+        <h2 className="mb-4 text-center text-lg font-bold md:text-start md:text-2xl">
           Почему именно мы?
         </h2>
         <div className="mb-4 grid max-h-56 grid-cols-8 grid-rows-12 sm:max-h-64 lg:max-h-[450px] lg:grid-cols-12">
