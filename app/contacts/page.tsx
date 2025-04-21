@@ -1,7 +1,12 @@
+import PageHero from "../components/PageHero/PageHero";
+
 export default function Contacts() {
   return (
-    <section>
-      <h1>Контакты</h1>
-    </section>
+    <>
+      <PageHero heading="Контакты" />
+      <section>
+        <h1>Контакты</h1>
+      </section>
+    </>
   );
 }
