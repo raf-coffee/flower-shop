@@ -1,9 +1,7 @@
-// components/ui/Breadcrumbs.tsx
 "use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-// import { ChevronRight } from 'lucide-react';
 
 interface Crumb {
   label: string;
