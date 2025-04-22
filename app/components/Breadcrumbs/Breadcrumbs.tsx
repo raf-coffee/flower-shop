@@ -1,5 +1,9 @@
 "use client";
 
+import {
+  BREADCRUMBS_SEPARATOR,
+  PAGE_PATHS_TRANSLATIONS,
+} from "@/app/components/Breadcrumbs/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -9,14 +13,10 @@ interface Crumb {
 }
 
 interface BreadcrumbsProps {
-  items?: Crumb[];
   className?: string;
 }
 
-export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
-  items,
-  className,
-}) => {
+export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ className }) => {
   const pathname = usePathname();
 
   const fallbackItems: Crumb[] = pathname
@@ -24,10 +24,15 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
     .filter(Boolean)
     .map((segment, i, arr) => {
       const href = "/" + arr.slice(0, i + 1).join("/");
-      return { label: decodeURIComponent(segment), href };
+      const translationKey = decodeURIComponent(segment);
+
+      return { label: PAGE_PATHS_TRANSLATIONS[translationKey], href };
     });
 
-  const crumbs = items ?? [{ label: "Главная", href: "/" }, ...fallbackItems];
+  const crumbs = [
+    { label: "Главная", href: BREADCRUMBS_SEPARATOR },
+    ...fallbackItems,
+  ];
 
   return (
     <div className={className}>
@@ -36,20 +41,23 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
           const isLast = i === crumbs.length - 1;
 
           return (
-            <span key={i} className="flex items-center space-x-1">
+            <p key={i} className="flex items-center space-x-1">
               {crumb.href && !isLast ? (
-                <Link
-                  href={crumb.href}
-                  className="text-foreground hover:underline"
-                >
-                  {crumb.label}
-                </Link>
+                <>
+                  <Link
+                    href={crumb.href}
+                    className="text-foreground hover:underline"
+                  >
+                    {crumb.label}
+                  </Link>
+                  <span>{BREADCRUMBS_SEPARATOR}</span>
+                </>
               ) : (
                 <span className="font-medium text-foreground">
                   {crumb.label}
                 </span>
               )}
-            </span>
+            </p>
           );
         })}
       </nav>
