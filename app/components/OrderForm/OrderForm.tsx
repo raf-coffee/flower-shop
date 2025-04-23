@@ -13,7 +13,7 @@ import {
   Group,
   ErrorMessage,
   TextArea,
-} from "@/app/components/ui/Form/";
+} from "@/app/components/ui";
 import img from "@/static/form/form.png";
 
 const schema = z.object({
