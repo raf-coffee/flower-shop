@@ -19,6 +19,7 @@ export default {
         "secondary-pink": "#D7537A",
         "hover-pink": "#FD4F79",
         "icons-pink": "#EB8671",
+        "active-pink": "#FB7E98",
       },
       fontFamily: {
         montserrat: "var(--font-montserrat)",

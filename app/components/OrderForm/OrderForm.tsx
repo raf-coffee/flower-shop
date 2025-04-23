@@ -13,6 +13,7 @@ import {
   Group,
   ErrorMessage,
   TextArea,
+  Button,
 } from "@/app/components/ui";
 
 import img from "@/static/form/form.png";
@@ -110,7 +111,7 @@ export default function OrderForm() {
                   </ErrorMessage>
                 )}
               </Group>
-              <Group className="mb-4 grow">
+              <Group className="grow">
                 <Label htmlFor="desc" className="sr-only">
                   Сообщение
                 </Label>
@@ -137,7 +138,7 @@ export default function OrderForm() {
               <Image src={img} alt="" fill />
             </div>
           </div>
-          <button>Отправить</button>
+          <Button className="mx-auto mt-4 block sm:mt-8">Отправить</Button>
         </Form>
       </div>
     </section>
