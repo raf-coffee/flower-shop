@@ -7,7 +7,7 @@ type ButtonProps = {
   onClick?: () => void;
 };
 
-export default function ChooseButton({
+export default function Button({
   className,
   children,
   disabled = false,
