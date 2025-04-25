@@ -23,6 +23,7 @@ export default {
       },
       fontFamily: {
         montserrat: "var(--font-montserrat)",
+        lato: "var(--font-lato)",
       },
       fontSize: {
         xxs: ".7rem",

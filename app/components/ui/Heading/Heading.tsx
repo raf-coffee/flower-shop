@@ -26,11 +26,12 @@ export default function Heading({
   level = 1,
   className = "",
   children,
+  ...props
 }: HeadingProps) {
   const Tag = `h${level}` as ElementType;
 
   return (
-    <Tag className={twMerge(headingStyles({ level }), className)}>
+    <Tag className={twMerge(headingStyles({ level }), className)} {...props}>
       {children}
     </Tag>
   );
