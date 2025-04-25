@@ -1,9 +1,11 @@
 import { twMerge } from "tailwind-merge";
 
 export enum TextSize {
-  SMALL = "text-sm",
-  NORMAL = "text-base",
-  LARGE = "text-lg",
+  EXTRA_SMALL = "text-xs md:text-sm lg:text-base",
+  SMALL = "text-sm md:text-base lg:text-lg",
+  NORMAL = "text-base md:text-lg lg:text-xl",
+  LARGE = "text-lg md:text-xl lg:text-3xl",
+  EXTRA_LARGE = "text-xl md:text-2xl lg:text-4xl",
 }
 
 export enum TextWeight {
