@@ -1,5 +1,6 @@
 import Image from "next/image";
 import hero2 from "../../../static/hero-lg.png";
+import { Text, TextSize } from "../ui";
 
 export default function Hero({
   heading,
@@ -16,9 +17,12 @@ export default function Hero({
           {heading}
         </h1>
         {description && (
-          <p className="absolute bottom-10 text-xs md:bottom-40 lg:bottom-72">
+          <Text
+            size={TextSize.NORMAL}
+            className="absolute bottom-10 md:bottom-40 lg:bottom-72"
+          >
             {description}
-          </p>
+          </Text>
         )}
       </div>
     </div>
