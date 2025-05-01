@@ -28,10 +28,10 @@ export const Flowers: CollectionConfig = {
       required: true,
     },
     {
-      name: "reasons",
-      label: "Reasons",
+      name: "occasions",
+      label: "Occasions",
       type: "relationship",
-      relationTo: ["reasons"],
+      relationTo: ["occasions"],
       hasMany: true,
     },
     {

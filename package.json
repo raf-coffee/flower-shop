@@ -10,7 +10,8 @@
     "lint": "next lint",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "payload": "payload"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",

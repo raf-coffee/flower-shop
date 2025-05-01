@@ -70,7 +70,8 @@ export interface Config {
     media: Media;
     flowers: Flower;
     tags: Tag;
-    reasons: Reason;
+    occasions: Occasion;
+    categories: Category;
     users: User;
     "payload-locked-documents": PayloadLockedDocument;
     "payload-preferences": PayloadPreference;
@@ -81,7 +82,8 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     flowers: FlowersSelect<false> | FlowersSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
-    reasons: ReasonsSelect<false> | ReasonsSelect<true>;
+    occasions: OccasionsSelect<false> | OccasionsSelect<true>;
+    categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     "payload-locked-documents":
       | PayloadLockedDocumentsSelect<false>
@@ -154,10 +156,10 @@ export interface Flower {
   price: string;
   description: string;
   available: boolean;
-  reasons?:
+  occasions?:
     | {
-        relationTo: "reasons";
-        value: number | Reason;
+        relationTo: "occasions";
+        value: number | Occasion;
       }[]
     | null;
   tags?:
@@ -171,9 +173,9 @@ export interface Flower {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "reasons".
+ * via the `definition` "occasions".
  */
-export interface Reason {
+export interface Occasion {
   id: number;
   name: string;
   updatedAt: string;
@@ -184,6 +186,16 @@ export interface Reason {
  * via the `definition` "tags".
  */
 export interface Tag {
+  id: number;
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
   id: number;
   name: string;
   updatedAt: string;
@@ -226,8 +238,12 @@ export interface PayloadLockedDocument {
         value: number | Tag;
       } | null)
     | ({
-        relationTo: "reasons";
-        value: number | Reason;
+        relationTo: "occasions";
+        value: number | Occasion;
+      } | null)
+    | ({
+        relationTo: "categories";
+        value: number | Category;
       } | null)
     | ({
         relationTo: "users";
@@ -302,7 +318,7 @@ export interface FlowersSelect<T extends boolean = true> {
   price?: T;
   description?: T;
   available?: T;
-  reasons?: T;
+  occasions?: T;
   tags?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -318,9 +334,18 @@ export interface TagsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "reasons_select".
+ * via the `definition` "occasions_select".
  */
-export interface ReasonsSelect<T extends boolean = true> {
+export interface OccasionsSelect<T extends boolean = true> {
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories_select".
+ */
+export interface CategoriesSelect<T extends boolean = true> {
   name?: T;
   updatedAt?: T;
   createdAt?: T;

@@ -43,7 +43,7 @@ export const tags = [
   "Советуем",
 ];
 
-export const reasons = [
+export const occasions = [
   "День матери",
   "14 февраля",
   "8 марта",
@@ -62,8 +62,11 @@ export const whom = [
   "Друзьям",
 ];
 
+export const categories = ["Розы", "Тюльпаны", "Ромашки", "Букеты"];
+
 export const tagIds = [1, 2, 3, 4, 5, 6];
-export const reasonIds = [1, 2, 3, 4, 5, 6, 7];
+export const occasionIds = [1, 2, 3, 4, 5, 6, 7];
+export const categoryIds = [1, 2, 3, 4];
 
 export const imagePaths = [
   "buq-1.jpg",
@@ -96,3 +99,18 @@ export const flowersGenitive = [
   "хризантемы",
   "магнолии",
 ];
+
+const data = {
+  bouquets,
+  bouquetDescriptions,
+  tags,
+  occasions,
+  categories,
+  imagePaths,
+  flowersGenitive,
+  tagIds,
+  occasionIds,
+  categoryIds,
+};
+
+export default data;

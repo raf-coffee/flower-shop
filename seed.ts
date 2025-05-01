@@ -1,40 +1,9 @@
 import { Payload } from "payload";
 import { faker } from "@faker-js/faker";
-import {
-  bouquets,
-  bouquetDescriptions,
-  tags as tagsArray,
-  reasons as reasonsArray,
-  tagIds,
-  reasonIds,
-  imagePaths,
-  flowersGenitive,
-} from "./data";
+import { generateFlowers } from "@/utils/generateFlowers";
+import data from "@/data";
 
-const createFlowerData = () => {
-  const name = faker.helpers.arrayElement(bouquets);
-  const description = faker.helpers.arrayElement(bouquetDescriptions);
-  const tags = faker.helpers.uniqueArray(tagIds, 4).map(
-    (item) =>
-      ({
-        relationTo: "tags",
-        value: item,
-      }) as const,
-  );
-  const reasons = faker.helpers.uniqueArray(reasonIds, 4).map(
-    (item) =>
-      ({
-        relationTo: "reasons",
-        value: item,
-      }) as const,
-  );
-  const price = faker.commerce.price({ min: 4000, max: 15000, dec: 0 });
-  const available = true;
-
-  return { name, description, price, available, reasons, tags };
-};
-
-const flowers = faker.helpers.multiple(createFlowerData, { count: 5 });
+const flowers = generateFlowers(5);
 
 export const seed = async (payload: Payload) => {
   const tagsCollection = await payload.find({
@@ -43,7 +12,7 @@ export const seed = async (payload: Payload) => {
   });
   if (tagsCollection.totalDocs === 0) {
     await Promise.all(
-      tagsArray.map(async (tagName) => {
+      data.tags.map(async (tagName) => {
         await payload.create({
           collection: "tags",
           data: {
@@ -54,17 +23,17 @@ export const seed = async (payload: Payload) => {
     );
   }
 
-  const reasonsCollection = await payload.find({
-    collection: "reasons",
+  const occasionsCollection = await payload.find({
+    collection: "occasions",
     limit: 1,
   });
-  if (reasonsCollection.totalDocs === 0) {
+  if (occasionsCollection.totalDocs === 0) {
     await Promise.all(
-      reasonsArray.map(async (reasonName) => {
+      data.occasions.map(async (occasionName) => {
         await payload.create({
-          collection: "reasons",
+          collection: "occasions",
           data: {
-            name: reasonName,
+            name: occasionName,
           },
         });
       }),
@@ -73,7 +42,7 @@ export const seed = async (payload: Payload) => {
 
   const uploadedImageIds = [];
 
-  for (const imageName of imagePaths) {
+  for (const imageName of data.imagePaths) {
     const { docs } = await payload.find({
       collection: "media",
       where: { filename: { equals: imageName } },
@@ -82,7 +51,7 @@ export const seed = async (payload: Payload) => {
       const media = await payload.create({
         collection: "media",
         data: {
-          alt: `Изображение ${faker.helpers.arrayElement(flowersGenitive)}`,
+          alt: `Изображение ${faker.helpers.arrayElement(data.flowersGenitive)}`,
         },
         filePath: `${process.cwd()}/static/flowers/${imageName}`,
       });
