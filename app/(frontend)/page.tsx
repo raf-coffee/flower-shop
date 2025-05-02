@@ -1,8 +1,8 @@
-import Hero from "./components/Hero/Hero";
-import Sales from "./components/Sales/Sales";
-import WhyUs from "./components/WhyUs/WhyUs";
-import Form from "./components/OrderForm/OrderForm";
-import Delivery from "./components/Delivery/Delivery";
+import Hero from "@/app/components/Hero/Hero";
+import Sales from "@/app/components/Sales/Sales";
+import WhyUs from "@/app/components/WhyUs/WhyUs";
+import Form from "@/app/components/OrderForm/OrderForm";
+import Delivery from "@/app/components/Delivery/Delivery";
 
 export default function Home() {
   return (
