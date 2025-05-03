@@ -1,6 +1,7 @@
 import Image from "next/image";
 import hero2 from "../../../static/hero-lg.png";
 import { Text, TextSize } from "../ui";
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 
 export default function Hero({
   heading,
@@ -24,6 +25,7 @@ export default function Hero({
             {description}
           </Text>
         )}
+        <Breadcrumbs className="absolute bottom-10 w-[272px] text-2xl font-bold md:w-[400px] md:text-3xl lg:bottom-44 lg:w-[600px] lg:text-5xl" />
       </div>
     </div>
   );
