@@ -42,7 +42,7 @@ export default function Hero({
             {children && children}
           </div>
           {hasBreadCrumbs && (
-            <Breadcrumbs className="absolute bottom-[10px] w-[272px] text-2xl font-bold md:w-[400px] md:text-3xl lg:w-[600px] lg:text-5xl" />
+            <Breadcrumbs className="absolute bottom-[10px] w-[272px] text-2xl font-bold md:w-[400px] md:text-3xl lg:bottom-[75px] lg:w-[600px] lg:text-5xl" />
           )}
         </div>
       </Container>
