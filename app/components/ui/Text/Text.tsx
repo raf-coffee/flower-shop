@@ -12,6 +12,7 @@ export enum TextSize {
 export enum TextWeight {
   LIGHT = "LIGHT",
   NORMAL = "NORMAL",
+  SEMIBOLD = "SEMIBOLD",
   BOLD = "BOLD",
 }
 
@@ -32,6 +33,7 @@ const textStyles = cva("", {
     weight: {
       [TextWeight.LIGHT]: "font-light",
       [TextWeight.NORMAL]: "font-normal",
+      [TextWeight.SEMIBOLD]: "font-semibold",
       [TextWeight.BOLD]: "font-bold",
     },
     font: {

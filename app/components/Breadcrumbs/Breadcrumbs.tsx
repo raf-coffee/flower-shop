@@ -6,6 +6,7 @@ import {
 } from "@/app/components/Breadcrumbs/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Text, TextWeight } from "../ui";
 
 interface Crumb {
   label: string;
@@ -33,28 +34,28 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ className }) => {
 
   return (
     <div className={className}>
-      <nav className="text-muted-foreground flex items-center space-x-1 text-sm">
+      <nav className="text-muted-foreground flex items-center space-x-1 text-sm text-soft-olive">
         {crumbs.map((crumb, i) => {
           const isLast = i === crumbs.length - 1;
 
           return (
-            <p key={i} className="flex items-center space-x-1">
+            <div key={i} className="flex items-center space-x-1">
               {crumb.href && !isLast ? (
                 <>
                   <Link
                     href={crumb.href}
-                    className="text-foreground hover:underline"
+                    className="font-semibold text-foreground hover:underline"
                   >
-                    {crumb.label}
+                    <Text weight={TextWeight.SEMIBOLD}>{crumb.label}</Text>
                   </Link>
-                  <span>{BREADCRUMBS_SEPARATOR}</span>
+                  <Text weight={TextWeight.SEMIBOLD}>
+                    {BREADCRUMBS_SEPARATOR}
+                  </Text>
                 </>
               ) : (
-                <span className="font-medium text-foreground">
-                  {crumb.label}
-                </span>
+                <Text weight={TextWeight.SEMIBOLD}>{crumb.label}</Text>
               )}
-            </p>
+            </div>
           );
         })}
       </nav>

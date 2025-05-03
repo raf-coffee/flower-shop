@@ -1,7 +1,11 @@
+import Hero from "@/app/components/Hero/Hero";
+
 export default function Contacts() {
   return (
     <section>
-      <h1>Контакты</h1>
+      <div>
+        <Hero heading="Контакты" hasBreadCrumbs />
+      </div>
     </section>
   );
 }
