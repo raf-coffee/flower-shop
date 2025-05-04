@@ -1,30 +1,5 @@
-import {
-  IconPhoneCall,
-  IconMailFilled,
-  IconBrandWhatsapp,
-  IconBrandFacebook,
-  IconBrandInstagram,
-  IconBrandTelegram,
-} from "@tabler/icons-react";
-
-const FOOTER_SOCIAL_LIST = [
-  {
-    href: "#",
-    Icon: IconBrandWhatsapp,
-  },
-  {
-    href: "#",
-    Icon: IconBrandTelegram,
-  },
-  {
-    href: "#",
-    Icon: IconBrandFacebook,
-  },
-  {
-    href: "#",
-    Icon: IconBrandInstagram,
-  },
-];
+import { IconPhoneCall, IconMailFilled } from "@tabler/icons-react";
+import SocialList from "../SocialList/SocialList";
 
 export default function Footer() {
   return (
@@ -46,15 +21,7 @@ export default function Footer() {
         <IconMailFilled className="me-1 text-icons-pink" />
         flowermail@gmail.com
       </a>
-      <ul className="mb-2 flex gap-5 text-icons-pink md:mb-4 lg:mb-8">
-        {FOOTER_SOCIAL_LIST.map(({ Icon, href }, index) => (
-          <li key={`${href}-${index}`}>
-            <a href={href}>
-              <Icon size={32} className="h-auto w-8 md:w-10 lg:w-12" />
-            </a>
-          </li>
-        ))}
-      </ul>
+      <SocialList className="mb-2 md:mb-4 lg:mb-8" />
       <p>&copy; {new Date().getFullYear()}. Все права защищены</p>
     </footer>
   );
