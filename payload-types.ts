@@ -168,6 +168,13 @@ export interface Flower {
         value: number | Tag;
       }[]
     | null;
+  categories?:
+    | {
+        relationTo: "categories";
+        value: number | Category;
+      }[]
+    | null;
+  images?: (number | Media)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -320,6 +327,8 @@ export interface FlowersSelect<T extends boolean = true> {
   available?: T;
   occasions?: T;
   tags?: T;
+  categories?: T;
+  images?: T;
   updatedAt?: T;
   createdAt?: T;
 }

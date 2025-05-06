@@ -3,8 +3,6 @@ import { faker } from "@faker-js/faker";
 import { generateFlowers } from "@/utils/generateFlowers";
 import data from "@/data";
 
-const flowers = generateFlowers(5);
-
 export const seed = async (payload: Payload) => {
   const tagsCollection = await payload.find({
     collection: "tags",
@@ -40,6 +38,23 @@ export const seed = async (payload: Payload) => {
     );
   }
 
+  const categoryCollection = await payload.find({
+    collection: "categories",
+    limit: 1,
+  });
+  if (categoryCollection.totalDocs === 0) {
+    await Promise.all(
+      data.categories.map(async (categoryName) => {
+        await payload.create({
+          collection: "categories",
+          data: {
+            name: categoryName,
+          },
+        });
+      }),
+    );
+  }
+
   const uploadedImageIds = [];
 
   for (const imageName of data.imagePaths) {
@@ -60,6 +75,8 @@ export const seed = async (payload: Payload) => {
       uploadedImageIds.push(docs[0].id);
     }
   }
+
+  const flowers = generateFlowers(5, uploadedImageIds);
 
   const flowersCollection = await payload.find({
     collection: "flowers",

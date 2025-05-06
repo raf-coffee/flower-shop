@@ -41,5 +41,19 @@ export const Flowers: CollectionConfig = {
       hasMany: true,
       relationTo: ["tags"],
     },
+    {
+      name: "categories",
+      label: "Categories",
+      type: "relationship",
+      hasMany: true,
+      relationTo: ["categories"],
+    },
+    {
+      name: "images",
+      label: "Images",
+      type: "upload",
+      hasMany: true,
+      relationTo: "media",
+    },
   ],
 };
