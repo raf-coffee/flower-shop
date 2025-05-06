@@ -10,4 +10,7 @@ export const Category: CollectionConfig = {
       required: true,
     },
   ],
+  admin: {
+    useAsTitle: "name",
+  },
 };

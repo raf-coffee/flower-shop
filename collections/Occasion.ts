@@ -10,4 +10,7 @@ export const Occasion: CollectionConfig = {
       required: true,
     },
   ],
+  admin: {
+    useAsTitle: "name",
+  },
 };

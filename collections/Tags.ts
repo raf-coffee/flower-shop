@@ -10,4 +10,7 @@ export const Tags: CollectionConfig = {
       required: true,
     },
   ],
+  admin: {
+    useAsTitle: "name",
+  },
 };
