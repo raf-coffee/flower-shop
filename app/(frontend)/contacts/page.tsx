@@ -6,6 +6,7 @@ import SocialList from "@/app/components/SocialList/SocialList";
 import {
   Button,
   Container,
+  Heading,
   Input,
   Text,
   TextArea,
@@ -27,13 +28,9 @@ export default function Contacts() {
         <Container className="z-3 relative lg:rounded-2xl lg:bg-main-pink-300 lg:p-2">
           <div className="gap-4 lg:grid lg:min-h-[500px] lg:grid-cols-[1fr_1fr] lg:gap-x-16 lg:p-2">
             <div className="mb-5 lg:mb-0">
-              <Text
-                className="mb-4"
-                size={TextSize.LARGE}
-                weight={TextWeight.BOLD}
-              >
+              <Heading level={2} className="mb-4">
                 Звоните нам или пишите в месенджер
-              </Text>
+              </Heading>
               <div className="flex-col">
                 <a
                   href="tel:+7495111111"
@@ -86,13 +83,9 @@ export default function Contacts() {
               </div>
             </div>
             <div className="mb-1">
-              <Text
-                className="mb-4"
-                size={TextSize.LARGE}
-                weight={TextWeight.BOLD}
-              >
+              <Heading level={2} className="mb-4">
                 Как нас найти?
-              </Text>
+              </Heading>
               <Text
                 className="mb-2 flex flex-row gap-x-2"
                 size={TextSize.NORMAL}
