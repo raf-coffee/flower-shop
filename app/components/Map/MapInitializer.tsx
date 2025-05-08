@@ -24,7 +24,7 @@ function MapView({
   return (
     <div className="h-[450px] w-full" style={{ height: `${height}px` }}>
       <YMap
-        location={{ center: [37.588144, 55.733842], zoom: 15 }}
+        location={{ center: [37.66555, 55.755609], zoom: 18 }}
         mode="vector"
       >
         <YMapDefaultSchemeLayer />
