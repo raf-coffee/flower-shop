@@ -134,13 +134,9 @@ export default function Contacts() {
 
       <section className="bg-main-pink-400 p-4">
         <Container className="max-w-[770px] lg:mb-12">
-          <Text
-            className="mb-4 text-center lg:mb-12"
-            size={TextSize.LARGE}
-            weight={TextWeight.BOLD}
-          >
+          <Heading level={2} className="mb-4 text-center lg:mb-12">
             Появились вопросы?
-          </Text>
+          </Heading>
           <form className="flex flex-col items-center gap-2">
             <Input
               className="lg:h-[90px] lg:text-2xl"
