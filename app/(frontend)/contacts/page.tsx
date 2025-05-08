@@ -8,6 +8,7 @@ import {
   Container,
   Input,
   Text,
+  TextArea,
   TextFont,
   TextSize,
   TextWeight,
@@ -81,14 +82,24 @@ export default function Contacts() {
           </div>
         </Container>
       </section>
-      <section>
+      <section className="bg-main-pink-400 p-4">
         <Container>
-          <Text>Появились вопросы?</Text>
-          <form>
-            <Input />
-            <Input />
-            <Input />
-            <Button>Отправить</Button>
+          <Text
+            className="mb-4 text-center"
+            size={TextSize.LARGE}
+            weight={TextWeight.BOLD}
+          >
+            Появились вопросы?
+          </Text>
+          <form className="flex flex-col items-center gap-2">
+            <Input type="text" placeholder="Имя" />
+            <Input type="phone" placeholder="Телефон" />
+            <TextArea
+              className="mb-3"
+              rows={6}
+              placeholder="Напишите свой вопрос"
+            />
+            <Button className="">Отправить</Button>
           </form>
         </Container>
       </section>
