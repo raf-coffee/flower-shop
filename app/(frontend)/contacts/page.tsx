@@ -121,7 +121,7 @@ export default function Contacts() {
         </Container>
       </section>
       <section className="bg-main-pink-400 p-4">
-        <Container>
+        <Container className="max-w-[770px]">
           <Text
             className="mb-4 text-center"
             size={TextSize.LARGE}
