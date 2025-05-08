@@ -22,7 +22,10 @@ function MapView({
     reactifyApi;
 
   return (
-    <div className="h-[450px] w-full" style={{ height: `${height}px` }}>
+    <div
+      className="h-[350px] w-full lg:h-full"
+      style={{ minHeight: `${height}px` }}
+    >
       <YMap
         location={{ center: [37.66555, 55.755609], zoom: 18 }}
         mode="vector"

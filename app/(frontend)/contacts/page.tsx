@@ -20,9 +20,10 @@ export default function Contacts() {
   return (
     <div className="bg-main-pink-300">
       <Hero heading="Контакты" hasBreadCrumbs />
+
       <section className="bg-main-pink-400 p-4 lg:mt-[-65px]">
         <Container className="z-3 relative lg:rounded-2xl lg:bg-main-pink-300 lg:p-2">
-          <div className="lg:p-2">
+          <div className="gap-4 lg:grid lg:min-h-[500px] lg:grid-cols-[1fr_1fr] lg:gap-x-16 lg:p-2">
             <div className="mb-5 lg:mb-0">
               <Text
                 className="mb-4"
@@ -114,33 +115,35 @@ export default function Contacts() {
                 Сб-вс: 00:00-00:00
               </Text>
             </div>
-            <div className="mb-5 flex min-h-[350px] w-full min-w-[350px] items-center justify-center lg:mb-0">
+            <div className="mb-5 flex min-h-[350px] w-full min-w-[350px] items-center justify-center lg:order-1 lg:row-start-1 lg:row-end-3 lg:mb-0 lg:h-full">
               <YandexMap />
             </div>
           </div>
         </Container>
       </section>
+
       <section className="bg-main-pink-400 p-4">
-        <Container className="max-w-[770px]">
+        <Container className="max-w-[770px] lg:mb-12">
           <Text
-            className="mb-4 text-center"
+            className="mb-4 text-center lg:mb-12"
             size={TextSize.LARGE}
             weight={TextWeight.BOLD}
           >
             Появились вопросы?
           </Text>
           <form className="flex flex-col items-center gap-2">
-            <Input type="text" placeholder="Имя" />
-            <Input type="phone" placeholder="Телефон" />
+            <Input className="lg:h-[90px]" type="text" placeholder="Имя" />
+            <Input className="lg:h-[90px]" type="phone" placeholder="Телефон" />
             <TextArea
-              className="mb-3"
+              className="mb-3 lg:mb-12 lg:min-h-[320px]"
               rows={6}
               placeholder="Напишите свой вопрос"
             />
-            <Button className="">Отправить</Button>
+            <Button>Отправить</Button>
           </form>
         </Container>
       </section>
+
       <section>
         <Container className="py-5">
           <div className="mb-5 flex items-center justify-center">
