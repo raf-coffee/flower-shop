@@ -21,6 +21,7 @@ export default {
         "icons-pink": "#EB8671",
         "active-pink": "#FB7E98",
         "soft-olive": "#8E8D6F",
+        "soft-white-transparent": "#FFF8F5D9",
       },
       fontFamily: {
         montserrat: "var(--font-montserrat)",

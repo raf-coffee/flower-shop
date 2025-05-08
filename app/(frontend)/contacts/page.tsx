@@ -76,7 +76,7 @@ export default function Contacts() {
               </Text>
               <Text size={TextSize.NORMAL}>Сб-вс: 00:00-00:00</Text>
             </div>
-            <div className="min-h-[350px] w-full min-w-[350px]">
+            <div className="flex min-h-[350px] w-full min-w-[350px] items-center justify-center">
               <YandexMap />
             </div>
           </div>
@@ -105,15 +105,21 @@ export default function Contacts() {
       </section>
       <section>
         <Container className="py-5">
-          <div className="flex items-center justify-center">
+          <div className="mb-5 flex items-center justify-center">
             <Logo />
           </div>
-          <ul>
+          <ul className="grid grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-4">
             {["Цветы", "Воздушные шары", "Аксессуары"].map((name) => (
-              <Link href="/" key={name}>
-                <li className="relative">
-                  <div className="absolute">
-                    <p>{name}</p>
+              <Link
+                className="relative min-h-[140px] bg-main-pink-400 lg:min-h-[360px]"
+                href="/"
+                key={name}
+              >
+                <li className="relative h-full w-full">
+                  <div className="absolute bottom-0 flex h-[40px] w-full items-center justify-center rounded-t-[10px] bg-soft-white-transparent lg:h-[95px]">
+                    <Text className="text-center" size={TextSize.SMALL}>
+                      {name}
+                    </Text>
                   </div>
                 </li>
               </Link>
