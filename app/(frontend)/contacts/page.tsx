@@ -15,6 +15,8 @@ import {
 } from "@/app/components/ui";
 import { IconMailFilled, IconPhoneCall } from "@tabler/icons-react";
 import Link from "next/link";
+import { AlarmIcon, MapMarkerIcon } from "./assets";
+import Image from "next/image";
 
 export default function Contacts() {
   return (
@@ -92,22 +94,37 @@ export default function Contacts() {
                 Как нас найти?
               </Text>
               <Text
-                className="mb-2"
+                className="mb-2 flex flex-row gap-x-2"
                 size={TextSize.NORMAL}
                 font={TextFont.LATO}
                 weight={TextWeight.MEDIUM}
               >
+                <Image
+                  className="mt-1.5 h-[15px] w-[15px]"
+                  src={MapMarkerIcon.src}
+                  width={15}
+                  height={15}
+                  alt="Map marker."
+                />
                 Город Москва, 4 сыромятнический переулок, дом 1/8с22
               </Text>
               <Text
+                className="flex flex-row gap-x-2"
                 size={TextSize.NORMAL}
                 font={TextFont.LATO}
                 weight={TextWeight.MEDIUM}
               >
+                <Image
+                  className="mt-1.5 h-[15px] w-[15px]"
+                  src={AlarmIcon.src}
+                  width={15}
+                  height={15}
+                  alt="Map marker."
+                />
                 Режим работы: Пн-пт: 00:00-00:00
               </Text>
               <Text
-                className="mb-2 pl-[135px]"
+                className="mb-2 pl-[135px] lg:pl-[192px]"
                 size={TextSize.NORMAL}
                 font={TextFont.LATO}
                 weight={TextWeight.MEDIUM}
@@ -132,10 +149,18 @@ export default function Contacts() {
             Появились вопросы?
           </Text>
           <form className="flex flex-col items-center gap-2">
-            <Input className="lg:h-[90px]" type="text" placeholder="Имя" />
-            <Input className="lg:h-[90px]" type="phone" placeholder="Телефон" />
+            <Input
+              className="lg:h-[90px] lg:text-2xl"
+              type="text"
+              placeholder="Имя"
+            />
+            <Input
+              className="lg:h-[90px] lg:text-2xl"
+              type="phone"
+              placeholder="Телефон"
+            />
             <TextArea
-              className="mb-3 lg:mb-12 lg:min-h-[320px]"
+              className="mb-3 lg:mb-12 lg:min-h-[320px] lg:text-2xl"
               rows={6}
               placeholder="Напишите свой вопрос"
             />
