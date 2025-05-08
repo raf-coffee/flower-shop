@@ -1,4 +1,5 @@
 import Hero from "@/app/components/Hero/Hero";
+import YandexMap from "@/app/components/Map/YandexMap";
 
 import SocialList from "@/app/components/SocialList/SocialList";
 import {
@@ -74,6 +75,7 @@ export default function Contacts() {
             </div>
             <div className="min-h-[350px] w-full min-w-[350px]">
               {/* HERE GOES A MAP */}
+              <YandexMap />
             </div>
           </div>
         </Container>
