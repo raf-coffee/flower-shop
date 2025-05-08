@@ -1,4 +1,5 @@
 import Hero from "@/app/components/Hero/Hero";
+import Logo from "@/app/components/Logo/Logo";
 import YandexMap from "@/app/components/Map/YandexMap";
 
 import SocialList from "@/app/components/SocialList/SocialList";
@@ -12,6 +13,7 @@ import {
   TextWeight,
 } from "@/app/components/ui";
 import { IconMailFilled, IconPhoneCall } from "@tabler/icons-react";
+import Link from "next/link";
 
 export default function Contacts() {
   return (
@@ -74,7 +76,6 @@ export default function Contacts() {
               <Text size={TextSize.NORMAL}>Сб-вс: 00:00-00:00</Text>
             </div>
             <div className="min-h-[350px] w-full min-w-[350px]">
-              {/* HERE GOES A MAP */}
               <YandexMap />
             </div>
           </div>
@@ -91,7 +92,24 @@ export default function Contacts() {
           </form>
         </Container>
       </section>
-      <section>Здесь будет каталог</section>
+      <section>
+        <Container className="py-5">
+          <div className="flex items-center justify-center">
+            <Logo />
+          </div>
+          <ul>
+            {["Цветы", "Воздушные шары", "Аксессуары"].map((name) => (
+              <Link href="/" key={name}>
+                <li className="relative">
+                  <div className="absolute">
+                    <p>{name}</p>
+                  </div>
+                </li>
+              </Link>
+            ))}
+          </ul>
+        </Container>
+      </section>
     </div>
   );
 }
