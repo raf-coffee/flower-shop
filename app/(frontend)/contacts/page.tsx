@@ -1,23 +1,20 @@
 import Hero from "@/app/components/Hero/Hero";
-import Logo from "@/app/components/Logo/Logo";
 import YandexMap from "@/app/components/Map/YandexMap";
 
 import SocialList from "@/app/components/SocialList/SocialList";
 import {
-  Button,
   Container,
   Heading,
-  Input,
   Text,
-  TextArea,
   TextFont,
   TextSize,
   TextWeight,
 } from "@/app/components/ui";
 import { IconMailFilled, IconPhoneCall } from "@tabler/icons-react";
-import Link from "next/link";
 import { AlarmIcon, MapMarkerIcon } from "./assets";
 import Image from "next/image";
+import CatalogNavigation from "@/app/components/CatalogNavigation/CatalogNavigation";
+import FeedbackForm from "@/app/components/FeedbackForm/FeedbackForm";
 
 export default function Contacts() {
   return (
@@ -132,56 +129,9 @@ export default function Contacts() {
         </Container>
       </section>
 
-      <section className="bg-main-pink-400 p-4">
-        <Container className="max-w-[770px] lg:mb-12">
-          <Heading level={2} className="mb-4 text-center lg:mb-12">
-            Появились вопросы?
-          </Heading>
-          <form className="flex flex-col items-center gap-2">
-            <Input
-              className="lg:h-[90px] lg:text-2xl"
-              type="text"
-              placeholder="Имя"
-            />
-            <Input
-              className="lg:h-[90px] lg:text-2xl"
-              type="phone"
-              placeholder="Телефон"
-            />
-            <TextArea
-              className="mb-3 lg:mb-12 lg:min-h-[320px] lg:text-2xl"
-              rows={6}
-              placeholder="Напишите свой вопрос"
-            />
-            <Button>Отправить</Button>
-          </form>
-        </Container>
-      </section>
+      <FeedbackForm title="Появились вопросы?" />
 
-      <section>
-        <Container className="py-5">
-          <div className="mb-5 flex items-center justify-center">
-            <Logo />
-          </div>
-          <ul className="grid grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-4">
-            {["Цветы", "Воздушные шары", "Аксессуары"].map((name) => (
-              <Link
-                className="relative min-h-[140px] bg-main-pink-400 lg:min-h-[360px]"
-                href="/"
-                key={name}
-              >
-                <li className="relative h-full w-full">
-                  <div className="absolute bottom-0 flex h-[40px] w-full items-center justify-center rounded-t-[10px] bg-soft-white-transparent lg:h-[95px]">
-                    <Text className="text-center" size={TextSize.SMALL}>
-                      {name}
-                    </Text>
-                  </div>
-                </li>
-              </Link>
-            ))}
-          </ul>
-        </Container>
-      </section>
+      <CatalogNavigation />
     </div>
   );
 }
