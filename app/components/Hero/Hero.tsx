@@ -1,30 +1,51 @@
-import Image from "next/image";
 import hero2 from "../../../static/hero-lg.png";
-import { Text, TextSize } from "../ui";
+import { Container, Text, TextSize } from "../ui";
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
+import { twMerge } from "tailwind-merge";
+import React, { ReactNode } from "react";
 
 export default function Hero({
   heading,
   description,
+  hasBreadCrumbs = false,
+  children,
+  className,
 }: {
   heading: string;
   description?: string;
+  hasBreadCrumbs?: boolean;
+  className?: string;
+  children?: ReactNode;
 }) {
   return (
-    <div className="bg-main-pink-300">
-      <div className="relative mx-auto h-[255px] max-w-7xl p-4 md:h-[400px] lg:h-[600px]">
-        <Image src={hero2} alt="" fill />
-        <h1 className="absolute bottom-20 w-[272px] text-2xl font-bold md:w-[400px] md:text-3xl lg:bottom-44 lg:w-[600px] lg:text-5xl">
-          {heading}
-        </h1>
-        {description && (
-          <Text
-            size={TextSize.NORMAL}
-            className="absolute bottom-10 md:bottom-40 lg:bottom-72"
-          >
-            {description}
-          </Text>
-        )}
-      </div>
-    </div>
+    <section
+      className={twMerge(
+        "z-2 relative w-full bg-cover bg-center bg-no-repeat",
+        className,
+      )}
+      style={{ backgroundImage: `url(${hero2.src})` }}
+    >
+      <Container className="relative flex min-h-[300px] lg:min-h-[700px]">
+        <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center gap-4">
+            <h1 className="lg:order-0 w-[272px] text-2xl font-bold md:w-[400px] md:text-3xl lg:bottom-44 lg:w-[600px] lg:text-5xl">
+              {heading}
+            </h1>
+            {description && (
+              <Text
+                size={TextSize.NORMAL}
+                className="md:bottom-40 lg:bottom-72 lg:-order-1"
+              >
+                {description}
+              </Text>
+            )}
+            {children && children}
+          </div>
+          {hasBreadCrumbs && (
+            <Breadcrumbs className="absolute bottom-[10px] w-[272px] text-2xl font-bold md:w-[400px] md:text-3xl lg:bottom-[75px] lg:w-[600px] lg:text-5xl" />
+          )}
+        </div>
+      </Container>
+    </section>
   );
 }
