@@ -11,7 +11,7 @@ import {
   TextWeight,
 } from "@/app/components/ui";
 import { IconMailFilled, IconPhoneCall } from "@tabler/icons-react";
-import { AlarmIcon, MapMarkerIcon } from "./assets";
+import { AlarmIcon, MapMarkerIcon } from "../../../static/icons";
 import Image from "next/image";
 import CatalogNavigation from "@/app/components/CatalogNavigation/CatalogNavigation";
 import FeedbackForm from "@/app/components/FeedbackForm/FeedbackForm";
