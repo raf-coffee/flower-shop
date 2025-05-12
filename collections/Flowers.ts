@@ -2,6 +2,9 @@ import type { CollectionConfig } from "payload";
 
 export const Flowers: CollectionConfig = {
   slug: "flowers",
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: "name",
