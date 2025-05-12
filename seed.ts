@@ -10,7 +10,7 @@ export const seed = async (payload: Payload) => {
   });
   if (tagsCollection.totalDocs === 0) {
     await Promise.all(
-      data.tags.map(async (tagName) => {
+      data.tags.names.map(async (tagName) => {
         await payload.create({
           collection: "tags",
           data: {
@@ -27,7 +27,7 @@ export const seed = async (payload: Payload) => {
   });
   if (occasionsCollection.totalDocs === 0) {
     await Promise.all(
-      data.occasions.map(async (occasionName) => {
+      data.occasions.names.map(async (occasionName) => {
         await payload.create({
           collection: "occasions",
           data: {
@@ -44,7 +44,7 @@ export const seed = async (payload: Payload) => {
   });
   if (categoryCollection.totalDocs === 0) {
     await Promise.all(
-      data.categories.map(async (categoryName) => {
+      data.categories.names.map(async (categoryName) => {
         await payload.create({
           collection: "categories",
           data: {
@@ -57,7 +57,7 @@ export const seed = async (payload: Payload) => {
 
   const uploadedImageIds = [];
 
-  for (const imageName of data.imagePaths) {
+  for (const imageName of data.flowers.imageNames) {
     const { docs } = await payload.find({
       collection: "media",
       where: { filename: { equals: imageName } },
@@ -66,9 +66,9 @@ export const seed = async (payload: Payload) => {
       const media = await payload.create({
         collection: "media",
         data: {
-          alt: `Изображение ${faker.helpers.arrayElement(data.flowersGenitive)}`,
+          alt: `Изображение ${faker.helpers.arrayElement(data.flowers.flowersGenitive)}`,
         },
-        filePath: `${process.cwd()}/static/flowers/${imageName}`,
+        filePath: `${process.cwd()}/static/${imageName}`,
       });
       uploadedImageIds.push(media.id);
     } else {
