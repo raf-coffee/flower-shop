@@ -1,93 +1,51 @@
 import { Payload } from "payload";
-import { faker } from "@faker-js/faker";
-import { generateFlowers } from "@/utils/generateFlowers";
+import {
+  generateData,
+  uploadImages,
+  createCollection,
+  collectionDoesNotExist,
+} from "@/utils";
 import data from "@/data";
 
 export const seed = async (payload: Payload) => {
-  const tagsCollection = await payload.find({
-    collection: "tags",
-    limit: 1,
-  });
-  if (tagsCollection.totalDocs === 0) {
-    await Promise.all(
-      data.tags.names.map(async (tagName) => {
-        await payload.create({
-          collection: "tags",
-          data: {
-            name: tagName,
-          },
-        });
-      }),
-    );
+  if (await collectionDoesNotExist(payload, "tags")) {
+    await createCollection(payload, "tags", data.tags.names);
   }
 
-  const occasionsCollection = await payload.find({
-    collection: "occasions",
-    limit: 1,
-  });
-  if (occasionsCollection.totalDocs === 0) {
-    await Promise.all(
-      data.occasions.names.map(async (occasionName) => {
-        await payload.create({
-          collection: "occasions",
-          data: {
-            name: occasionName,
-          },
-        });
-      }),
-    );
+  if (await collectionDoesNotExist(payload, "occasions")) {
+    await createCollection(payload, "occasions", data.occasions.names);
   }
 
-  const categoryCollection = await payload.find({
-    collection: "categories",
-    limit: 1,
-  });
-  if (categoryCollection.totalDocs === 0) {
-    await Promise.all(
-      data.categories.names.map(async (categoryName) => {
-        await payload.create({
-          collection: "categories",
-          data: {
-            name: categoryName,
-          },
-        });
-      }),
-    );
+  if (await collectionDoesNotExist(payload, "categories")) {
+    await createCollection(payload, "categories", data.categories.names);
   }
 
-  const uploadedImageIds = [];
-
-  for (const imageName of data.flowers.imageNames) {
-    const { docs } = await payload.find({
-      collection: "media",
-      where: { filename: { equals: imageName } },
-    });
-    if (docs.length === 0) {
-      const media = await payload.create({
-        collection: "media",
-        data: {
-          alt: `Изображение ${faker.helpers.arrayElement(data.flowers.flowersGenitive)}`,
-        },
-        filePath: `${process.cwd()}/static/${imageName}`,
-      });
-      uploadedImageIds.push(media.id);
-    } else {
-      uploadedImageIds.push(docs[0].id);
-    }
+  if (await collectionDoesNotExist(payload, "whom")) {
+    await createCollection(payload, "whom", data.whom.names);
   }
 
-  const flowers = generateFlowers(5, uploadedImageIds);
+  const uploadedFlowerImagesIds = await uploadImages(payload, "flowers");
+  const uploadedBaloonImagesIds = await uploadImages(payload, "baloons");
+  const flowers = generateData.flowers(5, uploadedFlowerImagesIds);
+  const baloons = generateData.baloons(5, uploadedBaloonImagesIds);
 
-  const flowersCollection = await payload.find({
-    collection: "flowers",
-    limit: 1,
-  });
-  if (flowersCollection.totalDocs === 0) {
+  if (await collectionDoesNotExist(payload, "flowers")) {
     await Promise.all(
       flowers.map(async (flower) => {
         await payload.create({
           collection: "flowers",
           data: flower,
+        });
+      }),
+    );
+  }
+
+  if (await collectionDoesNotExist(payload, "baloons")) {
+    await Promise.all(
+      baloons.map(async (baloon) => {
+        await payload.create({
+          collection: "baloons",
+          data: baloon,
         });
       }),
     );

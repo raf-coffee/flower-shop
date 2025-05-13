@@ -72,6 +72,13 @@ export interface Config {
     tags: Tag;
     occasions: Occasion;
     categories: Category;
+    baloons: Baloon;
+    "fruit-carts": FruitCart;
+    accessories: Accessory;
+    indoors: Indoor;
+    presents: Present;
+    sweets: Sweet;
+    whom: Whom;
     users: User;
     "payload-locked-documents": PayloadLockedDocument;
     "payload-preferences": PayloadPreference;
@@ -84,6 +91,13 @@ export interface Config {
     tags: TagsSelect<false> | TagsSelect<true>;
     occasions: OccasionsSelect<false> | OccasionsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    baloons: BaloonsSelect<false> | BaloonsSelect<true>;
+    "fruit-carts": FruitCartsSelect<false> | FruitCartsSelect<true>;
+    accessories: AccessoriesSelect<false> | AccessoriesSelect<true>;
+    indoors: IndoorsSelect<false> | IndoorsSelect<true>;
+    presents: PresentsSelect<false> | PresentsSelect<true>;
+    sweets: SweetsSelect<false> | SweetsSelect<true>;
+    whom: WhomSelect<false> | WhomSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     "payload-locked-documents":
       | PayloadLockedDocumentsSelect<false>
@@ -210,6 +224,172 @@ export interface Category {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "baloons".
+ */
+export interface Baloon {
+  id: number;
+  name: string;
+  price: string;
+  description: string;
+  available: boolean;
+  occasions?:
+    | {
+        relationTo: "occasions";
+        value: number | Occasion;
+      }[]
+    | null;
+  tags?:
+    | {
+        relationTo: "tags";
+        value: number | Tag;
+      }[]
+    | null;
+  images?: (number | Media)[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "fruit-carts".
+ */
+export interface FruitCart {
+  id: number;
+  name: string;
+  price: string;
+  description: string;
+  available: boolean;
+  occasions?:
+    | {
+        relationTo: "occasions";
+        value: number | Occasion;
+      }[]
+    | null;
+  tags?:
+    | {
+        relationTo: "tags";
+        value: number | Tag;
+      }[]
+    | null;
+  images?: (number | Media)[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "accessories".
+ */
+export interface Accessory {
+  id: number;
+  name: string;
+  price: string;
+  description: string;
+  available: boolean;
+  occasions?:
+    | {
+        relationTo: "occasions";
+        value: number | Occasion;
+      }[]
+    | null;
+  tags?:
+    | {
+        relationTo: "tags";
+        value: number | Tag;
+      }[]
+    | null;
+  images?: (number | Media)[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "indoors".
+ */
+export interface Indoor {
+  id: number;
+  name: string;
+  price: string;
+  description: string;
+  available: boolean;
+  occasions?:
+    | {
+        relationTo: "occasions";
+        value: number | Occasion;
+      }[]
+    | null;
+  tags?:
+    | {
+        relationTo: "tags";
+        value: number | Tag;
+      }[]
+    | null;
+  images?: (number | Media)[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "presents".
+ */
+export interface Present {
+  id: number;
+  name: string;
+  price: string;
+  description: string;
+  available: boolean;
+  occasions?:
+    | {
+        relationTo: "occasions";
+        value: number | Occasion;
+      }[]
+    | null;
+  tags?:
+    | {
+        relationTo: "tags";
+        value: number | Tag;
+      }[]
+    | null;
+  images?: (number | Media)[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sweets".
+ */
+export interface Sweet {
+  id: number;
+  name: string;
+  price: string;
+  description: string;
+  available: boolean;
+  occasions?:
+    | {
+        relationTo: "occasions";
+        value: number | Occasion;
+      }[]
+    | null;
+  tags?:
+    | {
+        relationTo: "tags";
+        value: number | Tag;
+      }[]
+    | null;
+  images?: (number | Media)[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "whom".
+ */
+export interface Whom {
+  id: number;
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -251,6 +431,34 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: "categories";
         value: number | Category;
+      } | null)
+    | ({
+        relationTo: "baloons";
+        value: number | Baloon;
+      } | null)
+    | ({
+        relationTo: "fruit-carts";
+        value: number | FruitCart;
+      } | null)
+    | ({
+        relationTo: "accessories";
+        value: number | Accessory;
+      } | null)
+    | ({
+        relationTo: "indoors";
+        value: number | Indoor;
+      } | null)
+    | ({
+        relationTo: "presents";
+        value: number | Present;
+      } | null)
+    | ({
+        relationTo: "sweets";
+        value: number | Sweet;
+      } | null)
+    | ({
+        relationTo: "whom";
+        value: number | Whom;
       } | null)
     | ({
         relationTo: "users";
@@ -355,6 +563,105 @@ export interface OccasionsSelect<T extends boolean = true> {
  * via the `definition` "categories_select".
  */
 export interface CategoriesSelect<T extends boolean = true> {
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "baloons_select".
+ */
+export interface BaloonsSelect<T extends boolean = true> {
+  name?: T;
+  price?: T;
+  description?: T;
+  available?: T;
+  occasions?: T;
+  tags?: T;
+  images?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "fruit-carts_select".
+ */
+export interface FruitCartsSelect<T extends boolean = true> {
+  name?: T;
+  price?: T;
+  description?: T;
+  available?: T;
+  occasions?: T;
+  tags?: T;
+  images?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "accessories_select".
+ */
+export interface AccessoriesSelect<T extends boolean = true> {
+  name?: T;
+  price?: T;
+  description?: T;
+  available?: T;
+  occasions?: T;
+  tags?: T;
+  images?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "indoors_select".
+ */
+export interface IndoorsSelect<T extends boolean = true> {
+  name?: T;
+  price?: T;
+  description?: T;
+  available?: T;
+  occasions?: T;
+  tags?: T;
+  images?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "presents_select".
+ */
+export interface PresentsSelect<T extends boolean = true> {
+  name?: T;
+  price?: T;
+  description?: T;
+  available?: T;
+  occasions?: T;
+  tags?: T;
+  images?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sweets_select".
+ */
+export interface SweetsSelect<T extends boolean = true> {
+  name?: T;
+  price?: T;
+  description?: T;
+  available?: T;
+  occasions?: T;
+  tags?: T;
+  images?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "whom_select".
+ */
+export interface WhomSelect<T extends boolean = true> {
   name?: T;
   updatedAt?: T;
   createdAt?: T;

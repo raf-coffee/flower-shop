@@ -1,15 +1,7 @@
 import { faker } from "@faker-js/faker";
-import { Config } from "@/payload-types";
+import type { PayloadCollections } from "@/types";
 
-type To = keyof Omit<
-  Config["collections"],
-  | "payload-locked-documents"
-  | "payload-preferences"
-  | "payload-migrations"
-  | "users"
->;
-
-export function generateRelation<T extends To>(
+export function generateRelation<T extends PayloadCollections>(
   to: T,
   data: number[],
   count: number,
