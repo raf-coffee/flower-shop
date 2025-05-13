@@ -35,12 +35,12 @@ const descriptions = [
 ];
 
 const imageNames = [
-  "flowers/buq-1.jpg",
-  "flowers/buq-2.jpg",
-  "flowers/buq-3.jpg",
-  "flowers/buq-4.jpg",
-  "flowers/buq-5.jpg",
-  "flowers/buq-6.jpg",
+  "buq-1.jpg",
+  "buq-2.jpg",
+  "buq-3.jpg",
+  "buq-4.jpg",
+  "buq-5.jpg",
+  "buq-6.jpg",
 ];
 
 const flowersGenitive = [

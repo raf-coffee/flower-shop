@@ -21,12 +21,12 @@ const descriptions = [
 ];
 
 const imageNames = [
-  "baloons/baloons-1.webp",
-  "baloons/baloons-2.webp",
-  "baloons/baloons-3.webp",
-  "baloons/baloons-4.webp",
-  "baloons/baloons-5.webp",
-  "baloons/baloons-6.webp",
+  "baloons-1.webp",
+  "baloons-2.webp",
+  "baloons-3.webp",
+  "baloons-4.webp",
+  "baloons-5.webp",
+  "baloons-6.webp",
 ];
 
 const data = {

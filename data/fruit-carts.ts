@@ -20,12 +20,12 @@ const descriptions = [
 ];
 
 const imageNames = [
-  "fruit-carts/fruit-carts-01.jpg",
-  "fruit-carts/fruit-carts-02.jpg",
-  "fruit-carts/fruit-carts-03.jpg",
-  "fruit-carts/fruit-carts-04.jpg",
-  "fruit-carts/fruit-carts-05.jpg",
-  "fruit-carts/fruit-carts-06.jpg",
+  "fruit-carts-01.jpg",
+  "fruit-carts-02.jpg",
+  "fruit-carts-03.jpg",
+  "fruit-carts-04.jpg",
+  "fruit-carts-05.jpg",
+  "fruit-carts-06.jpg",
 ];
 
 const data = {

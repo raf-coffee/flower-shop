@@ -20,12 +20,12 @@ const descriptions = [
 ];
 
 const imageNames = [
-  "indoors/indoors-01.webp",
-  "indoors/indoors-02.webp",
-  "indoors/indoors-03.webp",
-  "indoors/indoors-04.webp",
-  "indoors/indoors-05.webp",
-  "indoors/indoors-06.webp",
+  "indoors-01.webp",
+  "indoors-02.webp",
+  "indoors-03.webp",
+  "indoors-04.webp",
+  "indoors-05.webp",
+  "indoors-06.webp",
 ];
 
 const data = {
