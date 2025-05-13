@@ -11,7 +11,9 @@
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "payload": "payload"
+    "payload": "payload",
+    "fresh": "payload migrate:fresh",
+    "types": "payload generate:types"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
