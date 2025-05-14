@@ -9,7 +9,9 @@ export type PayloadCollections = keyof Omit<
   | "users"
 >;
 
-export type Collection = keyof Omit<
+export type ProductCollections = keyof Omit<
   typeof data,
   "occasions" | "tags" | "whom" | "categories"
 >;
+
+export type InitialCollections = "tags" | "occasions" | "categories" | "whom";

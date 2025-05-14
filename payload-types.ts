@@ -73,7 +73,7 @@ export interface Config {
     occasions: Occasion;
     categories: Category;
     baloons: Baloon;
-    "fruit-carts": FruitCart;
+    fruitCarts: FruitCart;
     accessories: Accessory;
     indoors: Indoor;
     presents: Present;
@@ -92,7 +92,7 @@ export interface Config {
     occasions: OccasionsSelect<false> | OccasionsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     baloons: BaloonsSelect<false> | BaloonsSelect<true>;
-    "fruit-carts": FruitCartsSelect<false> | FruitCartsSelect<true>;
+    fruitCarts: FruitCartsSelect<false> | FruitCartsSelect<true>;
     accessories: AccessoriesSelect<false> | AccessoriesSelect<true>;
     indoors: IndoorsSelect<false> | IndoorsSelect<true>;
     presents: PresentsSelect<false> | PresentsSelect<true>;
@@ -250,7 +250,7 @@ export interface Baloon {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "fruit-carts".
+ * via the `definition` "fruitCarts".
  */
 export interface FruitCart {
   id: number;
@@ -437,7 +437,7 @@ export interface PayloadLockedDocument {
         value: number | Baloon;
       } | null)
     | ({
-        relationTo: "fruit-carts";
+        relationTo: "fruitCarts";
         value: number | FruitCart;
       } | null)
     | ({
@@ -584,7 +584,7 @@ export interface BaloonsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "fruit-carts_select".
+ * via the `definition` "fruitCarts_select".
  */
 export interface FruitCartsSelect<T extends boolean = true> {
   name?: T;

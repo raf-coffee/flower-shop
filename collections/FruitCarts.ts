@@ -1,7 +1,7 @@
 import type { CollectionConfig } from "payload";
 
 export const FruitCarts: CollectionConfig = {
-  slug: "fruit-carts",
+  slug: "fruitCarts",
   access: {
     read: () => true,
   },

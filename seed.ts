@@ -6,48 +6,58 @@ import {
   collectionDoesNotExist,
 } from "@/utils";
 import data from "@/data";
+import type { InitialCollections, ProductCollections } from "@/types";
+
+const ITEMS_COUNT = 20;
+
+const INITIAL_COLLECTIONS: InitialCollections[] = [
+  "tags",
+  "occasions",
+  "categories",
+  "whom",
+];
+
+const PRODUCT_COLLECTIONS: ProductCollections[] = [
+  "accessories",
+  "baloons",
+  "flowers",
+  "fruitCarts",
+  "indoors",
+  "presents",
+  "sweets",
+];
 
 export const seed = async (payload: Payload) => {
-  if (await collectionDoesNotExist(payload, "tags")) {
-    await createCollection(payload, "tags", data.tags.names);
-  }
+  await Promise.all(
+    INITIAL_COLLECTIONS.map(async (collection) => {
+      if (await collectionDoesNotExist(payload, collection)) {
+        await createCollection(payload, collection, data[collection].names);
+      }
+    }),
+  );
 
-  if (await collectionDoesNotExist(payload, "occasions")) {
-    await createCollection(payload, "occasions", data.occasions.names);
-  }
+  const imageIds = await Promise.all(
+    PRODUCT_COLLECTIONS.map(async (collection) => {
+      const ids = await uploadImages(payload, collection);
+      return ids;
+    }),
+  );
 
-  if (await collectionDoesNotExist(payload, "categories")) {
-    await createCollection(payload, "categories", data.categories.names);
-  }
+  const productData = PRODUCT_COLLECTIONS.map((collection, index) => ({
+    collection,
+    items: generateData[collection](ITEMS_COUNT, imageIds[index]),
+  }));
 
-  if (await collectionDoesNotExist(payload, "whom")) {
-    await createCollection(payload, "whom", data.whom.names);
-  }
-
-  const uploadedFlowerImagesIds = await uploadImages(payload, "flowers");
-  const uploadedBaloonImagesIds = await uploadImages(payload, "baloons");
-  const flowers = generateData.flowers(5, uploadedFlowerImagesIds);
-  const baloons = generateData.baloons(5, uploadedBaloonImagesIds);
-
-  if (await collectionDoesNotExist(payload, "flowers")) {
-    await Promise.all(
-      flowers.map(async (flower) => {
-        await payload.create({
-          collection: "flowers",
-          data: flower,
+  await Promise.all(
+    productData.map(async (product) => {
+      if (await collectionDoesNotExist(payload, product.collection)) {
+        product.items.map(async (item) => {
+          await payload.create({
+            collection: product.collection,
+            data: item,
+          });
         });
-      }),
-    );
-  }
-
-  if (await collectionDoesNotExist(payload, "baloons")) {
-    await Promise.all(
-      baloons.map(async (baloon) => {
-        await payload.create({
-          collection: "baloons",
-          data: baloon,
-        });
-      }),
-    );
-  }
+      }
+    }),
+  );
 };

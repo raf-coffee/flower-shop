@@ -1,8 +1,8 @@
 import { Payload } from "payload";
 import data from "@/data";
-import type { Collection } from "@/types";
+import type { ProductCollections } from "@/types";
 
-const uploadImages = async <T extends Collection>(
+const uploadImages = async <T extends ProductCollections>(
   payload: Payload,
   collection: T,
 ) => {

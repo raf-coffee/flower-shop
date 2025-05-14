@@ -1,9 +1,9 @@
 import { Payload } from "payload";
-import type { PayloadCollections } from "@/types";
+import type { InitialCollections, ProductCollections } from "@/types";
 
 export default async function collectionDoesNotExist(
   payload: Payload,
-  collection: PayloadCollections,
+  collection: InitialCollections | ProductCollections,
   limit = 1,
 ) {
   const docs = await payload.find({
