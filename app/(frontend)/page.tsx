@@ -4,6 +4,7 @@ import WhyUs from "@/app/components/WhyUs/WhyUs";
 import Form from "@/app/components/OrderForm/OrderForm";
 import Delivery from "@/app/components/Delivery/Delivery";
 import { Button } from "../components/ui";
+import CatalogSection from "../components/CatalogSection/CatalogSection";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       </Hero>
       <Sales />
       <WhyUs />
+      <CatalogSection />
       <Delivery />
       <Form />
     </div>
