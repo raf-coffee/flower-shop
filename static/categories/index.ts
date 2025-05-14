@@ -11,3 +11,4 @@ export { default as SweetsAltCatalogCover } from "./sweets-alt.png";
 export { default as RosesCatalogCover } from "./roses.png";
 export { default as BouquetsCatalogCover } from "./bouquets.png";
 export { default as GiftsAltCatalogCover } from "./gifts-alt.png";
+export { default as OverlayCatalogDecor } from "./overlay-decor.png";

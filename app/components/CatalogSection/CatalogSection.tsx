@@ -8,8 +8,9 @@ import {
   RosesCatalogCover,
   SweetsAltCatalogCover,
 } from "@/static/categories";
-import { Container, Heading, TextSize, Text } from "../ui";
+import { Container, Heading } from "../ui";
 import { twMerge } from "tailwind-merge";
+import CatalogCardOverlay from "../CatalogCardOverlay/CatalogCardOverlay";
 
 const CATALOG_SECTION_ITEMS = [
   {
@@ -17,42 +18,39 @@ const CATALOG_SECTION_ITEMS = [
     href: "/roses",
     img: RosesCatalogCover,
     gridPosition: "lg:col-start-2 lg:col-end-4 lg:row-start-4 lg:row-end-5",
-    labelStyles: "",
+    overlayStyle: "verticalRight",
   },
   {
     text: "Букеты",
     href: "/bouquets",
     img: BouquetsCatalogCover,
     gridPosition: "lg:col-start-2 lg:col-end-4 lg:row-start-2 lg:row-end-4",
-    labelStyles: "",
+    overlayStyle: "vertical",
   },
   {
     text: "Комнатные растения",
     href: "/indoor-plants",
     img: IndoorPlantsAltCatalogCover,
     gridPosition: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
-    labelStyles: "",
   },
   {
     text: "Подарки",
     href: "/gifts",
     img: GiftsAltCatalogCover,
     gridPosition: "lg:col-start-2 lg:col-end-4 lg:row-start-1 lg:row-end-2",
-    labelStyles: "",
+    overlayStyle: "verticalRight",
   },
   {
     text: "Сладости",
     href: "/sweets",
     img: SweetsAltCatalogCover,
     gridPosition: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-5",
-    labelStyles: "",
   },
   {
     text: "Воздушные шары",
     href: "/balloons",
     img: BalloonsCatalogCover,
     gridPosition: "lg:col-start-4 lg:col-end-5 lg:row-start-1 lg:row-end-3",
-    labelStyles: "",
   },
 ];
 
@@ -63,12 +61,12 @@ function CatalogSection() {
         <Heading level={2} className="mb-6">
           Каталог
         </Heading>
-        <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:grid-rows-4">
+        <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:[grid-template-rows:210px_130px_130px_210px]">
           {CATALOG_SECTION_ITEMS.map(
-            ({ text, href, img, gridPosition, labelStyles }) => (
+            ({ text, href, img, gridPosition, overlayStyle }) => (
               <Link
                 className={twMerge(
-                  "relative min-h-[140px] bg-main-pink-400 md:min-h-[170px]",
+                  "relative min-h-[140px] bg-main-pink-400 md:min-h-[210px]",
                   gridPosition,
                 )}
                 href={href}
@@ -82,16 +80,11 @@ function CatalogSection() {
                     backgroundPosition: "center",
                   }}
                 >
-                  <div
-                    className={twMerge(
-                      "absolute bottom-0 flex h-[40px] w-full items-center justify-center rounded-t-[10px] bg-soft-white-transparent lg:h-[95px]",
-                      labelStyles,
-                    )}
+                  <CatalogCardOverlay
+                    type={overlayStyle as "vertical" | "verticalRight"}
                   >
-                    <Text className="text-center" size={TextSize.SMALL}>
-                      {text}
-                    </Text>
-                  </div>
+                    {text}
+                  </CatalogCardOverlay>
                 </li>
               </Link>
             ),
