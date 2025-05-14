@@ -63,7 +63,7 @@ function CatalogSection() {
         <Heading level={2} className="mb-6">
           Каталог
         </Heading>
-        <ul className="grid grid-cols-2 gap-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:grid-rows-4">
+        <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:grid-rows-4">
           {CATALOG_SECTION_ITEMS.map(
             ({ text, href, img, gridPosition, labelStyles }) => (
               <Link
