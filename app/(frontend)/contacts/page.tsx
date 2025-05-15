@@ -1,3 +1,6 @@
+import Image from "next/image";
+import { Metadata } from "next";
+
 import Hero from "@/app/components/Hero/Hero";
 import YandexMap from "@/app/components/Map/YandexMap";
 
@@ -11,10 +14,18 @@ import {
   TextWeight,
 } from "@/app/components/ui";
 import { IconMailFilled, IconPhoneCall } from "@tabler/icons-react";
-import { AlarmIcon, MapMarkerIcon } from "../../../static/icons";
-import Image from "next/image";
+import { AlarmIcon, MapMarkerIcon } from "@/static/icons";
 import CatalogNavigation from "@/app/components/CatalogNavigation/CatalogNavigation";
 import FeedbackForm from "@/app/components/FeedbackForm/FeedbackForm";
+
+export const metadata: Metadata = {
+  title: "Контакты | Floristman - Яркие моменты вашей жизни",
+  description:
+    "Вы можете связаться с нами по номеру +7 \
+495 000-00-00 или написать нам (Вотсапп/Телеграмм/Вайбер). \
+Или ознакомиться с нашим ассортиментов в магазине, \
+где мы поможем вам собрать идеальную цветочную композицию",
+};
 
 export default function Contacts() {
   return (

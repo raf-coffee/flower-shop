@@ -5,6 +5,12 @@ import Form from "@/app/components/OrderForm/OrderForm";
 import Delivery from "@/app/components/Delivery/Delivery";
 import { Button } from "../components/ui";
 import CatalogSection from "../components/CatalogSection/CatalogSection";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Главная | Floristman - Яркие моменты вашей жизни",
+  description: "Идеальные букеты для любого повода и бюджета.",
+};
 
 export default function Home() {
   return (
