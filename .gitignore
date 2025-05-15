@@ -48,3 +48,12 @@ node_modules/
 /playwright/.cache/
 
 *storybook.log
+
+/media
+test/media
+*payloadtests.db
+*payloadtests.db-journal
+*payloadtests.db-shm
+*payloadtests.db-wal
+/versions
+/migrations

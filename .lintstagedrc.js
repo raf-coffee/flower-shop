@@ -1,13 +1,15 @@
-const path = require("path"); // eslint-disable-line
+import path from "path";
 
 const buildEslintCommand = (filenames) =>
   `next lint --fix --file ${filenames
     .map((f) => path.relative(process.cwd(), f))
     .join(" --file ")}`;
 
-module.exports = {
+const config = {
   "*.{cjs,mjs,js,jsx,ts,tsx,css}": [
     buildEslintCommand,
     "npx prettier . --write",
   ],
 };
+
+export default config;
