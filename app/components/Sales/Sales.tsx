@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
+import Card from "../Card/Card";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -94,7 +94,7 @@ export default function Sales() {
                 slidesPerView: 3,
                 spaceBetween: 30,
               },
-              1280: {
+              1100: {
                 slidesPerView: 4,
                 spaceBetween: 30,
               },
@@ -105,26 +105,8 @@ export default function Sales() {
             }}
           >
             {items.map((item) => (
-              <SwiperSlide key={item.id} className="rounded-lg bg-white p-1">
-                <div className="flex h-full flex-col justify-between">
-                  <div className="relative mx-auto h-[135px] w-[170px] min-[900px]:h-[180px] min-[900px]:w-[225px] lg:h-[225px] lg:w-[265px]">
-                    <Image
-                      src={item.image.src}
-                      alt={item.image.alt}
-                      fill
-                      className="rounded-t-lg"
-                    />
-                  </div>
-                  <div className="mx-auto max-w-[170px] min-[900px]:max-w-[225px] lg:max-w-[265px]">
-                    <h3 className="text-xs md:text-sm">{item.title}</h3>
-                  </div>
-                  <div className="my-2 flex items-center justify-evenly">
-                    <p className="text-green-800">{item.price}&#8381;</p>
-                    <button className="rounded-2xl bg-secondary-pink px-4 py-1 text-xs font-semibold text-white transition-colors hover:bg-hover-pink lg:py-2">
-                      Заказать
-                    </button>
-                  </div>
-                </div>
+              <SwiperSlide key={item.id}>
+                <Card item={item} />
               </SwiperSlide>
             ))}
           </Swiper>
