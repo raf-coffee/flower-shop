@@ -1,7 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button, Heading, RadioButton, Text, Range } from "@/app/components/ui";
+import {
+  Button,
+  Heading,
+  RadioButton,
+  Text,
+  Range,
+  TextWeight,
+  TextSize,
+} from "@/app/components/ui";
 
 function CatalogView({ products }: { products: string[] }) {
   const [filteredProducts, setFilteredProducts] = useState<string[]>(products);
@@ -105,16 +113,20 @@ function CatalogView({ products }: { products: string[] }) {
           </RadioButton>
         </fieldset>
 
-        <fieldset>
+        <fieldset className="py-4">
           <legend>
             <Heading level={3}>Фильтр</Heading>
           </legend>
           <Range min={0} max={9990} onChange={setPriceRange} />
         </fieldset>
 
-        <div>
-          <Button>Фильтровать</Button>
-          <Text>
+        <div className="flex items-center justify-between gap-5">
+          <Button className="px-1">Фильтровать</Button>
+          <Text
+            size={TextSize.SMALL}
+            weight={TextWeight.SEMIBOLD}
+            className="text-[#8E8D6F]"
+          >
             Цена: {priceRange.min} - {priceRange.max}
           </Text>
         </div>
