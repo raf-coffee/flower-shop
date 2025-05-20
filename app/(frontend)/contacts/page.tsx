@@ -15,7 +15,6 @@ import {
 } from "@/app/components/ui";
 import { IconMailFilled, IconPhoneCall } from "@tabler/icons-react";
 import { AlarmIcon, MapMarkerIcon } from "@/static/icons";
-import CatalogNavigation from "@/app/components/CatalogNavigation/CatalogNavigation";
 import FeedbackForm from "@/app/components/FeedbackForm/FeedbackForm";
 
 export const metadata: Metadata = {
@@ -141,8 +140,6 @@ export default function Contacts() {
       </section>
 
       <FeedbackForm title="Появились вопросы?" />
-
-      <CatalogNavigation />
     </div>
   );
 }
