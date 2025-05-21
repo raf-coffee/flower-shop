@@ -10,6 +10,8 @@ import {
   TextWeight,
   TextSize,
 } from "@/app/components/ui";
+import Link from "next/link";
+import Image from "next/image";
 
 function CatalogView({ products }: { products: string[] }) {
   const [filteredProducts, setFilteredProducts] = useState<string[]>(products);
@@ -127,16 +129,34 @@ function CatalogView({ products }: { products: string[] }) {
             weight={TextWeight.SEMIBOLD}
             className="text-[#8E8D6F]"
           >
-            Цена: {priceRange.min} - {priceRange.max}
+            Цена: {priceRange.min}р. - {priceRange.max}р.
           </Text>
         </div>
       </div>
 
-      <div>
+      <ul className="grid">
         {filteredProducts.map((item) => (
-          <div key={item}>{item}</div>
+          <li key={item}>
+            <Link href={item}>
+              <div>
+                <div className="relative">
+                  <small>Хит продаж</small>
+                  <small>Новинка</small>
+                  <small>Букет дня</small>
+                  <small>Скидка 50%</small>
+                  <Image src="" width={146} height={146} alt={item} />
+                </div>
+                <Heading level={4}>{item}</Heading>
+                <div className="flex">
+                  <span>5 400 р.</span>
+                  <Button>Заказать</Button>
+                </div>
+              </div>
+            </Link>
+            {item}
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }
