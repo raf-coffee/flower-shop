@@ -123,7 +123,7 @@ function CatalogView({ products }: { products: string[] }) {
         </fieldset>
 
         <div className="flex items-center justify-between gap-5">
-          <Button className="px-1">Фильтровать</Button>
+          <Button>Фильтровать</Button>
           <Text
             size={TextSize.SMALL}
             weight={TextWeight.SEMIBOLD}
@@ -134,26 +134,28 @@ function CatalogView({ products }: { products: string[] }) {
         </div>
       </div>
 
-      <ul className="grid">
+      <ul className="grid grid-cols-2 gap-3">
         {filteredProducts.map((item) => (
-          <li key={item}>
+          <li
+            className="rounded-xl bg-[#fdfdfd] p-1 pb-3 lg:rounded-3xl"
+            key={item}
+          >
             <Link href={item}>
               <div>
-                <div className="relative">
-                  <small>Хит продаж</small>
-                  <small>Новинка</small>
-                  <small>Букет дня</small>
-                  <small>Скидка 50%</small>
+                <div className="relative bg-pink-200">
+                  <small className="absolute top-1">Хит продаж</small>
+                  <small className="absolute top-4">Новинка</small>
+                  <small className="absolute top-8">Букет дня</small>
+                  <small className="absolute bottom-1">Скидка 50%</small>
                   <Image src="" width={146} height={146} alt={item} />
                 </div>
                 <Heading level={4}>{item}</Heading>
-                <div className="flex">
+                <div className="flex items-center justify-end">
                   <span>5 400 р.</span>
-                  <Button>Заказать</Button>
+                  <Button className="ms-4">Заказать</Button>
                 </div>
               </div>
             </Link>
-            {item}
           </li>
         ))}
       </ul>
