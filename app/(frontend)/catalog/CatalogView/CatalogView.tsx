@@ -27,14 +27,8 @@ function CatalogView({ products }: { products: string[] }) {
   }, [activeCategory, activeOccasion, recipientType, products]);
 
   return (
-    <div className="mx-auto items-center justify-center gap-2 lg:flex">
-      <div
-        className="relative top-[-55px] rounded-b-xl px-4 py-3 lg:static lg:max-w-[290px]"
-        style={{
-          background:
-            "linear-gradient(180deg, #FFF6F2 0%, #FFF0E4 0.01%, #FFF7F2 33.33%, #FFF6F2 100%)",
-        }}
-      >
+    <div className="mx-auto justify-center gap-2 lg:flex">
+      <div className="bg-custom-gradient relative top-[-55px] rounded-b-xl px-4 py-3 lg:static lg:max-w-[290px]">
         <fieldset>
           <legend>
             <Heading level={3}>Категории</Heading>

@@ -53,3 +53,19 @@ div .swiper-pagination-bullet-active {
 .font-lato {
   font-family: var(--font-lato);
 }
+
+.bg-custom-gradient {
+  background: linear-gradient(
+    180deg,
+    #fff6f2 0%,
+    #fff0e4 0.01%,
+    #fff7f2 33.33%,
+    #fff6f2 100%
+  );
+}
+
+@media (min-width: 1024px) {
+  .bg-custom-gradient {
+    background: #fff6f2;
+  }
+}
