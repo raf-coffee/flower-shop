@@ -7,7 +7,7 @@ type ButtonProps = VariantProps<typeof buttonVariants> &
   ComponentPropsWithoutRef<"button">;
 
 const buttonVariants = cva(
-  "rounded-full font-semibold text-white transition duration-300 py-2",
+  "rounded-full font-semibold text-white transition duration-300 px-3 lg:py-2",
   {
     variants: {
       variant: {
@@ -18,8 +18,8 @@ const buttonVariants = cva(
         false: "cursor-pointer",
       },
       size: {
-        large: "w-[100px] lg:w-[275px] px-6",
-        normal: "w-[72px] lg:w-[140px] px-5 text-xs",
+        large: "w-[100px] lg:w-[275px]",
+        normal: "w-[72px] lg:w-[140px]",
       },
     },
     defaultVariants: {
@@ -52,7 +52,7 @@ export default function Button({
           font={TextFont.LATO}
           size={TextSize.SMALL}
           weight={TextWeight.SEMIBOLD}
-          className="text-[8px] tracking-wider"
+          className="text-xxs"
         >
           {children}
         </Text>
