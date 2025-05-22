@@ -18,8 +18,8 @@ const buttonVariants = cva(
         false: "cursor-pointer",
       },
       size: {
-        large: "w-[100px] lg:w-[275px]",
-        normal: "w-[72px] lg:w-[140px]",
+        large: "w-[170px] lg:w-[275px] px-4 py-4 lg:py-6",
+        normal: "w-[72px] md:w-[100px] lg:w-[140px]",
       },
     },
     defaultVariants: {
@@ -50,9 +50,8 @@ export default function Button({
       {size === "normal" ? (
         <Text
           font={TextFont.LATO}
-          size={TextSize.SMALL}
           weight={TextWeight.SEMIBOLD}
-          className="text-xxs"
+          className="text-xxs lg:text-xl"
         >
           {children}
         </Text>
@@ -61,7 +60,6 @@ export default function Button({
           font={TextFont.MONTSERRAT}
           size={TextSize.NORMAL}
           weight={TextWeight.BOLD}
-          className="tracking-wide"
         >
           {children}
         </Text>
