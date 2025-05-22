@@ -17,6 +17,7 @@ function CatalogView({ products }: { products: string[] }) {
   const [filteredProducts, setFilteredProducts] = useState<string[]>(products);
 
   const [priceRange, setPriceRange] = useState({ min: 0, max: 9990 });
+
   const [activeCategory, setActiveCategory] = useState<string>("0");
   const [activeOccasion, setActiveOccasion] = useState<string>("0");
   const [recipientType, setRecipientType] = useState<string>("0");
@@ -26,9 +27,9 @@ function CatalogView({ products }: { products: string[] }) {
   }, [activeCategory, activeOccasion, recipientType, products]);
 
   return (
-    <div>
+    <div className="mx-auto items-center justify-center gap-2 lg:flex">
       <div
-        className="rounded-b-xl px-4 py-3"
+        className="relative top-[-55px] rounded-b-xl px-4 py-3 lg:static lg:max-w-[290px]"
         style={{
           background:
             "linear-gradient(180deg, #FFF6F2 0%, #FFF0E4 0.01%, #FFF7F2 33.33%, #FFF6F2 100%)",
@@ -134,7 +135,7 @@ function CatalogView({ products }: { products: string[] }) {
         </div>
       </div>
 
-      <ul className="grid grid-cols-2 gap-3">
+      <ul className="grid w-full grid-cols-2 gap-3 lg:grid-cols-3">
         {filteredProducts.map((item) => (
           <li
             className="rounded-xl bg-[#fdfdfd] p-1 pb-3 lg:rounded-3xl"

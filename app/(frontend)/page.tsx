@@ -19,7 +19,7 @@ export default function Home() {
         heading="Собираем букеты, созданные для Вас"
         description="Подарите ощущение праздника"
       >
-        <Button>Выбрать букет</Button>
+        <Button size="large">Выбрать букет</Button>
       </Hero>
       <Sales />
       <WhyUs />

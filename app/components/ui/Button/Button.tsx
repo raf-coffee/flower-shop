@@ -18,16 +18,16 @@ const buttonVariants = cva(
         false: "cursor-pointer",
       },
       size: {
-        normal:
+        large:
           "min-w-[70px] max-w-[200px] lg:min-w-[100px] lg:max-w-[275px] px-6 py-2 lg:py-6",
-        small:
-          "max-w-[40px] max-w-[75px] lg:max-w-[150px] px-4 py-1 text-xs lg:py-2",
+        normal:
+          "max-w-[40px] max-w-[75px] lg:max-w-[140px] px-4 py-1 text-xs lg:py-2",
       },
     },
     defaultVariants: {
       variant: "primary",
-      disabled: false,
       size: "normal",
+      disabled: false,
     },
   },
 );
@@ -49,14 +49,25 @@ export default function Button({
       )}
       {...rest}
     >
-      <Text
-        font={TextFont.LATO}
-        size={TextSize.SMALL}
-        weight={TextWeight.SEMIBOLD}
-        className="tracking-wider"
-      >
-        {children}
-      </Text>
+      {size === "normal" ? (
+        <Text
+          font={TextFont.LATO}
+          size={TextSize.SMALL}
+          weight={TextWeight.SEMIBOLD}
+          className="tracking-wider"
+        >
+          {children}
+        </Text>
+      ) : (
+        <Text
+          font={TextFont.MONTSERRAT}
+          size={TextSize.NORMAL}
+          weight={TextWeight.BOLD}
+          className="tracking-wide"
+        >
+          {children}
+        </Text>
+      )}
     </button>
   );
 }

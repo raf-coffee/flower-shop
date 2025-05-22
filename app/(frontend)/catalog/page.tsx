@@ -7,12 +7,13 @@ export default function Catalog() {
 
   return (
     <div className="bg-main-pink-300">
-      <Hero heading="Каталог" hasBreadCrumbs />
-      <div className="bg-main-pink-400">
+      <Hero heading="Каталог" hasBreadCrumbs className="mb-14 lg:mb-0" />
+
+      <section className="bg-main-pink-400 p-4 lg:mt-[-65px]">
         <Container>
           <CatalogView products={filteredCatalogItems} />
         </Container>
-      </div>
+      </section>
     </div>
   );
 }
