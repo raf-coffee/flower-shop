@@ -4,60 +4,9 @@ import SocialList from "../SocialList/SocialList";
 import Link from "next/link";
 import Logo from "../Logo/Logo";
 import { Container } from "../ui";
-import {
-  AccsessoriesCatalogCover,
-  BalloonsCatalogCover,
-  FlowersCatalogCover,
-  FruitSweetsCatalogCover,
-  GiftsCatalogCover,
-  IndoorPlantsCatalogCover,
-  ServicesCatalogCover,
-  SweetsCatalogCover,
-} from "@/static/categories";
-import CatalogCardOverlay from "../CatalogCardOverlay/CatalogCardOverlay";
 
-const CATALOG_LINKS = [
-  {
-    text: "Цветы",
-    href: "/flowers",
-    img: FlowersCatalogCover,
-  },
-  {
-    text: "Сладости",
-    href: "/sweets",
-    img: SweetsCatalogCover,
-  },
-  {
-    text: "Воздушные шары",
-    href: "/balloons",
-    img: BalloonsCatalogCover,
-  },
-  {
-    text: "Подарки",
-    href: "/gifts",
-    img: GiftsCatalogCover,
-  },
-  {
-    text: "Аксессуары",
-    href: "/accessories",
-    img: AccsessoriesCatalogCover,
-  },
-  {
-    text: "Услуги",
-    href: "/services",
-    img: ServicesCatalogCover,
-  },
-  {
-    text: "Фруктовые сладости",
-    href: "/fruit-sweets",
-    img: FruitSweetsCatalogCover,
-  },
-  {
-    text: "Комнатные растения",
-    href: "/indoor-plants",
-    img: IndoorPlantsCatalogCover,
-  },
-];
+import CatalogCardOverlay from "../CatalogCardOverlay/CatalogCardOverlay";
+import MENU_LINKS from "../constants";
 
 export default function Footer() {
   return (
@@ -68,7 +17,7 @@ export default function Footer() {
             <Logo />
           </div>
           <ul className="grid grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-4 lg:grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
-            {CATALOG_LINKS.map(({ text, href, img }) => (
+            {MENU_LINKS.map(({ text, href, img }) => (
               <Link
                 className="relative min-h-[140px] bg-main-pink-400 lg:min-h-[360px]"
                 href={href}
