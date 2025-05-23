@@ -1,5 +1,5 @@
 import React from "react";
-import Text from "../Text";
+import Text, { TextFont, TextSize } from "../Text";
 
 type RadioButtonProps = {
   name: string;
@@ -26,7 +26,9 @@ function RadioButton({ name, checked, onClick, children }: RadioButtonProps) {
         onClick={() => onClick()}
         className="hidden"
       />
-      <Text>{children}</Text>
+      <Text size={TextSize.SMALL} font={TextFont.LATO}>
+        {children}
+      </Text>
     </label>
   );
 }

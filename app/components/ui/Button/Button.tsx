@@ -20,6 +20,7 @@ const buttonVariants = cva(
       size: {
         large: "w-[170px] lg:w-[275px] px-4 py-4 lg:py-6",
         normal: "w-[72px] md:w-[100px] lg:w-[140px]",
+        small: "w-[110px] py-0 lg:py-0 px-5",
       },
     },
     defaultVariants: {
@@ -47,7 +48,7 @@ export default function Button({
       )}
       {...rest}
     >
-      {size === "normal" ? (
+      {size === "normal" && (
         <Text
           font={TextFont.LATO}
           weight={TextWeight.SEMIBOLD}
@@ -55,11 +56,21 @@ export default function Button({
         >
           {children}
         </Text>
-      ) : (
+      )}
+      {size === "large" && (
         <Text
           font={TextFont.MONTSERRAT}
           size={TextSize.NORMAL}
           weight={TextWeight.BOLD}
+        >
+          {children}
+        </Text>
+      )}
+      {size === "small" && (
+        <Text
+          font={TextFont.LATO}
+          weight={TextWeight.SEMIBOLD}
+          className="text-[12px] lg:text-[12px]"
         >
           {children}
         </Text>

@@ -8,7 +8,7 @@ import {
   Text,
   Range,
   TextWeight,
-  TextSize,
+  TextFont,
 } from "@/app/components/ui";
 import Link from "next/link";
 import Image from "next/image";
@@ -27,102 +27,106 @@ function CatalogView({ products }: { products: string[] }) {
   }, [activeCategory, activeOccasion, recipientType, products]);
 
   return (
-    <div className="mx-auto justify-center gap-2 lg:flex">
-      <div className="bg-custom-gradient relative top-[-55px] rounded-b-xl px-4 py-3 lg:static lg:max-w-[290px]">
-        <fieldset>
-          <legend>
-            <Heading level={3}>Категории</Heading>
-          </legend>
-          <RadioButton
-            name="category_1"
-            checked={activeCategory === "1"}
-            onClick={() => setActiveCategory("1")}
-          >
-            Вариант 1
-          </RadioButton>
-          <RadioButton
-            name="category_1"
-            checked={activeCategory === "2"}
-            onClick={() => setActiveCategory("2")}
-          >
-            Вариант 2
-          </RadioButton>
-          <RadioButton
-            name="category_1"
-            checked={activeCategory === "3"}
-            onClick={() => setActiveCategory("3")}
-          >
-            Вариант 3
-          </RadioButton>
-        </fieldset>
+    <div className="mx-auto justify-center gap-4 lg:flex">
+      <div className="relative top-[-55px] lg:static lg:shrink-0 lg:basis-72">
+        <div className="bg-custom-gradient mb-4 rounded-b-xl px-4 py-3">
+          <fieldset className="mb-2">
+            <legend>
+              <Heading level={3}>Категории</Heading>
+            </legend>
+            <RadioButton
+              name="category_1"
+              checked={activeCategory === "1"}
+              onClick={() => setActiveCategory("1")}
+            >
+              Вариант 1
+            </RadioButton>
+            <RadioButton
+              name="category_1"
+              checked={activeCategory === "2"}
+              onClick={() => setActiveCategory("2")}
+            >
+              Вариант 2
+            </RadioButton>
+            <RadioButton
+              name="category_1"
+              checked={activeCategory === "3"}
+              onClick={() => setActiveCategory("3")}
+            >
+              Вариант 3
+            </RadioButton>
+          </fieldset>
 
-        <fieldset>
-          <legend>
-            <Heading level={3}>Повод</Heading>
-          </legend>
-          <RadioButton
-            name="category_2"
-            checked={activeOccasion === "1"}
-            onClick={() => setActiveOccasion("1")}
-          >
-            Вариант 1
-          </RadioButton>
-          <RadioButton
-            name="category_2"
-            checked={activeOccasion === "2"}
-            onClick={() => setActiveOccasion("2")}
-          >
-            Вариант 2
-          </RadioButton>
-          <RadioButton
-            name="category_2"
-            checked={activeOccasion === "3"}
-            onClick={() => setActiveOccasion("3")}
-          >
-            Вариант 3
-          </RadioButton>
-        </fieldset>
+          <fieldset className="mb-2">
+            <legend>
+              <Heading level={3}>Повод</Heading>
+            </legend>
+            <RadioButton
+              name="category_2"
+              checked={activeOccasion === "1"}
+              onClick={() => setActiveOccasion("1")}
+            >
+              Вариант 1
+            </RadioButton>
+            <RadioButton
+              name="category_2"
+              checked={activeOccasion === "2"}
+              onClick={() => setActiveOccasion("2")}
+            >
+              Вариант 2
+            </RadioButton>
+            <RadioButton
+              name="category_2"
+              checked={activeOccasion === "3"}
+              onClick={() => setActiveOccasion("3")}
+            >
+              Вариант 3
+            </RadioButton>
+          </fieldset>
 
-        <fieldset>
-          <legend>
-            <Heading level={3}>Кому</Heading>
-          </legend>
-          <RadioButton
-            name="category_3"
-            checked={recipientType === "1"}
-            onClick={() => setRecipientType("1")}
-          >
-            Вариант 1
-          </RadioButton>
-          <RadioButton
-            name="category_3"
-            checked={recipientType === "2"}
-            onClick={() => setRecipientType("2")}
-          >
-            Вариант 2
-          </RadioButton>
-          <RadioButton
-            name="category_3"
-            checked={recipientType === "3"}
-            onClick={() => setRecipientType("3")}
-          >
-            Вариант 3
-          </RadioButton>
-        </fieldset>
+          <fieldset>
+            <legend>
+              <Heading level={3}>Кому</Heading>
+            </legend>
+            <RadioButton
+              name="category_3"
+              checked={recipientType === "1"}
+              onClick={() => setRecipientType("1")}
+            >
+              Вариант 1
+            </RadioButton>
+            <RadioButton
+              name="category_3"
+              checked={recipientType === "2"}
+              onClick={() => setRecipientType("2")}
+            >
+              Вариант 2
+            </RadioButton>
+            <RadioButton
+              name="category_3"
+              checked={recipientType === "3"}
+              onClick={() => setRecipientType("3")}
+            >
+              Вариант 3
+            </RadioButton>
+          </fieldset>
+        </div>
 
-        <fieldset className="py-4">
-          <legend>
-            <Heading level={3}>Фильтр</Heading>
+        <fieldset className="mb-6">
+          <legend className="mb-4">
+            <Heading level={4} className="font-semibold lg:text-base">
+              Фильтр
+            </Heading>
           </legend>
           <Range min={0} max={9990} onChange={setPriceRange} />
         </fieldset>
 
         <div className="flex items-center justify-between gap-5">
-          <Button>Фильтровать</Button>
+          <Button size={"small"}>Фильтровать</Button>
           <Text
-            size={TextSize.SMALL}
             weight={TextWeight.SEMIBOLD}
-            className="text-[#8E8D6F]"
+            font={TextFont.LATO}
+            className="text-[10px] text-[#8E8D6F] lg:text-[12px]"
           >
             Цена: {priceRange.min}р. - {priceRange.max}р.
           </Text>
