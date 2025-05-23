@@ -9,6 +9,7 @@ import {
   Range,
   TextWeight,
   TextFont,
+  TextSize,
 } from "@/app/components/ui";
 import Link from "next/link";
 import Image from "next/image";
@@ -136,21 +137,47 @@ function CatalogView({ products }: { products: string[] }) {
       <ul className="grid w-full grid-cols-2 gap-3 lg:grid-cols-3">
         {filteredProducts.map((item) => (
           <li
-            className="rounded-xl bg-[#fdfdfd] p-1 pb-3 lg:rounded-3xl"
+            className="min-h-[146px] rounded-xl rounded-tl-none bg-[#fdfdfd] p-1 pb-3 lg:min-h-[428px] lg:rounded-3xl lg:rounded-tl-none"
             key={item}
           >
             <Link href={item}>
               <div>
-                <div className="relative bg-pink-200">
+                <div className="relative mb-2 h-24 overflow-hidden rounded-tr-xl bg-pink-200 lg:h-60 lg:rounded-tr-3xl">
                   <small className="absolute top-1">Хит продаж</small>
                   <small className="absolute top-4">Новинка</small>
                   <small className="absolute top-8">Букет дня</small>
                   <small className="absolute bottom-1">Скидка 50%</small>
-                  <Image src="" width={146} height={146} alt={item} />
+                  <Image
+                    src=""
+                    width={266}
+                    height={245}
+                    alt={item}
+                    className="block h-full w-full object-cover"
+                  />
                 </div>
-                <Heading level={4}>{item}</Heading>
-                <div className="flex items-center justify-end">
-                  <span>5 400 р.</span>
+                <Text
+                  font={TextFont.MONTSERRAT}
+                  weight={TextWeight.MEDIUM}
+                  size={TextSize.SMALL}
+                  className="mb-10"
+                >
+                  №25{item} “Ромашки для Наташки”
+                </Text>
+                <div className="mx-auto flex items-center justify-end px-2">
+                  <p className="g-1 flex flex-col items-center justify-center">
+                    <s className="font-montserrat text-[13px] font-medium">
+                      5 400 р.
+                    </s>
+                    <Text
+                      font={TextFont.MONTSERRAT}
+                      weight={TextWeight.MEDIUM}
+                      size={TextSize.EXTRA_SMALL}
+                      className="text-[#7EA048]"
+                    >
+                      3 700 р.
+                    </Text>
+                  </p>
+
                   <Button className="ms-4">Заказать</Button>
                 </div>
               </div>
