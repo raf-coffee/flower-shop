@@ -20,7 +20,7 @@ const buttonVariants = cva(
       size: {
         large: "w-[170px] lg:w-[275px] px-4 py-4 lg:py-6",
         normal: "w-[72px] md:w-[100px] lg:w-[140px]",
-        small: "w-[110px] py-0 lg:py-0 px-5",
+        small: "min-w-[110px] py-1 lg:py-0 px-4",
       },
     },
     defaultVariants: {

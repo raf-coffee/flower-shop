@@ -8,12 +8,10 @@ export default function Header() {
   return (
     <header className="relative bg-main-pink-400">
       <Container className="border-b-2 border-b-main-pink-600 p-4">
-        <div className="flex items-center justify-center sm:mb-4">
-          <div className="flex">
-            <MobileMenu />
-            <Logo />
-          </div>
+        <div className="flex items-center justify-between sm:mb-4 sm:justify-center">
+          <MobileMenu />
           {/* <Search /> */}
+          <Logo />
         </div>
         <DesktopMenu />
       </Container>

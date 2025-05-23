@@ -159,7 +159,7 @@ function CatalogView({ products }: { products: string[] }) {
                   font={TextFont.MONTSERRAT}
                   weight={TextWeight.MEDIUM}
                   size={TextSize.SMALL}
-                  className="mb-10"
+                  className="mb-2 lg:mb-16"
                 >
                   №25{item} “Ромашки для Наташки”
                 </Text>
