@@ -5,7 +5,7 @@ import { PayloadCollections } from "@/types";
 
 const API_LINK = `${process.env.NEXT_PUBLIC_API_URL}`;
 
-const fetchPayloadData = async (collectionName: string) => {
+const fetchPayloadCollection = async (collectionName: string) => {
   try {
     const data = await fetch(`${API_LINK}/${collectionName}`);
 
@@ -16,7 +16,7 @@ const fetchPayloadData = async (collectionName: string) => {
 };
 
 export default async function Catalog({ type }: { type: PayloadCollections }) {
-  const { docs: products } = await fetchPayloadData(type);
+  const { docs: products } = await fetchPayloadCollection(type);
 
   return (
     <div className="bg-main-pink-300">
