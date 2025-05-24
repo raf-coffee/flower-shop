@@ -17,11 +17,11 @@ export default function Footer() {
             <Logo />
           </div>
           <ul className="grid grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-4 lg:grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
-            {MENU_LINKS.map(({ text, href, img }) => (
+            {MENU_LINKS.map(({ title, href, img }) => (
               <Link
                 className="relative min-h-[140px] bg-main-pink-400 lg:min-h-[360px]"
                 href={href}
-                key={text}
+                key={title}
               >
                 <li
                   className="relative h-full w-full"
@@ -31,7 +31,7 @@ export default function Footer() {
                     backgroundPosition: "center",
                   }}
                 >
-                  <CatalogCardOverlay>{text}</CatalogCardOverlay>
+                  <CatalogCardOverlay>{title}</CatalogCardOverlay>
                 </li>
               </Link>
             ))}

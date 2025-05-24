@@ -13,10 +13,26 @@ import {
 } from "@/app/components/ui";
 import Link from "next/link";
 import Image from "next/image";
-import { AccsessoriesCatalogCover } from "@/static/categories";
 
-function CatalogView({ products }: { products: string[] }) {
-  const [filteredProducts, setFilteredProducts] = useState<string[]>(products);
+export interface CollectionItem {
+  id: string;
+  name?: string;
+  price?: number;
+  description?: string;
+  available?: boolean;
+  occasions?: string[];
+  tags?: string[];
+  categories?: string[];
+  images?: string[];
+  updatedAt?: string;
+  createdAt?: string;
+}
+
+export type Collection = CollectionItem[];
+
+function CatalogView({ products }: { products: Collection }) {
+  const [filteredProducts, setFilteredProducts] =
+    useState<Collection>(products);
 
   const [priceRange, setPriceRange] = useState({ min: 0, max: 9990 });
 
@@ -139,22 +155,24 @@ function CatalogView({ products }: { products: string[] }) {
         {filteredProducts.map((item) => (
           <li
             className="min-h-[146px] rounded-xl rounded-tl-none bg-[#fdfdfd] p-1 pb-3 lg:min-h-[428px] lg:rounded-3xl lg:rounded-tl-none"
-            key={item}
+            key={item.id}
           >
-            <Link href={item}>
+            <Link href={`/catalog/flowers/${item.id}`}>
               <div>
                 <div className="relative mb-2 h-24 overflow-hidden rounded-tr-xl bg-pink-200 lg:h-60 lg:rounded-tr-3xl">
                   <small className="absolute top-1">Хит продаж</small>
                   <small className="absolute top-4">Новинка</small>
                   <small className="absolute top-8">Букет дня</small>
                   <small className="absolute bottom-1">Скидка 50%</small>
-                  <Image
-                    src={AccsessoriesCatalogCover.src}
-                    width={266}
-                    height={245}
-                    alt={item}
-                    className="block h-full w-full object-cover"
-                  />
+                  {item.images?.[0] && (
+                    <Image
+                      src={item.images?.[0]}
+                      width={266}
+                      height={245}
+                      alt={item?.description ?? "Цветы."}
+                      className="block h-full w-full object-cover"
+                    />
+                  )}
                 </div>
                 <Text
                   font={TextFont.MONTSERRAT}
@@ -162,7 +180,7 @@ function CatalogView({ products }: { products: string[] }) {
                   size={TextSize.SMALL}
                   className="mb-2 lg:mb-16"
                 >
-                  №25{item} “Ромашки для Наташки”
+                  {item.name}
                 </Text>
                 <div className="mx-auto flex items-center justify-end px-2">
                   <p className="g-1 flex flex-col items-center justify-center">
@@ -179,7 +197,7 @@ function CatalogView({ products }: { products: string[] }) {
                     </Text>
                   </p>
 
-                  <Button className="ms-4">Заказать</Button>
+                  <Button className="ms-4">Посмотреть</Button>
                 </div>
               </div>
             </Link>
