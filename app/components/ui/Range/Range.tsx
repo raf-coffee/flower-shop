@@ -22,10 +22,10 @@ const Range: React.FC<RangeProps> = ({ min, max, step = 10, onChange }) => {
   }, [range, onChange]);
 
   return (
-    <div className="w-[282px]">
+    <div className="w-full">
       <div className="mb-1 flex justify-between text-sm">
-        <span>{range.min} грн</span>
-        <span>{range.max} грн</span>
+        <span>{range.min} р.</span>
+        <span>{range.max} р.</span>
       </div>
       <div className="relative h-[12px]">
         {/* Slider track */}

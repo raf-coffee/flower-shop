@@ -1,12 +1,13 @@
 import { ComponentPropsWithoutRef } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
+import Text, { TextFont, TextSize, TextWeight } from "../Text";
 
 type ButtonProps = VariantProps<typeof buttonVariants> &
   ComponentPropsWithoutRef<"button">;
 
 const buttonVariants = cva(
-  "min-w-max rounded-full font-semibold text-white transition duration-300",
+  "rounded-full font-semibold text-white transition duration-300 px-3 lg:py-2",
   {
     variants: {
       variant: {
@@ -17,14 +18,15 @@ const buttonVariants = cva(
         false: "cursor-pointer",
       },
       size: {
-        normal: "w-[200px] lg:w-[275px] px-16 py-2 lg:py-6",
-        small: "w-[75px] lg:w-[150px]px-4 py-1 text-xs lg:py-2",
+        large: "w-[170px] lg:w-[275px] px-4 py-4 lg:py-6",
+        normal: "w-[72px] md:w-[100px] lg:w-[140px]",
+        small: "min-w-[110px] py-1 lg:py-0 px-4",
       },
     },
     defaultVariants: {
       variant: "primary",
-      disabled: false,
       size: "normal",
+      disabled: false,
     },
   },
 );
@@ -46,7 +48,33 @@ export default function Button({
       )}
       {...rest}
     >
-      {children}
+      {size === "normal" && (
+        <Text
+          font={TextFont.LATO}
+          weight={TextWeight.SEMIBOLD}
+          className="text-xxs lg:text-xl"
+        >
+          {children}
+        </Text>
+      )}
+      {size === "large" && (
+        <Text
+          font={TextFont.MONTSERRAT}
+          size={TextSize.NORMAL}
+          weight={TextWeight.BOLD}
+        >
+          {children}
+        </Text>
+      )}
+      {size === "small" && (
+        <Text
+          font={TextFont.LATO}
+          weight={TextWeight.SEMIBOLD}
+          className="text-[12px] lg:text-[12px]"
+        >
+          {children}
+        </Text>
+      )}
     </button>
   );
 }

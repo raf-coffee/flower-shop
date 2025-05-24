@@ -13,3 +13,59 @@ div .swiper {
 div .swiper-pagination-bullet-active {
   background-color: #eb8671;
 }
+
+@font-face {
+  font-family: "Lato";
+  src: url("/fonts/Lato/lato-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("/fonts/Lato/lato-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("/fonts/Lato/lato-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("/fonts/Lato/lato-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-lato: "Lato", sans-serif;
+}
+
+.font-lato {
+  font-family: var(--font-lato);
+}
+
+.bg-custom-gradient {
+  background: linear-gradient(
+    180deg,
+    #fff6f2 0%,
+    #fff0e4 0.01%,
+    #fff7f2 33.33%,
+    #fff6f2 100%
+  );
+}
+
+@media (min-width: 1024px) {
+  .bg-custom-gradient {
+    background: #fff6f2;
+  }
+}
