@@ -13,6 +13,7 @@ import {
 } from "@/app/components/ui";
 import Link from "next/link";
 import Image from "next/image";
+import { AccsessoriesCatalogCover } from "@/static/categories";
 
 function CatalogView({ products }: { products: string[] }) {
   const [filteredProducts, setFilteredProducts] = useState<string[]>(products);
@@ -148,7 +149,7 @@ function CatalogView({ products }: { products: string[] }) {
                   <small className="absolute top-8">Букет дня</small>
                   <small className="absolute bottom-1">Скидка 50%</small>
                   <Image
-                    src=""
+                    src={AccsessoriesCatalogCover.src}
                     width={266}
                     height={245}
                     alt={item}
