@@ -1,22 +1,8 @@
-import { API_LINK } from "@/constants";
 import { PayloadCollections } from "@/types";
 import Hero from "@/app/components/Hero/Hero";
 import { Container } from "@/app/components/ui";
 import CatalogView from "../CatalogView/CatalogView";
-
-const fetchPayloadCollection = async (collectionName: string) => {
-  try {
-    const res = await fetch(`${API_LINK}/${collectionName}?depth=1`);
-
-    if (!res.ok) {
-      throw new Error(`Failed to fetch ${collectionName}: ${res.statusText}`);
-    }
-
-    return await res.json();
-  } catch (e) {
-    return { docs: [] };
-  }
-};
+import { fetchPayloadCollection } from "@/utils";
 
 export default async function Catalog({ type }: { type: PayloadCollections }) {
   const { docs: products } = await fetchPayloadCollection(type);
