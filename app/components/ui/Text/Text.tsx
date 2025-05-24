@@ -67,11 +67,15 @@ export default function Text({
   ...props
 }: TextProps) {
   return (
-    <p
-      className={twMerge(textStyles({ size, weight, font }), className)}
+    <span
+      className={twMerge(
+        textStyles({ size, weight, font }),
+        "block",
+        className,
+      )}
       {...props}
     >
       {children}
-    </p>
+    </span>
   );
 }
