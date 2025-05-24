@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import NavLink from "../ui/NavLink/NavLink";
 
-import MENU_LINKS from "../constants";
+import { MENU_LINKS } from "@/constants";
 
 export default function DesktopMenu() {
   const path = usePathname();

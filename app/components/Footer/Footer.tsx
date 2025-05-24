@@ -6,7 +6,7 @@ import Logo from "../Logo/Logo";
 import { Container } from "../ui";
 
 import CatalogCardOverlay from "../CatalogCardOverlay/CatalogCardOverlay";
-import MENU_LINKS from "../constants";
+import { MENU_LINKS } from "@/constants";
 
 export default function Footer() {
   return (

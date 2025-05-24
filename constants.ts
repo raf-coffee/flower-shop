@@ -36,9 +36,9 @@ const rawMenuLinks = [
   //   },
 ];
 
-const MENU_LINKS = rawMenuLinks.map((item) => ({
+export const MENU_LINKS = rawMenuLinks.map((item) => ({
   ...item,
   href: `/catalog/${item.slug}`,
 }));
 
-export default MENU_LINKS;
+export const API_LINK = `${process.env.NEXT_PUBLIC_API_URL}`;

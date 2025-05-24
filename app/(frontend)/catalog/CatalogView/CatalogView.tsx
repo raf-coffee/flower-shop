@@ -13,32 +13,26 @@ import {
 } from "@/app/components/ui";
 import Link from "next/link";
 import Image from "next/image";
+import { Collection } from "@/types";
+import { Category, Occasion, Whom } from "@/payload-types";
 
-export interface CollectionItem {
-  id: string;
-  name?: string;
-  price?: number;
-  description?: string;
-  available?: boolean;
-  occasions?: string[];
-  tags?: string[];
-  categories?: string[];
-  images?: string[];
-  updatedAt?: string;
-  createdAt?: string;
-}
-
-export type Collection = CollectionItem[];
-
-function CatalogView({ products }: { products: Collection }) {
+function CatalogView({
+  products,
+  filters,
+}: {
+  products: Collection;
+  filters: { categories: Category[]; occasions: Occasion[]; whoms: Whom[] };
+}) {
   const [filteredProducts, setFilteredProducts] =
     useState<Collection>(products);
 
   const [priceRange, setPriceRange] = useState({ min: 0, max: 9990 });
 
-  const [activeCategory, setActiveCategory] = useState<string>("0");
-  const [activeOccasion, setActiveOccasion] = useState<string>("0");
-  const [recipientType, setRecipientType] = useState<string>("0");
+  const [activeCategory, setActiveCategory] = useState(
+    filters.categories[0].id,
+  );
+  const [activeOccasion, setActiveOccasion] = useState(filters.occasions[0].id);
+  const [recipientType, setRecipientType] = useState(filters.whoms[0].id);
 
   useEffect(() => {
     setFilteredProducts(products);
@@ -54,24 +48,10 @@ function CatalogView({ products }: { products: Collection }) {
             </legend>
             <RadioButton
               name="category_1"
-              checked={activeCategory === "1"}
-              onClick={() => setActiveCategory("1")}
+              checked={false}
+              onClick={() => setActiveCategory(1)}
             >
               Вариант 1
-            </RadioButton>
-            <RadioButton
-              name="category_1"
-              checked={activeCategory === "2"}
-              onClick={() => setActiveCategory("2")}
-            >
-              Вариант 2
-            </RadioButton>
-            <RadioButton
-              name="category_1"
-              checked={activeCategory === "3"}
-              onClick={() => setActiveCategory("3")}
-            >
-              Вариант 3
             </RadioButton>
           </fieldset>
 
@@ -81,24 +61,10 @@ function CatalogView({ products }: { products: Collection }) {
             </legend>
             <RadioButton
               name="category_2"
-              checked={activeOccasion === "1"}
-              onClick={() => setActiveOccasion("1")}
+              checked={activeOccasion === 1}
+              onClick={() => setActiveOccasion(1)}
             >
               Вариант 1
-            </RadioButton>
-            <RadioButton
-              name="category_2"
-              checked={activeOccasion === "2"}
-              onClick={() => setActiveOccasion("2")}
-            >
-              Вариант 2
-            </RadioButton>
-            <RadioButton
-              name="category_2"
-              checked={activeOccasion === "3"}
-              onClick={() => setActiveOccasion("3")}
-            >
-              Вариант 3
             </RadioButton>
           </fieldset>
 
@@ -108,24 +74,10 @@ function CatalogView({ products }: { products: Collection }) {
             </legend>
             <RadioButton
               name="category_3"
-              checked={recipientType === "1"}
-              onClick={() => setRecipientType("1")}
+              checked={recipientType === 1}
+              onClick={() => setRecipientType(1)}
             >
               Вариант 1
-            </RadioButton>
-            <RadioButton
-              name="category_3"
-              checked={recipientType === "2"}
-              onClick={() => setRecipientType("2")}
-            >
-              Вариант 2
-            </RadioButton>
-            <RadioButton
-              name="category_3"
-              checked={recipientType === "3"}
-              onClick={() => setRecipientType("3")}
-            >
-              Вариант 3
             </RadioButton>
           </fieldset>
         </div>
@@ -164,9 +116,10 @@ function CatalogView({ products }: { products: Collection }) {
                   <small className="absolute top-4">Новинка</small>
                   <small className="absolute top-8">Букет дня</small>
                   <small className="absolute bottom-1">Скидка 50%</small>
+                  {/* FIXME: Добавить корректное получение ссылок из PayloadCMS */}
                   {item.images?.[0] && (
                     <Image
-                      src={item.images?.[0]}
+                      src={"/api/media/file/buq-6.jpg"}
                       width={266}
                       height={245}
                       alt={item?.description ?? "Цветы."}
