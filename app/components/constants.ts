@@ -9,47 +9,36 @@ import {
   SweetsCatalogCover,
 } from "@/static/categories";
 
-const MENU_LINKS = [
-  {
-    text: "Цветы",
-    href: "/catalog/flowers",
-    img: FlowersCatalogCover,
-  },
-  {
-    text: "Сладости",
-    href: "/catalog/sweets",
-    img: SweetsCatalogCover,
-  },
-  {
-    text: "Воздушные шары",
-    href: "/catalog/balloons",
-    img: BalloonsCatalogCover,
-  },
-  {
-    text: "Подарки",
-    href: "/catalog/gifts",
-    img: GiftsCatalogCover,
-  },
+const rawMenuLinks = [
+  { title: "Цветы", slug: "flowers", img: FlowersCatalogCover },
+  { title: "Сладости", slug: "sweets", img: SweetsCatalogCover },
+  { title: "Воздушные шары", slug: "balloons", img: BalloonsCatalogCover },
+  { title: "Подарки", slug: "gifts", img: GiftsCatalogCover },
   // {
-  //   text: "Аксессуары",
-  //   href: "/accessories",
+  //   title: "Аксессуары",
+  //   slug: "accessories",
   //   img: AccsessoriesCatalogCover,
   // },
   // {
-  //   text: "Услуги",
-  //   href: "/services",
+  //   title: "Услуги",
+  //   slug: "services",
   //   img: ServicesCatalogCover,
   // },
   // {
-  //   text: "Фруктовые сладости",
-  //   href: "/fruit-sweets",
+  //   title: "Фруктовые сладости",
+  //   slug: "fruit-sweets",
   //   img: FruitSweetsCatalogCover,
   // },
   //   {
-  //     text: "Комнатные растения",
-  //     href: "/indoor-plants",
+  //     title: "Комнатные растения",
+  //     slug: "indoor-plants",
   //     img: IndoorPlantsCatalogCover,
   //   },
 ];
+
+const MENU_LINKS = rawMenuLinks.map((item) => ({
+  ...item,
+  href: `/catalog/${item.slug}`,
+}));
 
 export default MENU_LINKS;
