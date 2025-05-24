@@ -31,6 +31,12 @@ export const Flowers: CollectionConfig = {
       required: true,
     },
     {
+      name: "sale",
+      label: "Sale",
+      type: "checkbox",
+      required: true,
+    },
+    {
       name: "occasions",
       label: "Occasions",
       type: "relationship",
