@@ -13,20 +13,34 @@ import {
 } from "@/app/components/ui";
 import Link from "next/link";
 import Image from "next/image";
-import { Collection } from "@/types";
 import { Category, Occasion, Whom } from "@/payload-types";
+import { DataFromCollectionSlug } from "payload";
 
 function CatalogView({
   products,
   filters,
+  minPrice,
+  maxPrice,
 }: {
-  products: Collection;
+  products: DataFromCollectionSlug<
+    | "accessories"
+    | "baloons"
+    | "flowers"
+    | "fruitCarts"
+    | "indoors"
+    | "presents"
+    | "sweets"
+  >[];
   filters: { categories: Category[]; occasions: Occasion[]; whoms: Whom[] };
+  minPrice: number;
+  maxPrice: number;
 }) {
-  const [filteredProducts, setFilteredProducts] =
-    useState<Collection>(products);
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
-  const [priceRange, setPriceRange] = useState({ min: 0, max: 9990 });
+  const [priceRange, setPriceRange] = useState({
+    min: minPrice,
+    max: maxPrice,
+  });
 
   const [activeCategory, setActiveCategory] = useState(
     filters.categories?.[0]?.id,
@@ -90,7 +104,7 @@ function CatalogView({
               Фильтр
             </Heading>
           </legend>
-          <Range min={0} max={9990} onChange={setPriceRange} />
+          <Range min={minPrice} max={maxPrice} onChange={setPriceRange} />
         </fieldset>
 
         <div className="flex items-center justify-between gap-5">
@@ -140,7 +154,10 @@ function CatalogView({
                 <div className="mx-auto flex items-center justify-end px-2">
                   <p className="g-1 flex flex-col items-center justify-center">
                     <s className="font-montserrat text-[13px] font-medium">
-                      {Math.ceil(((item.price || 0) / 100) * 75)} р.
+                      {Math.ceil(
+                        ((Number.parseInt(item.price) || 0) / 100) * 75,
+                      )}{" "}
+                      р.
                     </s>
                     <Text
                       font={TextFont.MONTSERRAT}

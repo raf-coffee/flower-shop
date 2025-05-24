@@ -1,15 +1,18 @@
-import { PayloadCollections } from "@/types";
+import { ProductCollections } from "@/types";
 import Hero from "@/app/components/Hero/Hero";
 import { Container } from "@/app/components/ui";
 import CatalogView from "../CatalogView/CatalogView";
-import { fetchPayloadCollection } from "@/utils";
+import { getData } from "@/lib/getData";
 
-export default async function Catalog({ type }: { type: PayloadCollections }) {
-  const { docs: products } = await fetchPayloadCollection(type);
+export default async function Catalog({ type }: { type: ProductCollections }) {
+  const { docs: products } = await getData.getProductCollection(type);
 
-  const { docs: categories } = await fetchPayloadCollection("categories");
-  const { docs: occasions } = await fetchPayloadCollection("occasions");
-  const { docs: whoms } = await fetchPayloadCollection("whoms");
+  const { docs: categories } =
+    await getData.getInitialCollections("categories");
+  const { docs: occasions } = await getData.getInitialCollections("occasions");
+  const { docs: whoms } = await getData.getInitialCollections("whom");
+
+  const prices = products.map((product) => Number.parseInt(product.price));
 
   return (
     <div className="bg-main-pink-300">
@@ -20,6 +23,8 @@ export default async function Catalog({ type }: { type: PayloadCollections }) {
           <CatalogView
             products={products}
             filters={{ categories, occasions, whoms }}
+            minPrice={Math.min(...prices)}
+            maxPrice={Math.max(...prices)}
           />
         </Container>
       </section>
