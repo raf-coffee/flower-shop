@@ -2,7 +2,7 @@ import Carousel from "@/app/components/Carousel/Carousel";
 import { getData } from "@/lib/getData";
 
 export default async function Sales() {
-  const flowers = await getData.getAll("flowers", {
+  const flowers = await getData.getProductCollection("flowers", {
     where: { sale: { equals: true } },
   });
 
