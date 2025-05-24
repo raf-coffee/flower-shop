@@ -170,6 +170,7 @@ export interface Flower {
   price: string;
   description: string;
   available: boolean;
+  sale: boolean;
   occasions?:
     | {
         relationTo: "occasions";
@@ -533,6 +534,7 @@ export interface FlowersSelect<T extends boolean = true> {
   price?: T;
   description?: T;
   available?: T;
+  sale?: T;
   occasions?: T;
   tags?: T;
   categories?: T;
