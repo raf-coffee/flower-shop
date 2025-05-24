@@ -23,7 +23,7 @@ function FeedbackForm({ title }: { title: string }) {
             rows={6}
             placeholder="Напишите свой вопрос"
           />
-          <Button>Отправить</Button>
+          <Button size="large">Отправить</Button>
         </form>
       </Container>
     </section>
