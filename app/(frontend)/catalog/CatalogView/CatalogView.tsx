@@ -29,10 +29,12 @@ function CatalogView({
   const [priceRange, setPriceRange] = useState({ min: 0, max: 9990 });
 
   const [activeCategory, setActiveCategory] = useState(
-    filters.categories[0].id,
+    filters.categories?.[0]?.id,
   );
-  const [activeOccasion, setActiveOccasion] = useState(filters.occasions[0].id);
-  const [recipientType, setRecipientType] = useState(filters.whoms[0].id);
+  const [activeOccasion, setActiveOccasion] = useState(
+    filters.occasions?.[0]?.id,
+  );
+  const [recipientType, setRecipientType] = useState(filters.whoms?.[0]?.id);
 
   useEffect(() => {
     setFilteredProducts(products);
@@ -138,7 +140,7 @@ function CatalogView({
                 <div className="mx-auto flex items-center justify-end px-2">
                   <p className="g-1 flex flex-col items-center justify-center">
                     <s className="font-montserrat text-[13px] font-medium">
-                      5 400 р.
+                      {Math.ceil(((item.price || 0) / 100) * 75)} р.
                     </s>
                     <Text
                       font={TextFont.MONTSERRAT}
@@ -146,7 +148,7 @@ function CatalogView({
                       size={TextSize.EXTRA_SMALL}
                       className="text-[#7EA048]"
                     >
-                      3 700 р.
+                      {item.price} р.
                     </Text>
                   </p>
 
