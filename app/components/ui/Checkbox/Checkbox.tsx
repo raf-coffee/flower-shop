@@ -4,11 +4,11 @@ import Text, { TextFont, TextSize } from "../Text";
 type CheckboxProps = {
   name: string;
   checked: boolean;
-  onClick: VoidFunction;
+  onChange: VoidFunction;
   children: string;
 };
 
-function Checkbox({ name, checked, onClick, children }: CheckboxProps) {
+function Checkbox({ name, checked, onChange, children }: CheckboxProps) {
   return (
     <label className="flex cursor-pointer items-center">
       <div className="relative mr-2 h-[16px] w-[16px] rounded-[2px] border border-gray-400">
@@ -30,7 +30,7 @@ function Checkbox({ name, checked, onClick, children }: CheckboxProps) {
         type="checkbox"
         name={name}
         checked={checked}
-        onClick={onClick}
+        onChange={onChange}
         className="hidden"
       />
       <Text size={TextSize.SMALL} font={TextFont.LATO}>
