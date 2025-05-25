@@ -38,7 +38,7 @@ export default function Card<T extends ProductCollections>({
           <div className="relative mb-2 h-24 overflow-hidden rounded-tr-xl bg-pink-200 lg:h-60 lg:rounded-tr-3xl">
             <div className="absolute top-1 flex max-w-[150px] flex-col gap-1">
               {isTopSelling && (
-                <div className="flex h-3 w-full items-center rounded-br-md rounded-tr-md bg-[#FD4F79] p-1 lg:h-6">
+                <div className="flex h-3 w-full items-center rounded-br-md rounded-tr-md bg-[#FD4F79] p-1 md:h-6">
                   <Text
                     font={TextFont.MONTSERRAT}
                     weight={TextWeight.MEDIUM}
@@ -49,7 +49,7 @@ export default function Card<T extends ProductCollections>({
                 </div>
               )}
               {isNew && (
-                <div className="flex h-3 w-full items-center rounded-br-md rounded-tr-md bg-[#4AE950] p-1 lg:h-6">
+                <div className="flex h-3 w-full items-center rounded-br-md rounded-tr-md bg-[#4AE950] p-1 md:h-6">
                   <Text
                     font={TextFont.MONTSERRAT}
                     weight={TextWeight.MEDIUM}
@@ -60,7 +60,7 @@ export default function Card<T extends ProductCollections>({
                 </div>
               )}
               {isDayOffer && (
-                <div className="flex h-3 w-full items-center rounded-br-md rounded-tr-md bg-[#FD984F] p-1 lg:h-6">
+                <div className="flex h-3 items-center rounded-br-md rounded-tr-md bg-[#FD984F] p-1 md:h-6">
                   <Text
                     font={TextFont.MONTSERRAT}
                     weight={TextWeight.MEDIUM}
@@ -70,18 +70,18 @@ export default function Card<T extends ProductCollections>({
                   </Text>
                 </div>
               )}
-              {isDiscounted && (
-                <div className="flex h-3 w-full items-center rounded-br-md rounded-tr-md bg-[#FD984F] p-1 lg:h-6">
-                  <Text
-                    font={TextFont.MONTSERRAT}
-                    weight={TextWeight.MEDIUM}
-                    className="text-[6px] uppercase text-white lg:text-[14px]"
-                  >
-                    Скидка 50%
-                  </Text>
-                </div>
-              )}
             </div>
+            {isDiscounted && (
+              <div className="absolute bottom-1 right-0 flex h-3 max-w-[150px] items-center rounded-bl-md rounded-tl-md bg-[#FD984F] p-1 md:h-6">
+                <Text
+                  font={TextFont.MONTSERRAT}
+                  weight={TextWeight.MEDIUM}
+                  className="text-[6px] uppercase text-white lg:text-[14px]"
+                >
+                  Скидка 50%
+                </Text>
+              </div>
+            )}
             {imageCoverUrl && (
               <Image
                 src={imageCoverUrl}
