@@ -15,19 +15,3 @@ export type ProductCollections = keyof Omit<
 >;
 
 export type InitialCollections = "tags" | "occasions" | "categories" | "whom";
-
-export interface CollectionItem {
-  id: string;
-  name?: string;
-  price?: number;
-  description?: string;
-  available?: boolean;
-  occasions?: string[];
-  tags?: string[];
-  categories?: string[];
-  images?: string[];
-  updatedAt?: string;
-  createdAt?: string;
-}
-
-export type Collection = CollectionItem[];
