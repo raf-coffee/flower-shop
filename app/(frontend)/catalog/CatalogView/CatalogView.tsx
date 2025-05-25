@@ -45,56 +45,63 @@ function CatalogView({
     max: maxPrice,
   });
 
-  const [activeCategoryIds, setActiveCategoryIds] = useState(
-    filters.categories ? filters.categories.map((cat) => cat.id) : [],
-  );
-  const [activeOccasionIds, setActiveOccasionIds] = useState(
-    filters.occasions.map((cat) => cat.id),
-  );
-  const [whomIds, setWhomIds] = useState(filters.whoms.map((cat) => cat.id));
+  const [activeCategoryIds, setActiveCategoryIds] = useState<number[]>([]);
+  const [activeOccasionIds, setActiveOccasionIds] = useState<number[]>([]);
+  const [whomIds, setWhomIds] = useState<number[]>([]);
 
   const onFilterClick = () => {
-    const newFilteredProductsByCategories = productList.current.filter(
-      (product) => {
-        if (!("categories" in product) || !product.categories) {
-          return true;
-        }
-
-        const productCategoriesId = product.categories.map((cat) =>
+    const filtered = productList.current.filter((product) => {
+      // === Категории ===
+      if (
+        activeCategoryIds.length > 0 &&
+        "categories" in product &&
+        Array.isArray(product.categories)
+      ) {
+        const productCategoryIds = product.categories.map((cat) =>
           typeof cat.value === "number" ? cat.value : cat.value.id,
         );
 
-        return productCategoriesId.some((id) => activeCategoryIds.includes(id));
-      },
-    );
+        if (!activeCategoryIds.some((id) => productCategoryIds.includes(id))) {
+          return false;
+        }
+      }
 
-    const newFilteredProductsByOccasions = productList.current.filter(
-      (product) => {
-        const productOccasionsId = product?.occasions?.map((occ) =>
+      // === Повод ===
+      if (activeOccasionIds.length > 0) {
+        const occasionIds = product.occasions?.map((occ) =>
           typeof occ.value === "number" ? occ.value : occ.value.id,
         );
-        return productOccasionsId?.some((id) => activeOccasionIds.includes(id));
-      },
-    );
 
-    const combined = [
-      ...newFilteredProductsByCategories,
-      ...newFilteredProductsByOccasions,
-    ];
+        if (!occasionIds?.some((id) => activeOccasionIds.includes(id))) {
+          return false;
+        }
+      }
 
-    const combinedFilteredByPrice = combined.filter(
-      (prod) =>
-        Number.parseInt(prod.price) >= priceRange.min &&
-        Number.parseInt(prod.price) <= priceRange.max,
-    );
+      // === Кому ===
+      if (
+        whomIds.length > 0 &&
+        "whoms" in product &&
+        Array.isArray(product.whoms)
+      ) {
+        const productWhomIds = product.whoms?.map((whom) =>
+          typeof whom.value === "number" ? whom.value : whom.value.id,
+        );
 
-    const uniqueProducts = Array.from(
-      new Map(
-        combinedFilteredByPrice.map((product) => [product.id, product]),
-      ).values(),
-    );
+        if (!productWhomIds?.some((id) => whomIds.includes(id))) {
+          return false;
+        }
+      }
 
-    setFilteredProducts(uniqueProducts);
+      // === Цена ===
+      const price = Number.parseInt(product.price);
+      if (price < priceRange.min || price > priceRange.max) {
+        return false;
+      }
+
+      return true;
+    });
+
+    setFilteredProducts(filtered);
   };
 
   const onCheckboxChange = (
