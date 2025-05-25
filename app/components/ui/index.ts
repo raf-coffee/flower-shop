@@ -6,7 +6,7 @@ export { default as TextArea } from "./TextArea";
 export { default as ErrorMessage } from "./ErrorMassage";
 
 export { TextFont, TextSize, TextWeight } from "./Text";
-export { default as RadioButton } from "./RadioButton";
+export { default as Checkbox } from "./Checkbox";
 export { default as Container } from "./Container";
 export { default as Heading } from "./Heading";
 export { default as NavLink } from "./NavLink";

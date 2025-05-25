@@ -1,12 +1,9 @@
 "use client";
 
-import {
-  BREADCRUMBS_SEPARATOR,
-  PAGE_PATHS_TRANSLATIONS,
-} from "@/app/components/Breadcrumbs/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Text, TextWeight } from "../ui";
+import { BREADCRUMBS_SEPARATOR, PAGE_PATHS_TRANSLATIONS } from "@/constants";
 
 interface Crumb {
   label: string;
