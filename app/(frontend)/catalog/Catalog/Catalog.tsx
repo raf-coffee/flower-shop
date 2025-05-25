@@ -22,7 +22,11 @@ export default async function Catalog({ type }: { type: ProductCollections }) {
         <Container>
           <CatalogView
             products={products}
-            filters={{ categories, occasions, whoms }}
+            filters={{
+              categories: type === "flowers" ? categories : null,
+              occasions,
+              whoms,
+            }}
             minPrice={Math.min(...prices)}
             maxPrice={Math.max(...prices)}
           />

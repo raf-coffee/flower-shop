@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
 import {
   Button,
   Heading,
@@ -29,59 +29,117 @@ function CatalogView({
     | "presents"
     | "sweets"
   >[];
-  filters: { categories: Category[]; occasions: Occasion[]; whoms: Whom[] };
+  filters: {
+    categories: Category[] | null;
+    occasions: Occasion[];
+    whoms: Whom[];
+  };
   minPrice: number;
   maxPrice: number;
 }) {
-  const [filteredProducts, setFilteredProducts] = useState(products);
+  const productList = useRef(products);
 
+  const [filteredProducts, setFilteredProducts] = useState(productList.current);
   const [priceRange, setPriceRange] = useState({
     min: minPrice,
     max: maxPrice,
   });
 
-  // const [activeCategory, setActiveCategory] = useState(
-  const [activeCategory] = useState(filters.categories?.[0]?.id);
-  // const [activeOccasion, setActiveOccasion] = useState(
-  const [activeOccasion] = useState(filters.occasions?.[0]?.id);
-  const [recipientType] = useState(filters.whoms?.[0]?.id);
+  const [activeCategoryIds, setActiveCategoryIds] = useState(
+    filters.categories ? filters.categories.map((cat) => cat.id) : [],
+  );
+  const [activeOccasionIds, setActiveOccasionIds] = useState(
+    filters.occasions.map((cat) => cat.id),
+  );
+  const [whomIds, setWhomIds] = useState(filters.whoms.map((cat) => cat.id));
 
-  useEffect(() => {
-    setFilteredProducts(products);
-  }, [activeCategory, activeOccasion, recipientType, products]);
+  const onFilterClick = () => {
+    const newFilteredProductsByCategories = productList.current.filter(
+      (product) => {
+        if (!("categories" in product) || !product.categories) {
+          return true;
+        }
+
+        const productCategoriesId = product.categories.map((cat) =>
+          typeof cat.value === "number" ? cat.value : cat.value.id,
+        );
+
+        return productCategoriesId.some((id) => activeCategoryIds.includes(id));
+      },
+    );
+
+    const newFilteredProductsByOccasions = productList.current.filter(
+      (product) => {
+        const productOccasionsId = product?.occasions?.map((occ) =>
+          typeof occ.value === "number" ? occ.value : occ.value.id,
+        );
+        return productOccasionsId?.some((id) => activeOccasionIds.includes(id));
+      },
+    );
+
+    const combined = [
+      ...newFilteredProductsByCategories,
+      ...newFilteredProductsByOccasions,
+    ];
+
+    const uniqueProducts = Array.from(
+      new Map(combined.map((product) => [product.id, product])).values(),
+    );
+
+    setFilteredProducts(uniqueProducts);
+  };
+
+  const onCheckboxChange = (
+    id: number,
+    dispatchFunc: Dispatch<SetStateAction<number[]>>,
+  ) => {
+    dispatchFunc((prev) =>
+      prev.includes(id) ? prev.filter((catId) => catId !== id) : [...prev, id],
+    );
+  };
 
   return (
     <div className="mx-auto justify-center gap-4 lg:flex">
       <div className="relative top-[-55px] lg:static lg:shrink-0 lg:basis-72">
         <div className="bg-custom-gradient mb-4 rounded-b-xl px-4 py-3">
-          <fieldset className="mb-2">
-            <legend>
-              <Heading level={3}>Категории</Heading>
-            </legend>
-            {filters.categories.map((cat) => (
-              <Checkbox
-                name="category"
-                checked={false}
-                onChange={() => null}
-                key={cat.id}
-              >
-                {cat.name}
-              </Checkbox>
-            ))}
-          </fieldset>
+          {filters.categories && (
+            <fieldset className="mb-2">
+              <legend>
+                <Heading level={3}>Категории</Heading>
+              </legend>
+              {filters.categories.map((cat) => (
+                <Checkbox
+                  name="category"
+                  checked={
+                    activeCategoryIds
+                      ? activeCategoryIds.includes(cat.id)
+                      : false
+                  }
+                  onChange={
+                    Array.isArray(filters.categories)
+                      ? () => onCheckboxChange(cat.id, setActiveCategoryIds)
+                      : () => null
+                  }
+                  key={cat.id}
+                >
+                  {cat.name}
+                </Checkbox>
+              ))}
+            </fieldset>
+          )}
 
           <fieldset className="mb-2">
             <legend>
               <Heading level={3}>Повод</Heading>
             </legend>
-            {filters.occasions.map((cat) => (
+            {filters.occasions.map((occ) => (
               <Checkbox
                 name="occasion"
-                checked={false}
-                onChange={() => null}
-                key={cat.id}
+                checked={activeOccasionIds.includes(occ.id)}
+                onChange={() => onCheckboxChange(occ.id, setActiveOccasionIds)}
+                key={occ.id}
               >
-                {cat.name}
+                {occ.name}
               </Checkbox>
             ))}
           </fieldset>
@@ -90,14 +148,14 @@ function CatalogView({
             <legend>
               <Heading level={3}>Кому</Heading>
             </legend>
-            {filters.whoms.map((cat) => (
+            {filters.whoms.map((addr) => (
               <Checkbox
                 name="whom"
-                checked={false}
-                onChange={() => null}
-                key={cat.id}
+                checked={whomIds.includes(addr.id)}
+                onChange={() => onCheckboxChange(addr.id, setWhomIds)}
+                key={addr.id}
               >
-                {cat.name}
+                {addr.name}
               </Checkbox>
             ))}
           </fieldset>
@@ -113,7 +171,9 @@ function CatalogView({
         </fieldset>
 
         <div className="flex items-center justify-between gap-5">
-          <Button size={"small"}>Фильтровать</Button>
+          <Button size={"small"} onClick={onFilterClick}>
+            Фильтровать
+          </Button>
           <Text
             weight={TextWeight.SEMIBOLD}
             font={TextFont.LATO}
