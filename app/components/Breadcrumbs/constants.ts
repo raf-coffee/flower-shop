@@ -3,6 +3,9 @@ const PAGE_PATHS_TRANSLATIONS: Record<string, string> = {
   catalog: "Каталог",
   contacts: "Контакты",
   flowers: "Цветы",
+  sweets: "Сладости",
+  balloons: "Воздушные шары",
+  gifts: "Подарки",
 };
 
 const BREADCRUMBS_SEPARATOR = "/";
