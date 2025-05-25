@@ -1,13 +1,18 @@
-import { FindArgs, getPayload } from "payload";
+import { getPayload } from "payload";
 import config from "@/payload.config";
-import type { ProductCollections, InitialCollections } from "@/types";
+import type {
+  ProductCollections,
+  FindByIDOptions,
+  FindAllOptions,
+  PayloadCollections,
+} from "@/types";
 
 const payload = await getPayload({ config });
 
 export const getData = {
-  getProductCollection: async <T extends ProductCollections>(
+  findAll: async <T extends PayloadCollections>(
     collection: T,
-    options?: Omit<FindArgs, "collection" | "locale">,
+    options?: FindAllOptions<T>,
   ) => {
     try {
       const data = await payload.find({
@@ -19,13 +24,15 @@ export const getData = {
       throw error;
     }
   },
-  getInitialCollections: async <T extends InitialCollections>(
+  findById: async <T extends ProductCollections>(
     collection: T,
-    options?: Omit<FindArgs, "collection" | "locale">,
+    id: number | string,
+    options?: FindByIDOptions<T>,
   ) => {
     try {
-      const data = await payload.find({
+      const data = await payload.findByID({
         collection,
+        id,
         ...options,
       });
       return data;

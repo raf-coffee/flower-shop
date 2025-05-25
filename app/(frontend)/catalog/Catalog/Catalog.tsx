@@ -5,12 +5,11 @@ import CatalogView from "../CatalogView/CatalogView";
 import { getData } from "@/lib/getData";
 
 export default async function Catalog({ type }: { type: ProductCollections }) {
-  const { docs: products } = await getData.getProductCollection(type);
+  const { docs: products } = await getData.findAll(type);
 
-  const { docs: categories } =
-    await getData.getInitialCollections("categories");
-  const { docs: occasions } = await getData.getInitialCollections("occasions");
-  const { docs: whoms } = await getData.getInitialCollections("whom");
+  const { docs: categories } = await getData.findAll("categories");
+  const { docs: occasions } = await getData.findAll("occasions");
+  const { docs: whoms } = await getData.findAll("whom");
 
   const prices = products.map((product) => Number.parseInt(product.price));
 
