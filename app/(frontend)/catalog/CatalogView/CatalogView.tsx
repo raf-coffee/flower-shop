@@ -199,13 +199,20 @@ function CatalogView({
         </div>
       </div>
 
-      <ul className="grid w-full grid-cols-2 gap-3 lg:grid-cols-3">
-        {filteredProducts.map((item) => (
-          <li key={item.id}>
-            <Card item={item} />
-          </li>
-        ))}
-      </ul>
+      {!!filteredProducts.length ? (
+        <ul className="grid w-full grid-cols-2 gap-3 lg:grid-cols-3">
+          {!!filteredProducts.length &&
+            filteredProducts.map((item) => (
+              <li key={item.id}>
+                <Card item={item} />
+              </li>
+            ))}
+        </ul>
+      ) : (
+        <div className="flex w-full items-center justify-center p-4">
+          <Text>Нет подходящих товаров</Text>
+        </div>
+      )}
     </div>
   );
 }
