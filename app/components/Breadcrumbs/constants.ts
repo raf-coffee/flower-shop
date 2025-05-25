@@ -2,6 +2,7 @@ const PAGE_PATHS_TRANSLATIONS: Record<string, string> = {
   "/": "Главная",
   catalog: "Каталог",
   contacts: "Контакты",
+  flowers: "Цветы",
 };
 
 const BREADCRUMBS_SEPARATOR = "/";
