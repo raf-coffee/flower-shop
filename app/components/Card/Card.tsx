@@ -3,16 +3,20 @@ import { ProductCollections } from "@/types";
 import { Config } from "@/payload-types";
 import Link from "next/link";
 import { TextFont, TextWeight, Text, TextSize, Button } from "../ui";
+import { useCallback } from "react";
 
 export default function Card<T extends ProductCollections>({
   item,
 }: {
   item: Config["collections"][T];
 }) {
-  const checkLabelApplied = (id: number) =>
-    item?.tags?.find((tag) =>
-      typeof tag.value === "number" ? tag.value === id : tag.value.id === id,
-    );
+  const checkLabelApplied = useCallback(
+    (id: number) =>
+      item?.tags?.find((tag) =>
+        typeof tag.value === "number" ? tag.value === id : tag.value.id === id,
+      ),
+    [item],
+  );
 
   const imageCover = item?.images?.at(0);
   const imageCoverUrl = typeof imageCover !== "number" ? imageCover?.url : null;
