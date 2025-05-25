@@ -36,14 +36,52 @@ export default function Card<T extends ProductCollections>({
       <Link href={`/catalog/flowers/${item.id}`}>
         <div>
           <div className="relative mb-2 h-24 overflow-hidden rounded-tr-xl bg-pink-200 lg:h-60 lg:rounded-tr-3xl">
-            {isTopSelling && (
-              <small className="absolute top-1">Хит продаж</small>
-            )}
-            {isNew && <small className="absolute top-4">Новинка</small>}
-            {isDayOffer && <small className="absolute top-8">Букет дня</small>}
-            {isDiscounted && (
-              <small className="absolute bottom-1">Скидка 50%</small>
-            )}
+            <div className="absolute top-1 flex max-w-[150px] flex-col gap-1">
+              {isTopSelling && (
+                <div className="flex h-3 w-full items-center rounded-br-md rounded-tr-md bg-[#FD4F79] p-1 lg:h-6">
+                  <Text
+                    font={TextFont.MONTSERRAT}
+                    weight={TextWeight.MEDIUM}
+                    className="text-[6px] uppercase text-white lg:text-[14px]"
+                  >
+                    Хит продаж
+                  </Text>
+                </div>
+              )}
+              {isNew && (
+                <div className="flex h-3 w-full items-center rounded-br-md rounded-tr-md bg-[#4AE950] p-1 lg:h-6">
+                  <Text
+                    font={TextFont.MONTSERRAT}
+                    weight={TextWeight.MEDIUM}
+                    className="text-[6px] uppercase text-white lg:text-[14px]"
+                  >
+                    Новинка
+                  </Text>
+                </div>
+              )}
+              {isDayOffer && (
+                <div className="flex h-3 w-full items-center rounded-br-md rounded-tr-md bg-[#FD984F] p-1 lg:h-6">
+                  <Text
+                    font={TextFont.MONTSERRAT}
+                    weight={TextWeight.MEDIUM}
+                    className="text-[6px] uppercase text-white lg:text-[14px]"
+                  >
+                    Букет дня
+                  </Text>
+                </div>
+              )}
+              {isDiscounted && (
+                <div className="flex h-3 w-full items-center rounded-br-md rounded-tr-md bg-[#FD984F] p-1 lg:h-6">
+                  <Text
+                    font={TextFont.MONTSERRAT}
+                    weight={TextWeight.MEDIUM}
+                    className="text-[6px] uppercase text-white lg:text-[14px]"
+                  >
+                    Скидка 50%
+                  </Text>
+                </div>
+              )}
+            </div>
             {imageCoverUrl && (
               <Image
                 src={imageCoverUrl}
