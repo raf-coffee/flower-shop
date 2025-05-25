@@ -1,13 +1,20 @@
 import { getData } from "@/lib/getData";
+import { ProductCollections } from "@/types";
 import { notFound, redirect } from "next/navigation";
 import { DataFromCollectionSlug } from "payload";
 
-async function ProductPage({ id }: { id: number }) {
-  const product = await getData.findById("flowers", id);
+async function ProductPage({
+  id,
+  type,
+}: {
+  id: number;
+  type: ProductCollections;
+}) {
+  const product = await getData.findById(type, id);
 
   if (!product) return notFound();
 
-  return <ProductPageView type="flowers" product={product} />;
+  return <ProductPageView type={type} product={product} />;
 }
 
 function ProductPageView({
@@ -41,8 +48,8 @@ export default async function FlowersProductPage({
   const id = Number.parseInt(params.id);
 
   if (Number.isNaN(id)) {
-    redirect("/catalog");
+    redirect("/catalog/flowers");
   }
 
-  return <ProductPage id={id} />;
+  return <ProductPage type={"flowers"} id={id} />;
 }
