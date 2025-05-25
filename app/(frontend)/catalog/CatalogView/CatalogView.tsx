@@ -82,8 +82,16 @@ function CatalogView({
       ...newFilteredProductsByOccasions,
     ];
 
+    const combinedFilteredByPrice = combined.filter(
+      (prod) =>
+        Number.parseInt(prod.price) >= priceRange.min &&
+        Number.parseInt(prod.price) <= priceRange.max,
+    );
+
     const uniqueProducts = Array.from(
-      new Map(combined.map((product) => [product.id, product])).values(),
+      new Map(
+        combinedFilteredByPrice.map((product) => [product.id, product]),
+      ).values(),
     );
 
     setFilteredProducts(uniqueProducts);
