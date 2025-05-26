@@ -3,85 +3,47 @@ import { ProductCollections } from "@/types";
 import { Config } from "@/payload-types";
 import Link from "next/link";
 import { TextFont, TextWeight, Text, TextSize, Button } from "../ui";
-import { useCallback } from "react";
+import { getCoverImageUrl, deriveActiveLabels } from "@/utils";
 
 export default function Card<T extends ProductCollections>({
   item,
+  collection,
 }: {
   item: Config["collections"][T];
+  collection: ProductCollections;
 }) {
-  const checkLabelApplied = useCallback(
-    (id: number) =>
-      item?.tags?.find((tag) =>
-        typeof tag.value === "number" ? tag.value === id : tag.value.id === id,
-      ),
-    [item],
-  );
-
-  const imageCover = item?.images?.at(0);
-  const imageCoverUrl = typeof imageCover !== "number" ? imageCover?.url : null;
-
-  const isDiscounted = checkLabelApplied(5);
-  const isTopSelling = checkLabelApplied(1);
-  const isNew = checkLabelApplied(2);
-  // const isSpecial = checkLabelApplied(6);
-  // const isRecommended = checkLabelApplied(4);
-  const isDayOffer = checkLabelApplied(4);
+  const collectionName = collection === "presents" ? "gifts" : collection;
+  const imageCoverUrl = getCoverImageUrl(item);
+  const labels = deriveActiveLabels(item);
 
   return (
     <div
       className="min-h-[146px] rounded-xl rounded-tl-none bg-[#fdfdfd] p-1 pb-3 lg:min-h-[428px] lg:rounded-3xl lg:rounded-tl-none"
       key={item.id}
     >
-      <Link href={`/catalog/flowers/${item.id}`}>
+      <Link href={`/catalog/${collectionName}/${item.id}`}>
         <div>
           <div className="relative mb-2 h-24 overflow-hidden rounded-tr-xl bg-pink-200 lg:h-60 lg:rounded-tr-3xl">
-            <div className="absolute top-1 flex max-w-[150px] flex-col gap-1">
-              {isTopSelling && (
-                <div className="flex h-3 w-full items-center rounded-br-md rounded-tr-md bg-[#FD4F79] p-1 md:h-6">
-                  <Text
-                    font={TextFont.MONTSERRAT}
-                    weight={TextWeight.MEDIUM}
-                    className="text-[6px] uppercase text-white lg:text-[14px]"
-                  >
-                    Хит продаж
-                  </Text>
-                </div>
-              )}
-              {isNew && (
-                <div className="flex h-3 w-full items-center rounded-br-md rounded-tr-md bg-[#4AE950] p-1 md:h-6">
-                  <Text
-                    font={TextFont.MONTSERRAT}
-                    weight={TextWeight.MEDIUM}
-                    className="text-[6px] uppercase text-white lg:text-[14px]"
-                  >
-                    Новинка
-                  </Text>
-                </div>
-              )}
-              {isDayOffer && (
-                <div className="flex h-3 items-center rounded-br-md rounded-tr-md bg-[#FD984F] p-1 md:h-6">
-                  <Text
-                    font={TextFont.MONTSERRAT}
-                    weight={TextWeight.MEDIUM}
-                    className="text-[6px] uppercase text-white lg:text-[14px]"
-                  >
-                    Букет дня
-                  </Text>
-                </div>
-              )}
-            </div>
-            {isDiscounted && (
-              <div className="absolute bottom-1 right-0 flex h-3 max-w-[150px] items-center rounded-bl-md rounded-tl-md bg-[#FD984F] p-1 md:h-6">
-                <Text
-                  font={TextFont.MONTSERRAT}
-                  weight={TextWeight.MEDIUM}
-                  className="text-[6px] uppercase text-white lg:text-[14px]"
+            <ul className="absolute top-1 flex max-w-[150px] flex-col gap-1">
+              {labels.map((label) => (
+                <li
+                  className="flex h-3 w-full items-center rounded-br-md rounded-tr-md p-1 md:h-6"
+                  style={{
+                    backgroundColor: label.bg,
+                    color: label.color ?? "white",
+                  }}
+                  key={label.title}
                 >
-                  Скидка 50%
-                </Text>
-              </div>
-            )}
+                  <Text
+                    font={TextFont.MONTSERRAT}
+                    weight={TextWeight.MEDIUM}
+                    className="text-[6px] uppercase text-inherit lg:text-[14px]"
+                  >
+                    {label.title}
+                  </Text>
+                </li>
+              ))}
+            </ul>
             {imageCoverUrl && (
               <Image
                 src={imageCoverUrl}

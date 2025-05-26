@@ -95,3 +95,14 @@ type CollectionFields<T extends PayloadCollections> = keyof Omit<
 type WhereType<T extends PayloadCollections> = {
   [key in CollectionFields<T>]: WhereField;
 };
+
+export interface Label {
+  title: string;
+  bg: string;
+  color?: string;
+}
+
+export interface Crumb {
+  title: string;
+  href?: string;
+}

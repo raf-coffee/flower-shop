@@ -25,16 +25,32 @@ export default function MobileMenu() {
           <NavLink href={"/"} variant="mobile" isActive={path === "/"}>
             Главная
           </NavLink>
-          <NavLink href={"/"} variant="mobile" isActive={path === ""}>
+          <NavLink
+            href={"/catalog/flowers"}
+            variant="mobile"
+            isActive={path === ""}
+          >
             Цветы
           </NavLink>
-          <NavLink href={"/"} variant="mobile" isActive={path === ""}>
+          <NavLink
+            href={"/catalog/sweets"}
+            variant="mobile"
+            isActive={path === ""}
+          >
             Сладости
           </NavLink>
-          <NavLink href={"/"} variant="mobile" isActive={path === ""}>
+          <NavLink
+            href={"/catalog/gifts"}
+            variant="mobile"
+            isActive={path === ""}
+          >
             Подарки
           </NavLink>
-          <NavLink href={"/"} variant="mobile" isActive={path === ""}>
+          <NavLink
+            href={"/catalog/balloons"}
+            variant="mobile"
+            isActive={path === ""}
+          >
             Воздушные шарики
           </NavLink>
           <NavLink
