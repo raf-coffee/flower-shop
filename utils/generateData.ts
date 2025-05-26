@@ -10,7 +10,7 @@ const generate = {
     faker.helpers.uniqueArray(data, count),
   price: (min = 4000, max = 15000, dec = 0) =>
     faker.commerce.price({ min, max, dec }),
-  sale: (probability = 0.3) => faker.datatype.boolean({ probability }),
+  sale: (probability = 0.4) => faker.datatype.boolean({ probability }),
 };
 
 const generateCommonFields = <T extends ProductCollections>(
