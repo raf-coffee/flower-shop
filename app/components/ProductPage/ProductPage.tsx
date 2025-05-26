@@ -22,6 +22,7 @@ function ProductPageView({
     | "sweets"
   >;
 }) {
+  const itemGroup = type === "presents" ? "gifts" : type;
   const imageCoverUrl = getCoverImageUrl(item);
   const labels = deriveActiveLabels(item);
 
@@ -30,7 +31,10 @@ function ProductPageView({
       <Hero
         heading={item.name}
         hasBreadCrumbs
-        tailCrumb={{ href: `/catalog/${type}/${item.id}`, title: item.name }}
+        tailCrumb={{
+          href: `/catalog/${itemGroup}/${item.id}`,
+          title: item.name,
+        }}
         className="mb-14 lg:mb-0"
       />
 
