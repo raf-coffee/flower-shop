@@ -20,17 +20,9 @@ function ProductPageView({
   item,
   itemInfo: { collection, imageCoverUrl, labels },
 }: {
-  item: DataFromCollectionSlug<
-    | "accessories"
-    | "baloons"
-    | "flowers"
-    | "fruitCarts"
-    | "indoors"
-    | "presents"
-    | "sweets"
-  >;
+  item: DataFromCollectionSlug<ProductCollections>;
   itemInfo: {
-    collection: ProductCollections | "gifts";
+    collection: ProductCollections;
     imageCoverUrl: string;
     labels: Label[];
   };
@@ -169,14 +161,13 @@ export default async function ProductPage({
 
   if (!item) return notFound();
 
-  const collectionName = collection === "presents" ? "gifts" : collection;
   const imageCoverUrl = getCoverImageUrl(item);
   const labels = deriveActiveLabels(item);
 
   return (
     <ProductPageView
       item={item}
-      itemInfo={{ collection: collectionName, imageCoverUrl, labels }}
+      itemInfo={{ collection, imageCoverUrl, labels }}
     />
   );
 }

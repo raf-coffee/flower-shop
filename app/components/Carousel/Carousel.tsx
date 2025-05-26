@@ -16,11 +16,7 @@ export default function Carousel<T extends ProductCollections>({
   collection: ProductCollections;
 }) {
   return (
-    // <section className="bg-main-pink-400 p-4 lg:mt-[-65px]">
     <div className="mx-auto max-w-7xl">
-      {/* <h2 className="mb-4 text-center text-lg font-bold md:text-start md:text-2xl">
-          Скидки
-        </h2> */}
       <Swiper
         modules={[Pagination]}
         spaceBetween={17}
@@ -51,6 +47,5 @@ export default function Carousel<T extends ProductCollections>({
         ))}
       </Swiper>
     </div>
-    // </section>
   );
 }

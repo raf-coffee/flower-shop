@@ -22,15 +22,7 @@ function CatalogView({
   maxPrice,
   type,
 }: {
-  products: DataFromCollectionSlug<
-    | "accessories"
-    | "baloons"
-    | "flowers"
-    | "fruitCarts"
-    | "indoors"
-    | "presents"
-    | "sweets"
-  >[];
+  products: DataFromCollectionSlug<ProductCollections>[];
   filters: {
     categories: Category[] | null;
     occasions: Occasion[];
@@ -207,7 +199,7 @@ function CatalogView({
           {!!filteredProducts.length &&
             filteredProducts.map((item) => (
               <li key={item.id}>
-                <Card item={item} type={type} />
+                <Card item={item} collection={type} />
               </li>
             ))}
         </ul>

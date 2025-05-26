@@ -68,8 +68,8 @@ const generateData = {
     faker.helpers.multiple(() => generateCommonFields("indoors", imageIds), {
       count,
     }),
-  presents: (count: number, imageIds: number[]) =>
-    faker.helpers.multiple(() => generateCommonFields("presents", imageIds), {
+  gifts: (count: number, imageIds: number[]) =>
+    faker.helpers.multiple(() => generateCommonFields("gifts", imageIds), {
       count,
     }),
   sweets: (count: number, imageIds: number[]) =>

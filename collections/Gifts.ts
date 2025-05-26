@@ -1,7 +1,7 @@
 import type { CollectionConfig } from "payload";
 
-export const Presents: CollectionConfig = {
-  slug: "presents",
+export const Gifts: CollectionConfig = {
+  slug: "gifts",
   access: {
     read: () => true,
   },
