@@ -7,12 +7,12 @@ import { getCoverImageUrl, deriveActiveLabels } from "@/utils";
 
 export default function Card<T extends ProductCollections>({
   item,
-  type,
+  collection,
 }: {
   item: Config["collections"][T];
-  type: ProductCollections;
+  collection: ProductCollections;
 }) {
-  const itemGroup = type === "presents" ? "gifts" : type;
+  const collectionName = collection === "presents" ? "gifts" : collection;
   const imageCoverUrl = getCoverImageUrl(item);
   const labels = deriveActiveLabels(item);
 
@@ -21,7 +21,7 @@ export default function Card<T extends ProductCollections>({
       className="min-h-[146px] rounded-xl rounded-tl-none bg-[#fdfdfd] p-1 pb-3 lg:min-h-[428px] lg:rounded-3xl lg:rounded-tl-none"
       key={item.id}
     >
-      <Link href={`/catalog/${itemGroup}/${item.id}`}>
+      <Link href={`/catalog/${collectionName}/${item.id}`}>
         <div>
           <div className="relative mb-2 h-24 overflow-hidden rounded-tr-xl bg-pink-200 lg:h-60 lg:rounded-tr-3xl">
             <ul className="absolute top-1 flex max-w-[150px] flex-col gap-1">

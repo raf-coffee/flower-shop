@@ -10,8 +10,10 @@ import { Config } from "@/payload-types";
 
 export default function Carousel<T extends ProductCollections>({
   items,
+  collection,
 }: {
   items: Config["collections"][T][];
+  collection: ProductCollections;
 }) {
   return (
     <section className="bg-main-pink-400 p-4 lg:mt-[-65px]">
@@ -44,7 +46,7 @@ export default function Carousel<T extends ProductCollections>({
         >
           {items.map((item) => (
             <SwiperSlide key={item.id}>
-              <Card item={item} />
+              <Card item={item} collection={collection} />
             </SwiperSlide>
           ))}
         </Swiper>

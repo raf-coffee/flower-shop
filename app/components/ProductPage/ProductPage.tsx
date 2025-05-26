@@ -14,10 +14,11 @@ import {
   TextSize,
 } from "@/app/components/ui";
 import { deriveActiveLabels, getCoverImageUrl } from "@/utils";
+import Sales from "../Sales/Sales";
 
 function ProductPageView({
   item,
-  itemInfo: { itemGroup, imageCoverUrl, labels },
+  itemInfo: { collection, imageCoverUrl, labels },
 }: {
   item: DataFromCollectionSlug<
     | "accessories"
@@ -29,7 +30,7 @@ function ProductPageView({
     | "sweets"
   >;
   itemInfo: {
-    itemGroup: ProductCollections | "gifts";
+    collection: ProductCollections | "gifts";
     imageCoverUrl: string;
     labels: Label[];
   };
@@ -40,7 +41,7 @@ function ProductPageView({
         heading={item.name}
         hasBreadCrumbs
         tailCrumb={{
-          href: `/catalog/${itemGroup}/${item.id}`,
+          href: `/catalog/${collection}/${item.id}`,
           title: item.name,
         }}
         className="mb-14 lg:mb-0"
@@ -82,8 +83,8 @@ function ProductPageView({
               ))}
             </ul>
             <div className="flex w-full justify-between">
-              <Text>Отзывов ()</Text>
-              <Text>Есть в наличие</Text>
+              <Text>Отзывов (1)</Text>
+              <Text>{item.available ? "Есть в наличие" : "Нет в наличии"}</Text>
             </div>
             <div className="flex w-full flex-col">
               <Heading level={3}>Повод:</Heading>
@@ -126,41 +127,56 @@ function ProductPageView({
               </Text>
             </div>
           </div>
+        </Container>
+        <Container>
           <div className="mb-2 flex w-full flex-col gap-1">
-            <Heading level={3}>Отзывы (0):</Heading>
+            <Heading level={3}>Отзывы (1):</Heading>
             <Text
               font={TextFont.LATO}
               weight={TextWeight.MEDIUM}
               size={TextSize.NORMAL}
+              className="text-secondary-pink"
             >
-              {item.description}
+              Отзыв от Лены Катиной:
+            </Text>
+            <Text
+              font={TextFont.LATO}
+              weight={TextWeight.MEDIUM}
+              size={TextSize.NORMAL}
+              className="pl-4"
+            >
+              Очень доволен покупкой — всё соответствует описанию. Качество на
+              высоте, доставка была быстрая, упаковка аккуратная. Пользуюсь с
+              удовольствием, могу смело рекомендовать другим!
             </Text>
           </div>
         </Container>
       </section>
+
+      <Sales title={"Вместе покупают"} />
     </div>
   );
 }
 
 export default async function ProductPage({
   id,
-  type,
+  collection,
 }: {
   id: number;
-  type: ProductCollections;
+  collection: ProductCollections;
 }) {
-  const item = await getData.findById(type, id);
+  const item = await getData.findById(collection, id);
 
   if (!item) return notFound();
 
-  const itemGroup = type === "presents" ? "gifts" : type;
+  const collectionName = collection === "presents" ? "gifts" : collection;
   const imageCoverUrl = getCoverImageUrl(item);
   const labels = deriveActiveLabels(item);
 
   return (
     <ProductPageView
       item={item}
-      itemInfo={{ itemGroup, imageCoverUrl, labels }}
+      itemInfo={{ collection: collectionName, imageCoverUrl, labels }}
     />
   );
 }
