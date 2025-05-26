@@ -13,12 +13,14 @@ import {
 import { Category, Occasion, Whom } from "@/payload-types";
 import { DataFromCollectionSlug } from "payload";
 import Card from "@/app/components/Card/Card";
+import { ProductCollections } from "@/types";
 
 function CatalogView({
   products,
   filters,
   minPrice,
   maxPrice,
+  type,
 }: {
   products: DataFromCollectionSlug<
     | "accessories"
@@ -36,6 +38,7 @@ function CatalogView({
   };
   minPrice: number;
   maxPrice: number;
+  type: ProductCollections;
 }) {
   const productList = useRef(products);
 
@@ -204,7 +207,7 @@ function CatalogView({
           {!!filteredProducts.length &&
             filteredProducts.map((item) => (
               <li key={item.id}>
-                <Card item={item} />
+                <Card item={item} type={type} />
               </li>
             ))}
         </ul>

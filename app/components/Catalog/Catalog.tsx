@@ -28,6 +28,7 @@ export default async function Catalog({ type }: { type: ProductCollections }) {
             }}
             minPrice={Math.min(...prices)}
             maxPrice={Math.max(...prices)}
+            type={type}
           />
         </Container>
       </section>
