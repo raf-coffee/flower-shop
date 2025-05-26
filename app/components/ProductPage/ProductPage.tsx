@@ -49,10 +49,10 @@ function ProductPageView({
             </div>
           </div>
           <div className="md:basis-[55%]">
-            <ul className="absolute top-1 flex max-w-[150px] flex-col gap-1">
+            <ul className="flex max-w-[150px] flex-col gap-1">
               {labels.map((label) => (
                 <li
-                  className="flex h-3 w-full items-center rounded-br-md rounded-tr-md p-1 md:h-6"
+                  className="flex h-3 w-full items-center justify-center rounded-md p-1 text-center md:h-6"
                   style={{
                     backgroundColor: label.bg,
                     color: label.color ?? "white",
