@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
-    "@payloadcms/db-postgres": "^3.36.0",
+    "@payloadcms/db-postgres": "^3.39.1",
     "@payloadcms/next": "^3.36.0",
     "@payloadcms/richtext-lexical": "^3.36.0",
     "@tabler/icons-react": "^3.31.0",
