@@ -1,17 +1,24 @@
-import { getData } from "@/lib/getData";
-import { ProductCollections } from "@/types";
+import Image from "next/image";
 import { notFound } from "next/navigation";
+
+import { getData } from "@/lib/getData";
+import { Label, ProductCollections } from "@/types";
 import { DataFromCollectionSlug } from "payload";
 import Hero from "@/app/components/Hero/Hero";
-import { Container, TextFont, TextWeight, Text } from "@/app/components/ui";
-import Image from "next/image";
+import {
+  Container,
+  TextFont,
+  TextWeight,
+  Text,
+  Heading,
+  TextSize,
+} from "@/app/components/ui";
 import { deriveActiveLabels, getCoverImageUrl } from "@/utils";
 
 function ProductPageView({
-  type,
   item,
+  itemInfo: { itemGroup, imageCoverUrl, labels },
 }: {
-  type: string;
   item: DataFromCollectionSlug<
     | "accessories"
     | "baloons"
@@ -21,11 +28,12 @@ function ProductPageView({
     | "presents"
     | "sweets"
   >;
+  itemInfo: {
+    itemGroup: ProductCollections | "gifts";
+    imageCoverUrl: string;
+    labels: Label[];
+  };
 }) {
-  const itemGroup = type === "presents" ? "gifts" : type;
-  const imageCoverUrl = getCoverImageUrl(item);
-  const labels = deriveActiveLabels(item);
-
   return (
     <div className="bg-main-pink-300">
       <Hero
@@ -53,10 +61,10 @@ function ProductPageView({
             </div>
           </div>
           <div className="md:basis-[55%]">
-            <ul className="flex max-w-[150px] flex-col gap-1">
+            <ul className="mx-auto mb-2 grid max-w-[256px] grid-cols-2 gap-4 lg:mx-0">
               {labels.map((label) => (
                 <li
-                  className="flex h-3 w-full items-center justify-center rounded-md p-1 text-center md:h-6"
+                  className="flex h-3 w-[120px] items-center justify-center rounded-md p-1 text-center md:h-6"
                   style={{
                     backgroundColor: label.bg,
                     color: label.color ?? "white",
@@ -73,6 +81,60 @@ function ProductPageView({
                 </li>
               ))}
             </ul>
+            <div className="flex w-full justify-between">
+              <Text>Отзывов ()</Text>
+              <Text>Есть в наличие</Text>
+            </div>
+            <div className="flex w-full flex-col">
+              <Heading level={3}>Повод:</Heading>
+              <Text
+                font={TextFont.LATO}
+                weight={TextWeight.MEDIUM}
+                size={TextSize.NORMAL}
+              >
+                8 марта. Любовь.
+              </Text>
+            </div>
+            <div className="mb-2 flex w-full flex-col">
+              <Heading level={3}>Кому:</Heading>
+              <Text
+                font={TextFont.LATO}
+                weight={TextWeight.MEDIUM}
+                size={TextSize.NORMAL}
+              >
+                8 марта. Любовь.
+              </Text>
+            </div>
+            <div className="w-full">
+              <Text
+                font={TextFont.MONTSERRAT}
+                weight={TextWeight.MEDIUM}
+                size={TextSize.LARGE}
+                className="text-[#7EA048]"
+              >
+                3 500 р.
+              </Text>
+            </div>
+            <div className="mb-2 flex w-full flex-col gap-1">
+              <Heading level={3}>Описание:</Heading>
+              <Text
+                font={TextFont.LATO}
+                weight={TextWeight.MEDIUM}
+                size={TextSize.NORMAL}
+              >
+                {item.description}
+              </Text>
+            </div>
+          </div>
+          <div className="mb-2 flex w-full flex-col gap-1">
+            <Heading level={3}>Отзывы (0):</Heading>
+            <Text
+              font={TextFont.LATO}
+              weight={TextWeight.MEDIUM}
+              size={TextSize.NORMAL}
+            >
+              {item.description}
+            </Text>
           </div>
         </Container>
       </section>
@@ -91,5 +153,14 @@ export default async function ProductPage({
 
   if (!item) return notFound();
 
-  return <ProductPageView type={type} item={item} />;
+  const itemGroup = type === "presents" ? "gifts" : type;
+  const imageCoverUrl = getCoverImageUrl(item);
+  const labels = deriveActiveLabels(item);
+
+  return (
+    <ProductPageView
+      item={item}
+      itemInfo={{ itemGroup, imageCoverUrl, labels }}
+    />
+  );
 }
