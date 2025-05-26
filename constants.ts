@@ -12,7 +12,7 @@ import {
 const rawMenuLinks = [
   { title: "Цветы", slug: "flowers", img: FlowersCatalogCover },
   { title: "Сладости", slug: "sweets", img: SweetsCatalogCover },
-  { title: "Воздушные шары", slug: "balloons", img: BalloonsCatalogCover },
+  { title: "Воздушные шары", slug: "baloons", img: BalloonsCatalogCover },
   { title: "Подарки", slug: "gifts", img: GiftsCatalogCover },
   // {
   //   title: "Аксессуары",
@@ -49,7 +49,7 @@ const PAGE_PATHS_TRANSLATIONS: Record<string, string> = {
   contacts: "Контакты",
   flowers: "Цветы",
   sweets: "Сладости",
-  balloons: "Воздушные шары",
+  baloons: "Воздушные шары",
   gifts: "Подарки",
 };
 
