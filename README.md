@@ -42,6 +42,45 @@
 
 ## :rocket: Подготовка и запуск проекта
 
-Предварительное требование: установленный и запущенный сервер PostgreSQL.
+**Предварительное требование**: установленный и запущенный сервер PostgreSQL.
 
-## Скриншоты
+Склонировать репозиторий на локальную машину:
+
+```
+git clone https://github.com/raf-coffee/flower-shop.git
+```
+
+Установить зависимости:
+
+```
+npm ci
+```
+
+В корне проекта создать файл .env c переменной DB_URI в следующем формате:
+
+```
+postgres[ql]://[username[:password]@][host[:port],]/database[?parameter_list]
+```
+
+Например,
+
+```
+DB_URI=postgres://postgres:postgres@localhost:5432/my_db
+```
+
+Запустить проект:
+
+```
+npm run dev
+```
+
+## :camera: Скриншоты
+
+<div>
+  <img src="./static/readme/iphone-01.png" alt="" height="400">
+  <img src="./static/readme/iphone-02.png" alt="" height="400">
+  <img src="./static/readme/iphone-03.png" alt="" height="400">
+</div>
+<img src="./static/readme/macbook-01.png" alt="" height="500">
+<img src="./static/readme/macbook-02.png" alt="" height="500">
+<img src="./static/readme/macbook-03.png" alt="" height="500">

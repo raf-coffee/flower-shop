@@ -23,7 +23,7 @@ function ProductPageView({
   item: DataFromCollectionSlug<ProductCollections>;
   itemInfo: {
     collection: ProductCollections;
-    imageCoverUrl: string;
+    imageCoverUrl: string | undefined | null;
     labels: Label[];
   };
 }) {

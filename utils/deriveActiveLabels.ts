@@ -4,13 +4,13 @@ import {
   Flower,
   FruitCart,
   Indoor,
-  Present,
+  Gift,
   Sweet,
 } from "@/payload-types";
 import { Label } from "@/types";
 
 const deriveActiveLabels = (
-  item: Accessory | Baloon | Flower | FruitCart | Indoor | Present | Sweet,
+  item: Accessory | Baloon | Flower | FruitCart | Indoor | Gift | Sweet,
 ) => {
   const labels: Record<string, Label> = {
     "1": {
