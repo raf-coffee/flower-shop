@@ -3,7 +3,7 @@ import baloons from "@/data/baloons";
 import flowers from "@/data/flowers";
 import fruitCarts from "@/data/fruit-carts";
 import indoors from "@/data/indoors";
-import presents from "@/data/presents";
+import gifts from "@/data/gifts";
 import sweets from "@/data/sweets";
 import categories from "@/data/categories";
 import occasions from "@/data/occansions";
@@ -16,7 +16,7 @@ const data = {
   flowers,
   fruitCarts,
   indoors,
-  presents,
+  gifts,
   sweets,
   categories,
   occasions,

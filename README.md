@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<img src="./static/logo.png" align="right" alt="Florist shop logo" height="40">
 
-## Getting Started
+# :mortar_board: Дипломный проект
 
-First, run the development server:
+Тема проекта: "Разработка сайта оффлайн цветочного магазина".
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Цель разработки – проектирование и реализация веб-сайта цветочного магазина для предоставления возможности ознакомления с информацией о продукции.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## :panda_face: Участники команды
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<table>
+  <tr>
+    <td>Фронтенд</td>
+    <td><a href="https://github.com/Vyachowski"><strong>Vyachowski</strong></a></td>
+  </tr>
+  <tr>
+    <td>Бекенд</td>
+    <td><a href="https://github.com/SebrekovDmitriy"><strong>SebrekovDmitriy</strong></a></td>
+  </tr>
+  <tr>
+    <td>Дизайн</td>
+    <td><a href="https://github.com/EMRLDprog"><strong>EMRLDprog</strong></a></td>
+  </tr>
+  <tr>
+    <td>Менеджер проекта</td>
+    <td><a href="https://github.com/raf-coffee"><strong>raf-coffee</strong></a></td>
+  </tr>
+</table>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## :wrench: Технологический стек
 
-## Learn More
+|                                                                         |             |
+| :---------------------------------------------------------------------: | :---------: |
+| ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=typescript)  | TypeScript  |
+|   ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=nextjs)    |   NextJS    |
+| ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=tailwindcss) | TailwindCSS |
+|   ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=payload)   | PayloadCMS  |
+|  ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=storybook)  |  Storybook  |
+| ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=playwright)  | Playwright  |
+|   ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=drizzle)   | DrizzleORM  |
+| ![My Skills](https://go-skill-icons.vercel.app/api/icons?i=postgresql)  | PostgreSQL  |
 
-To learn more about Next.js, take a look at the following resources:
+## :rocket: Подготовка и запуск проекта
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Предварительное требование: установленный и запущенный сервер PostgreSQL.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Скриншоты

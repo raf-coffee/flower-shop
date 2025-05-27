@@ -11,5 +11,5 @@ export default async function GiftsProductPage(props: {
     redirect("/catalog/gifts");
   }
 
-  return <ProductPage type={"presents"} id={id} />;
+  return <ProductPage collection={"gifts"} id={id} />;
 }

@@ -13,53 +13,53 @@
  * via the `definition` "supportedTimezones".
  */
 export type SupportedTimezones =
-  | "Pacific/Midway"
-  | "Pacific/Niue"
-  | "Pacific/Honolulu"
-  | "Pacific/Rarotonga"
-  | "America/Anchorage"
-  | "Pacific/Gambier"
-  | "America/Los_Angeles"
-  | "America/Tijuana"
-  | "America/Denver"
-  | "America/Phoenix"
-  | "America/Chicago"
-  | "America/Guatemala"
-  | "America/New_York"
-  | "America/Bogota"
-  | "America/Caracas"
-  | "America/Santiago"
-  | "America/Buenos_Aires"
-  | "America/Sao_Paulo"
-  | "Atlantic/South_Georgia"
-  | "Atlantic/Azores"
-  | "Atlantic/Cape_Verde"
-  | "Europe/London"
-  | "Europe/Berlin"
-  | "Africa/Lagos"
-  | "Europe/Athens"
-  | "Africa/Cairo"
-  | "Europe/Moscow"
-  | "Asia/Riyadh"
-  | "Asia/Dubai"
-  | "Asia/Baku"
-  | "Asia/Karachi"
-  | "Asia/Tashkent"
-  | "Asia/Calcutta"
-  | "Asia/Dhaka"
-  | "Asia/Almaty"
-  | "Asia/Jakarta"
-  | "Asia/Bangkok"
-  | "Asia/Shanghai"
-  | "Asia/Singapore"
-  | "Asia/Tokyo"
-  | "Asia/Seoul"
-  | "Australia/Brisbane"
-  | "Australia/Sydney"
-  | "Pacific/Guam"
-  | "Pacific/Noumea"
-  | "Pacific/Auckland"
-  | "Pacific/Fiji";
+  | 'Pacific/Midway'
+  | 'Pacific/Niue'
+  | 'Pacific/Honolulu'
+  | 'Pacific/Rarotonga'
+  | 'America/Anchorage'
+  | 'Pacific/Gambier'
+  | 'America/Los_Angeles'
+  | 'America/Tijuana'
+  | 'America/Denver'
+  | 'America/Phoenix'
+  | 'America/Chicago'
+  | 'America/Guatemala'
+  | 'America/New_York'
+  | 'America/Bogota'
+  | 'America/Caracas'
+  | 'America/Santiago'
+  | 'America/Buenos_Aires'
+  | 'America/Sao_Paulo'
+  | 'Atlantic/South_Georgia'
+  | 'Atlantic/Azores'
+  | 'Atlantic/Cape_Verde'
+  | 'Europe/London'
+  | 'Europe/Berlin'
+  | 'Africa/Lagos'
+  | 'Europe/Athens'
+  | 'Africa/Cairo'
+  | 'Europe/Moscow'
+  | 'Asia/Riyadh'
+  | 'Asia/Dubai'
+  | 'Asia/Baku'
+  | 'Asia/Karachi'
+  | 'Asia/Tashkent'
+  | 'Asia/Calcutta'
+  | 'Asia/Dhaka'
+  | 'Asia/Almaty'
+  | 'Asia/Jakarta'
+  | 'Asia/Bangkok'
+  | 'Asia/Shanghai'
+  | 'Asia/Singapore'
+  | 'Asia/Tokyo'
+  | 'Asia/Seoul'
+  | 'Australia/Brisbane'
+  | 'Australia/Sydney'
+  | 'Pacific/Guam'
+  | 'Pacific/Noumea'
+  | 'Pacific/Auckland'
+  | 'Pacific/Fiji';
 
 export interface Config {
   auth: {
@@ -76,13 +76,13 @@ export interface Config {
     fruitCarts: FruitCart;
     accessories: Accessory;
     indoors: Indoor;
-    presents: Present;
+    gifts: Gift;
     sweets: Sweet;
     whom: Whom;
     users: User;
-    "payload-locked-documents": PayloadLockedDocument;
-    "payload-preferences": PayloadPreference;
-    "payload-migrations": PayloadMigration;
+    'payload-locked-documents': PayloadLockedDocument;
+    'payload-preferences': PayloadPreference;
+    'payload-migrations': PayloadMigration;
   };
   collectionsJoins: {};
   collectionsSelect: {
@@ -95,19 +95,13 @@ export interface Config {
     fruitCarts: FruitCartsSelect<false> | FruitCartsSelect<true>;
     accessories: AccessoriesSelect<false> | AccessoriesSelect<true>;
     indoors: IndoorsSelect<false> | IndoorsSelect<true>;
-    presents: PresentsSelect<false> | PresentsSelect<true>;
+    gifts: GiftsSelect<false> | GiftsSelect<true>;
     sweets: SweetsSelect<false> | SweetsSelect<true>;
     whom: WhomSelect<false> | WhomSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
-    "payload-locked-documents":
-      | PayloadLockedDocumentsSelect<false>
-      | PayloadLockedDocumentsSelect<true>;
-    "payload-preferences":
-      | PayloadPreferencesSelect<false>
-      | PayloadPreferencesSelect<true>;
-    "payload-migrations":
-      | PayloadMigrationsSelect<false>
-      | PayloadMigrationsSelect<true>;
+    'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
+    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
+    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
   };
   db: {
     defaultIDType: number;
@@ -116,7 +110,7 @@ export interface Config {
   globalsSelect: {};
   locale: null;
   user: User & {
-    collection: "users";
+    collection: 'users';
   };
   jobs: {
     tasks: unknown;
@@ -173,19 +167,19 @@ export interface Flower {
   sale: boolean;
   occasions?:
     | {
-        relationTo: "occasions";
+        relationTo: 'occasions';
         value: number | Occasion;
       }[]
     | null;
   tags?:
     | {
-        relationTo: "tags";
+        relationTo: 'tags';
         value: number | Tag;
       }[]
     | null;
   categories?:
     | {
-        relationTo: "categories";
+        relationTo: 'categories';
         value: number | Category;
       }[]
     | null;
@@ -235,13 +229,13 @@ export interface Baloon {
   available: boolean;
   occasions?:
     | {
-        relationTo: "occasions";
+        relationTo: 'occasions';
         value: number | Occasion;
       }[]
     | null;
   tags?:
     | {
-        relationTo: "tags";
+        relationTo: 'tags';
         value: number | Tag;
       }[]
     | null;
@@ -261,13 +255,13 @@ export interface FruitCart {
   available: boolean;
   occasions?:
     | {
-        relationTo: "occasions";
+        relationTo: 'occasions';
         value: number | Occasion;
       }[]
     | null;
   tags?:
     | {
-        relationTo: "tags";
+        relationTo: 'tags';
         value: number | Tag;
       }[]
     | null;
@@ -287,13 +281,13 @@ export interface Accessory {
   available: boolean;
   occasions?:
     | {
-        relationTo: "occasions";
+        relationTo: 'occasions';
         value: number | Occasion;
       }[]
     | null;
   tags?:
     | {
-        relationTo: "tags";
+        relationTo: 'tags';
         value: number | Tag;
       }[]
     | null;
@@ -313,13 +307,13 @@ export interface Indoor {
   available: boolean;
   occasions?:
     | {
-        relationTo: "occasions";
+        relationTo: 'occasions';
         value: number | Occasion;
       }[]
     | null;
   tags?:
     | {
-        relationTo: "tags";
+        relationTo: 'tags';
         value: number | Tag;
       }[]
     | null;
@@ -329,9 +323,9 @@ export interface Indoor {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "presents".
+ * via the `definition` "gifts".
  */
-export interface Present {
+export interface Gift {
   id: number;
   name: string;
   price: string;
@@ -339,13 +333,13 @@ export interface Present {
   available: boolean;
   occasions?:
     | {
-        relationTo: "occasions";
+        relationTo: 'occasions';
         value: number | Occasion;
       }[]
     | null;
   tags?:
     | {
-        relationTo: "tags";
+        relationTo: 'tags';
         value: number | Tag;
       }[]
     | null;
@@ -365,13 +359,13 @@ export interface Sweet {
   available: boolean;
   occasions?:
     | {
-        relationTo: "occasions";
+        relationTo: 'occasions';
         value: number | Occasion;
       }[]
     | null;
   tags?:
     | {
-        relationTo: "tags";
+        relationTo: 'tags';
         value: number | Tag;
       }[]
     | null;
@@ -414,60 +408,60 @@ export interface PayloadLockedDocument {
   id: number;
   document?:
     | ({
-        relationTo: "media";
+        relationTo: 'media';
         value: number | Media;
       } | null)
     | ({
-        relationTo: "flowers";
+        relationTo: 'flowers';
         value: number | Flower;
       } | null)
     | ({
-        relationTo: "tags";
+        relationTo: 'tags';
         value: number | Tag;
       } | null)
     | ({
-        relationTo: "occasions";
+        relationTo: 'occasions';
         value: number | Occasion;
       } | null)
     | ({
-        relationTo: "categories";
+        relationTo: 'categories';
         value: number | Category;
       } | null)
     | ({
-        relationTo: "baloons";
+        relationTo: 'baloons';
         value: number | Baloon;
       } | null)
     | ({
-        relationTo: "fruitCarts";
+        relationTo: 'fruitCarts';
         value: number | FruitCart;
       } | null)
     | ({
-        relationTo: "accessories";
+        relationTo: 'accessories';
         value: number | Accessory;
       } | null)
     | ({
-        relationTo: "indoors";
+        relationTo: 'indoors';
         value: number | Indoor;
       } | null)
     | ({
-        relationTo: "presents";
-        value: number | Present;
+        relationTo: 'gifts';
+        value: number | Gift;
       } | null)
     | ({
-        relationTo: "sweets";
+        relationTo: 'sweets';
         value: number | Sweet;
       } | null)
     | ({
-        relationTo: "whom";
+        relationTo: 'whom';
         value: number | Whom;
       } | null)
     | ({
-        relationTo: "users";
+        relationTo: 'users';
         value: number | User;
       } | null);
   globalSlug?: string | null;
   user: {
-    relationTo: "users";
+    relationTo: 'users';
     value: number | User;
   };
   updatedAt: string;
@@ -480,7 +474,7 @@ export interface PayloadLockedDocument {
 export interface PayloadPreference {
   id: number;
   user: {
-    relationTo: "users";
+    relationTo: 'users';
     value: number | User;
   };
   key?: string | null;
@@ -631,9 +625,9 @@ export interface IndoorsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "presents_select".
+ * via the `definition` "gifts_select".
  */
-export interface PresentsSelect<T extends boolean = true> {
+export interface GiftsSelect<T extends boolean = true> {
   name?: T;
   price?: T;
   description?: T;
@@ -723,6 +717,7 @@ export interface Auth {
   [k: string]: unknown;
 }
 
-declare module "payload" {
+
+declare module 'payload' {
   export interface GeneratedTypes extends Config {}
 }

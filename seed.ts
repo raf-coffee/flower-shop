@@ -23,7 +23,7 @@ const PRODUCT_COLLECTIONS: ProductCollections[] = [
   "flowers",
   "fruitCarts",
   "indoors",
-  "presents",
+  "gifts",
   "sweets",
 ];
 

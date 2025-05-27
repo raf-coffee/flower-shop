@@ -11,7 +11,7 @@ import { Baloons } from "@/collections/Baloons";
 import { FruitCarts } from "@/collections/FruitCarts";
 import { Accessories } from "@/collections/Accessories";
 import { Indoors } from "@/collections/Indoors";
-import { Presents } from "@/collections/Presents";
+import { Gifts } from "@/collections/Gifts";
 import { Sweets } from "@/collections/Sweets";
 import { Whom } from "@/collections/Whom";
 import { seed } from "@/seed";
@@ -28,7 +28,7 @@ export default buildConfig({
     FruitCarts,
     Accessories,
     Indoors,
-    Presents,
+    Gifts,
     Sweets,
     Whom,
   ],
