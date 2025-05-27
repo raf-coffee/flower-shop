@@ -23,7 +23,7 @@ function ProductPageView({
   item: DataFromCollectionSlug<ProductCollections>;
   itemInfo: {
     collection: ProductCollections;
-    imageCoverUrl: string;
+    imageCoverUrl: string | undefined | null;
     labels: Label[];
   };
 }) {
@@ -76,7 +76,7 @@ function ProductPageView({
             </ul>
             <div className="flex w-full justify-between">
               <Text>Отзывов (1)</Text>
-              <Text>{item.available ? "Есть в наличие" : "Нет в наличии"}</Text>
+              <Text>{item.available ? "Есть в наличии" : "Нет в наличии"}</Text>
             </div>
             <div className="flex w-full flex-col">
               <Heading level={3}>Повод:</Heading>
