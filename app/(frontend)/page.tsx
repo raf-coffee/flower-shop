@@ -23,7 +23,7 @@ export default function Home() {
           <a href={"/catalog/flowers"}>Выбрать букет</a>
         </Button>
       </Hero>
-      <Sales />
+      <Sales className="lg:mt-[-65px]" />
       <WhyUs />
       <CatalogSection />
       <Delivery />

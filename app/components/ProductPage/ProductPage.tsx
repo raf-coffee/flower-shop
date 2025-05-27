@@ -27,6 +27,16 @@ function ProductPageView({
     labels: Label[];
   };
 }) {
+  const occasionsText = item?.occasions?.map((occ) =>
+    typeof occ.value !== "number" ? `${occ.value.name}. ` : "",
+  );
+  const whomsText =
+    "whoms" in item && Array.isArray(item.whoms)
+      ? item?.whoms?.map((occ) =>
+          typeof occ.value !== "number" ? `${occ.value.name}. ` : "",
+        )
+      : null;
+
   return (
     <div className="bg-main-pink-300">
       <Hero
@@ -40,7 +50,7 @@ function ProductPageView({
       />
 
       <section className="bg-main-pink-400 p-4 lg:mt-[-65px]">
-        <Container className="flex flex-col gap-2 md:flex-row md:gap-5">
+        <Container className="flex flex-col items-center gap-2 md:flex-row md:items-start md:gap-5">
           <div className="max-w-[459px] md:basis-[45%]">
             <div className="w-full">
               {imageCoverUrl && (
@@ -54,10 +64,10 @@ function ProductPageView({
             </div>
           </div>
           <div className="md:basis-[55%]">
-            <ul className="mx-auto mb-2 grid max-w-[256px] grid-cols-2 gap-4 lg:mx-0">
+            <ul className="mx-auto mb-2 grid max-w-[334px] grid-cols-2 items-center justify-items-center gap-x-10 gap-y-2 md:mx-0 md:mb-4 md:gap-x-2 lg:mx-0">
               {labels.map((label) => (
                 <li
-                  className="flex h-3 w-[120px] items-center justify-center rounded-md p-1 text-center md:h-6"
+                  className="flex h-[26px] w-[126px] items-center justify-center rounded-md p-1 text-center md:h-6 md:w-[160px]"
                   style={{
                     backgroundColor: label.bg,
                     color: label.color ?? "white",
@@ -67,38 +77,45 @@ function ProductPageView({
                   <Text
                     font={TextFont.MONTSERRAT}
                     weight={TextWeight.MEDIUM}
-                    className="text-[6px] uppercase text-inherit lg:text-[14px]"
+                    size={TextSize.NORMAL}
+                    className="uppercase text-inherit"
                   >
                     {label.title}
                   </Text>
                 </li>
               ))}
             </ul>
-            <div className="flex w-full justify-between">
+            <div className="flex w-full justify-between md:mb-4 md:max-w-[310px]">
               <Text>Отзывов (1)</Text>
-              <Text>{item.available ? "Есть в наличие" : "Нет в наличии"}</Text>
+              <Text className="text-[#7EA048]">
+                {item.available ? "Есть в наличие" : "Нет в наличии"}
+              </Text>
             </div>
-            <div className="flex w-full flex-col">
-              <Heading level={3}>Повод:</Heading>
+            <div className="flex w-full flex-col md:mb-4">
+              <Heading level={4} className="font-semibold">
+                Повод:
+              </Heading>
               <Text
                 font={TextFont.LATO}
                 weight={TextWeight.MEDIUM}
                 size={TextSize.NORMAL}
               >
-                8 марта. Любовь.
+                {occasionsText}
               </Text>
             </div>
-            <div className="mb-2 flex w-full flex-col">
-              <Heading level={3}>Кому:</Heading>
+            <div className="mb-2 flex w-full flex-col md:mb-6">
+              <Heading level={4} className="font-semibold">
+                Кому:
+              </Heading>
               <Text
                 font={TextFont.LATO}
                 weight={TextWeight.MEDIUM}
                 size={TextSize.NORMAL}
               >
-                8 марта. Любовь.
+                {whomsText || "-"}
               </Text>
             </div>
-            <div className="w-full">
+            <div className="w-full md:mb-6">
               <Text
                 font={TextFont.MONTSERRAT}
                 weight={TextWeight.MEDIUM}
@@ -145,7 +162,11 @@ function ProductPageView({
         </Container>
       </section>
 
-      <Sales title={"Вместе покупают"} />
+      <div className="bg-main-pink-400">
+        <Container className="p-0">
+          <Sales title={"Вместе покупают"} />
+        </Container>
+      </div>
     </div>
   );
 }
