@@ -38,10 +38,15 @@ export type PayloadSelectAllCollection = Omit<
 
 export type ProductCollections = keyof Omit<
   typeof data,
-  "occasions" | "tags" | "whom" | "categories"
+  "occasions" | "tags" | "whom" | "categories" | "reviews"
 >;
 
-export type InitialCollections = "tags" | "occasions" | "categories" | "whom";
+export type InitialCollections =
+  | "tags"
+  | "occasions"
+  | "categories"
+  | "whom"
+  | "reviews";
 
 export type FindByIDOptions<T extends ProductCollections> = {
   context?: RequestContext;

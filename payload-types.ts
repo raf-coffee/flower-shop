@@ -79,6 +79,7 @@ export interface Config {
     gifts: Gift;
     sweets: Sweet;
     whom: Whom;
+    reviews: Review;
     users: User;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -98,6 +99,7 @@ export interface Config {
     gifts: GiftsSelect<false> | GiftsSelect<true>;
     sweets: SweetsSelect<false> | SweetsSelect<true>;
     whom: WhomSelect<false> | WhomSelect<true>;
+    reviews: ReviewsSelect<false> | ReviewsSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -165,25 +167,11 @@ export interface Flower {
   description: string;
   available: boolean;
   sale: boolean;
-  occasions?:
-    | {
-        relationTo: 'occasions';
-        value: number | Occasion;
-      }[]
-    | null;
-  tags?:
-    | {
-        relationTo: 'tags';
-        value: number | Tag;
-      }[]
-    | null;
-  categories?:
-    | {
-        relationTo: 'categories';
-        value: number | Category;
-      }[]
-    | null;
+  occasions?: (number | Occasion)[] | null;
+  tags?: (number | Tag)[] | null;
+  categories?: (number | Category)[] | null;
   images?: (number | Media)[] | null;
+  reviews?: (number | Review)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -219,6 +207,18 @@ export interface Category {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reviews".
+ */
+export interface Review {
+  id: number;
+  costumer: string;
+  review: string;
+  productCategory: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "baloons".
  */
 export interface Baloon {
@@ -227,19 +227,10 @@ export interface Baloon {
   price: string;
   description: string;
   available: boolean;
-  occasions?:
-    | {
-        relationTo: 'occasions';
-        value: number | Occasion;
-      }[]
-    | null;
-  tags?:
-    | {
-        relationTo: 'tags';
-        value: number | Tag;
-      }[]
-    | null;
+  occasions?: (number | Occasion)[] | null;
+  tags?: (number | Tag)[] | null;
   images?: (number | Media)[] | null;
+  reviews?: (number | Review)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -253,19 +244,10 @@ export interface FruitCart {
   price: string;
   description: string;
   available: boolean;
-  occasions?:
-    | {
-        relationTo: 'occasions';
-        value: number | Occasion;
-      }[]
-    | null;
-  tags?:
-    | {
-        relationTo: 'tags';
-        value: number | Tag;
-      }[]
-    | null;
+  occasions?: (number | Occasion)[] | null;
+  tags?: (number | Tag)[] | null;
   images?: (number | Media)[] | null;
+  reviews?: (number | Review)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -279,19 +261,10 @@ export interface Accessory {
   price: string;
   description: string;
   available: boolean;
-  occasions?:
-    | {
-        relationTo: 'occasions';
-        value: number | Occasion;
-      }[]
-    | null;
-  tags?:
-    | {
-        relationTo: 'tags';
-        value: number | Tag;
-      }[]
-    | null;
+  occasions?: (number | Occasion)[] | null;
+  tags?: (number | Tag)[] | null;
   images?: (number | Media)[] | null;
+  reviews?: (number | Review)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -305,19 +278,10 @@ export interface Indoor {
   price: string;
   description: string;
   available: boolean;
-  occasions?:
-    | {
-        relationTo: 'occasions';
-        value: number | Occasion;
-      }[]
-    | null;
-  tags?:
-    | {
-        relationTo: 'tags';
-        value: number | Tag;
-      }[]
-    | null;
+  occasions?: (number | Occasion)[] | null;
+  tags?: (number | Tag)[] | null;
   images?: (number | Media)[] | null;
+  reviews?: (number | Review)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -331,19 +295,10 @@ export interface Gift {
   price: string;
   description: string;
   available: boolean;
-  occasions?:
-    | {
-        relationTo: 'occasions';
-        value: number | Occasion;
-      }[]
-    | null;
-  tags?:
-    | {
-        relationTo: 'tags';
-        value: number | Tag;
-      }[]
-    | null;
+  occasions?: (number | Occasion)[] | null;
+  tags?: (number | Tag)[] | null;
   images?: (number | Media)[] | null;
+  reviews?: (number | Review)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -357,19 +312,10 @@ export interface Sweet {
   price: string;
   description: string;
   available: boolean;
-  occasions?:
-    | {
-        relationTo: 'occasions';
-        value: number | Occasion;
-      }[]
-    | null;
-  tags?:
-    | {
-        relationTo: 'tags';
-        value: number | Tag;
-      }[]
-    | null;
+  occasions?: (number | Occasion)[] | null;
+  tags?: (number | Tag)[] | null;
   images?: (number | Media)[] | null;
+  reviews?: (number | Review)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -456,6 +402,10 @@ export interface PayloadLockedDocument {
         value: number | Whom;
       } | null)
     | ({
+        relationTo: 'reviews';
+        value: number | Review;
+      } | null)
+    | ({
         relationTo: 'users';
         value: number | User;
       } | null);
@@ -533,6 +483,7 @@ export interface FlowersSelect<T extends boolean = true> {
   tags?: T;
   categories?: T;
   images?: T;
+  reviews?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -575,6 +526,7 @@ export interface BaloonsSelect<T extends boolean = true> {
   occasions?: T;
   tags?: T;
   images?: T;
+  reviews?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -590,6 +542,7 @@ export interface FruitCartsSelect<T extends boolean = true> {
   occasions?: T;
   tags?: T;
   images?: T;
+  reviews?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -605,6 +558,7 @@ export interface AccessoriesSelect<T extends boolean = true> {
   occasions?: T;
   tags?: T;
   images?: T;
+  reviews?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -620,6 +574,7 @@ export interface IndoorsSelect<T extends boolean = true> {
   occasions?: T;
   tags?: T;
   images?: T;
+  reviews?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -635,6 +590,7 @@ export interface GiftsSelect<T extends boolean = true> {
   occasions?: T;
   tags?: T;
   images?: T;
+  reviews?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -650,6 +606,7 @@ export interface SweetsSelect<T extends boolean = true> {
   occasions?: T;
   tags?: T;
   images?: T;
+  reviews?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -659,6 +616,17 @@ export interface SweetsSelect<T extends boolean = true> {
  */
 export interface WhomSelect<T extends boolean = true> {
   name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reviews_select".
+ */
+export interface ReviewsSelect<T extends boolean = true> {
+  costumer?: T;
+  review?: T;
+  productCategory?: T;
   updatedAt?: T;
   createdAt?: T;
 }
