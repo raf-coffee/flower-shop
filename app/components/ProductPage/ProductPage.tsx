@@ -28,7 +28,7 @@ function ProductPageView({
   };
 }) {
   const occasionsText = item?.occasions?.map((occ) =>
-    typeof occ.value !== "number" ? `${occ.value.name}. ` : "",
+    typeof occ !== "number" ? `${occ.name}. ` : "",
   );
   const whomsText =
     "whoms" in item && Array.isArray(item.whoms)

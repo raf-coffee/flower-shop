@@ -53,7 +53,7 @@ function CatalogView({
         Array.isArray(product.categories)
       ) {
         const productCategoryIds = product.categories.map((cat) =>
-          typeof cat.value === "number" ? cat.value : cat.value.id,
+          typeof cat === "number" ? cat : cat.id,
         );
 
         if (!activeCategoryIds.some((id) => productCategoryIds.includes(id))) {
@@ -64,7 +64,7 @@ function CatalogView({
       // === Повод ===
       if (activeOccasionIds.length > 0) {
         const occasionIds = product.occasions?.map((occ) =>
-          typeof occ.value === "number" ? occ.value : occ.value.id,
+          typeof occ === "number" ? occ : occ.id,
         );
 
         if (!occasionIds?.some((id) => activeOccasionIds.includes(id))) {
