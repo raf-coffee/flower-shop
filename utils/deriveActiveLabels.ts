@@ -34,9 +34,9 @@ const deriveActiveLabels = (
 
   return Object.keys(labels).reduce((acc, value): Label[] => {
     const isLabelExist = item?.tags?.find((tag) =>
-      typeof tag.value === "number"
-        ? String(tag.value) === value
-        : String(tag.value.id) === value,
+      typeof tag === "number"
+        ? String(tag) === value
+        : String(tag.id) === value,
     );
 
     if (isLabelExist) {

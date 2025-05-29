@@ -11,6 +11,7 @@ const generate = {
   price: (min = 4000, max = 15000, dec = 0) =>
     faker.commerce.price({ min, max, dec }),
   sale: (probability = 0.4) => faker.datatype.boolean({ probability }),
+  reviewsCount: (min = 0, max = 20) => faker.number.int({ min, max }),
 };
 
 const generateCommonFields = <T extends ProductCollections>(
@@ -22,9 +23,10 @@ const generateCommonFields = <T extends ProductCollections>(
   const price = generate.price();
   const images = generate.images(imageIds, 1);
   const sale = generate.sale();
-  const occasions = generateRelation("occasions", data.occasions.ids, 4);
-  const tags = generateRelation("tags", data.tags.ids, 4);
-  const whom = generateRelation("whom", data.whom.ids, 4);
+  const occasions = generateRelation(data.occasions.ids, 4);
+  const tags = generateRelation(data.tags.ids, 4);
+  const whom = generateRelation(data.whom.ids, 4);
+  const reviews = generateRelation(data.reviews.ids, generate.reviewsCount());
   const available = true;
 
   return {
@@ -37,6 +39,7 @@ const generateCommonFields = <T extends ProductCollections>(
     images,
     whom,
     sale,
+    reviews,
   } as const;
 };
 
@@ -54,7 +57,7 @@ const generateData = {
     faker.helpers.multiple(
       () => ({
         ...generateCommonFields("flowers", imageIds),
-        categories: generateRelation("categories", data.categories.ids, 1),
+        categories: generateRelation(data.categories.ids, 1),
       }),
       {
         count,
