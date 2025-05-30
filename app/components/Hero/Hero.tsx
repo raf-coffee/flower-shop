@@ -30,8 +30,8 @@ export default function Hero({
     >
       <Container className="relative flex min-h-[300px] lg:min-h-[700px]">
         <div className="flex flex-col justify-center">
-          <div className="flex flex-col justify-center gap-4">
-            <h1 className="lg:order-0 w-[272px] text-2xl font-bold md:w-[400px] md:text-3xl lg:bottom-44 lg:w-[600px] lg:text-5xl">
+          <div className="flex flex-col justify-center">
+            <h1 className="lg:order-0 w-[272px] text-2xl font-bold md:mb-6 md:w-[400px] md:text-3xl lg:bottom-44 lg:w-[700px] lg:text-[64px] lg:leading-[64px]">
               {heading}
             </h1>
             {description && (
