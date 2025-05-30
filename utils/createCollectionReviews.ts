@@ -26,7 +26,5 @@ export async function createCollectionReviews(
     }),
   );
 
-  return {
-    ids,
-  };
+  return ids;
 }

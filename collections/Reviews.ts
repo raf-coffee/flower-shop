@@ -8,7 +8,7 @@ export const Reviews: CollectionConfig = {
   fields: [
     {
       name: "customer",
-      label: "Costumer Name",
+      label: "Customer Name",
       type: "text",
       required: true,
     },

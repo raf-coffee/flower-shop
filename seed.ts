@@ -45,7 +45,7 @@ export const seed = async (payload: Payload) => {
   );
 
   const reviewsDoesNotExists = await collectionDoesNotExist(payload, "reviews");
-  let reviews: { ids: number[] }[];
+  let reviews: number[][];
 
   if (reviewsDoesNotExists) {
     reviews = await Promise.all(
@@ -66,7 +66,7 @@ export const seed = async (payload: Payload) => {
           },
         });
         const ids = data.docs.map((item) => item.id);
-        return { ids };
+        return ids;
       }),
     );
   }
@@ -76,7 +76,7 @@ export const seed = async (payload: Payload) => {
     items: generateData(collection, {
       count: ITEMS_COUNT,
       imageIds: images[index],
-      reviewIds: reviews[index].ids,
+      reviewIds: reviews[index],
     }),
   }));
 
