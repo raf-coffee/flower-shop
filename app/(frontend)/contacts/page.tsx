@@ -16,6 +16,7 @@ import {
 import { IconMailFilled, IconPhoneCall } from "@tabler/icons-react";
 import { AlarmIcon, MapMarkerIcon } from "@/static/icons";
 import FeedbackForm from "@/app/components/FeedbackForm/FeedbackForm";
+import LeadSection from "@/app/components/ui/LeadSection/LeadSection";
 
 export const metadata: Metadata = {
   title: "Контакты | Floristman - Яркие моменты вашей жизни",
@@ -29,9 +30,9 @@ export const metadata: Metadata = {
 export default function Contacts() {
   return (
     <div className="bg-main-pink-300">
-      <Hero heading="Контакты" hasBreadCrumbs />
+      <Hero heading="Контакты" />
 
-      <section className="bg-main-pink-400 p-4 lg:mt-[-65px]">
+      <LeadSection>
         <Container className="z-3 relative lg:rounded-2xl lg:bg-main-pink-300 lg:p-2">
           <div className="gap-4 lg:grid lg:min-h-[500px] lg:grid-cols-[1fr_1fr] lg:gap-x-16 lg:p-2">
             <div className="mb-5 lg:mb-0">
@@ -137,7 +138,7 @@ export default function Contacts() {
             </div>
           </div>
         </Container>
-      </section>
+      </LeadSection>
 
       <FeedbackForm title="Появились вопросы?" />
     </div>

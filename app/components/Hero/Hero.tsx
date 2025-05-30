@@ -1,6 +1,6 @@
-import hero2 from "../../../static/hero-lg.png";
+import hero2 from "@/static/hero-lg.png";
 import { Container, Text, TextSize } from "../ui";
-import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
+// import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import { twMerge } from "tailwind-merge";
 import React, { ReactNode } from "react";
 import { Crumb } from "@/types";
@@ -8,8 +8,8 @@ import { Crumb } from "@/types";
 export default function Hero({
   heading,
   description,
-  hasBreadCrumbs = false,
-  tailCrumb,
+  // hasBreadCrumbs = false,
+  // tailCrumb,
   children,
   className,
 }: {
@@ -44,12 +44,12 @@ export default function Hero({
             )}
             {children && children}
           </div>
-          {hasBreadCrumbs && (
+          {/* {hasBreadCrumbs && (
             <Breadcrumbs
               tailCrumb={tailCrumb}
               className="absolute bottom-[10px] min-w-[272px] text-2xl font-bold md:min-w-[400px] md:text-3xl lg:bottom-[75px] lg:w-[600px] lg:text-5xl"
             />
-          )}
+          )} */}
         </div>
       </Container>
     </section>
