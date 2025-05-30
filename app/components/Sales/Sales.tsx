@@ -14,7 +14,7 @@ export default async function Sales({
   });
 
   return (
-    <section className={twMerge("bg-main-pink-400 p-4", className)}>
+    <section className={twMerge("bg-main-pink-400", className)}>
       <div className="mx-auto max-w-7xl">
         <h2 className="mb-4 text-center text-lg font-bold md:text-start md:text-2xl">
           {title ? title : "Скидки"}
