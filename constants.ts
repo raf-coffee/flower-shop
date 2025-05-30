@@ -14,6 +14,7 @@ const rawMenuLinks = [
   { title: "Сладости", slug: "sweets", img: SweetsCatalogCover },
   { title: "Воздушные шары", slug: "baloons", img: BalloonsCatalogCover },
   { title: "Подарки", slug: "gifts", img: GiftsCatalogCover },
+  { title: "Контакты", slug: "contacts", img: null },
   // {
   //   title: "Аксессуары",
   //   slug: "accessories",
@@ -38,7 +39,7 @@ const rawMenuLinks = [
 
 export const MENU_LINKS = rawMenuLinks.map((item) => ({
   ...item,
-  href: `/catalog/${item.slug}`,
+  href: item.img ? `/catalog/${item.slug}` : `/${item.slug}`,
 }));
 
 export const API_LINK = `${process.env.NEXT_PUBLIC_API_URL}`;
