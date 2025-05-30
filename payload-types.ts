@@ -211,9 +211,9 @@ export interface Category {
  */
 export interface Review {
   id: number;
-  costumer: string;
+  customer: string;
   review: string;
-  productCategory: string;
+  collection: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -624,9 +624,9 @@ export interface WhomSelect<T extends boolean = true> {
  * via the `definition` "reviews_select".
  */
 export interface ReviewsSelect<T extends boolean = true> {
-  costumer?: T;
+  customer?: T;
   review?: T;
-  productCategory?: T;
+  collection?: T;
   updatedAt?: T;
   createdAt?: T;
 }

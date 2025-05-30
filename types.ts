@@ -41,12 +41,7 @@ export type ProductCollections = keyof Omit<
   "occasions" | "tags" | "whom" | "categories" | "reviews"
 >;
 
-export type InitialCollections =
-  | "tags"
-  | "occasions"
-  | "categories"
-  | "whom"
-  | "reviews";
+export type InitialCollections = "tags" | "occasions" | "categories" | "whom";
 
 export type FindByIDOptions<T extends ProductCollections> = {
   context?: RequestContext;
@@ -111,3 +106,10 @@ export interface Crumb {
   title: string;
   href?: string;
 }
+
+export type GenerateDataOptions = {
+  count: number;
+  imageIds: number[];
+  reviewIds: number[];
+  extraRelationFields?: Record<string, number[]>;
+};

@@ -7,7 +7,7 @@ export const Reviews: CollectionConfig = {
   },
   fields: [
     {
-      name: "costumer",
+      name: "customer",
       label: "Costumer Name",
       type: "text",
       required: true,
@@ -19,8 +19,8 @@ export const Reviews: CollectionConfig = {
       required: true,
     },
     {
-      name: "productCategory",
-      label: "Product Category",
+      name: "collection",
+      label: "Product Collection",
       type: "text",
       required: true,
     },
