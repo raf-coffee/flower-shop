@@ -138,7 +138,9 @@ export default function OrderForm() {
               <Image src={img} alt="" fill />
             </div>
           </div>
-          <Button className="mx-auto mt-4 block sm:mt-8">Отправить</Button>
+          <Button size="large" className="mx-auto mt-4 block sm:mt-8">
+            Отправить
+          </Button>
         </Form>
       </div>
     </section>

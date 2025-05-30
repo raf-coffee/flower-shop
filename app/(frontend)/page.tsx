@@ -6,7 +6,7 @@ import Delivery from "@/app/components/Delivery/Delivery";
 import { Button } from "@/app/components/ui";
 import CatalogSection from "@/app/components/CatalogSection/CatalogSection";
 import { Metadata } from "next";
-import LeadSection from "@/app/components/ui/LeadSection/LeadSection";
+import { LeadSectionContainer } from "@/app/components/ui";
 
 export const metadata: Metadata = {
   title: "Главная | Floristman - Яркие моменты вашей жизни",
@@ -24,9 +24,9 @@ export default function Home() {
           <Button size="large">Выбрать букет</Button>
         </a>
       </Hero>
-      <LeadSection>
+      <LeadSectionContainer>
         <Sales />
-      </LeadSection>
+      </LeadSectionContainer>
       <WhyUs />
       <CatalogSection />
       <Delivery />

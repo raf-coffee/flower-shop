@@ -3,7 +3,7 @@ import deliveryImg from "../../../static/delivery/delivery.png";
 
 export default function Delivery() {
   return (
-    <section className="bg-main-pink-400">
+    <section className="bg-main-pink-300">
       <div className="relative mx-auto h-[360px] max-w-7xl lg:h-[700px]">
         <h2 className="relative z-10 mb-4 ps-14 pt-10 text-start text-lg font-bold md:text-2xl lg:ps-24 lg:pt-20 lg:text-4xl">
           Доставка

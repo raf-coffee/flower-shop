@@ -1,6 +1,6 @@
 import { ProductCollections } from "@/types";
 import Hero from "@/app/components/Hero/Hero";
-import { Container } from "@/app/components/ui";
+import { Container, LeadSectionContainer } from "@/app/components/ui";
 import CatalogView from "../CatalogView/CatalogView";
 import { getData } from "@/lib/getData";
 
@@ -17,7 +17,7 @@ export default async function Catalog({ type }: { type: ProductCollections }) {
     <div className="bg-main-pink-300">
       <Hero heading="Каталог" hasBreadCrumbs className="mb-14 lg:mb-0" />
 
-      <section className="bg-main-pink-400 p-4 lg:mt-[-65px]">
+      <LeadSectionContainer>
         <Container>
           <CatalogView
             products={products}
@@ -31,7 +31,7 @@ export default async function Catalog({ type }: { type: ProductCollections }) {
             type={type}
           />
         </Container>
-      </section>
+      </LeadSectionContainer>
     </div>
   );
 }
