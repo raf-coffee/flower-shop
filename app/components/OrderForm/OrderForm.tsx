@@ -120,7 +120,7 @@ export default function OrderForm() {
                   control={control}
                   render={({ field }) => (
                     <TextArea
-                      placeholder="Телефон"
+                      placeholder="Ваша идея"
                       aria-invalid={!!errors.desc}
                       aria-describedby="desc-error"
                       {...field}
