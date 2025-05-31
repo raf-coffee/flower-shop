@@ -1,7 +1,6 @@
 import { getPayload } from "payload";
 import config from "@/payload.config";
 import type {
-  ProductCollections,
   FindByIDOptions,
   FindAllOptions,
   PayloadCollections,
@@ -24,7 +23,7 @@ export const getData = {
       throw error;
     }
   },
-  findById: async <T extends ProductCollections>(
+  findById: async <T extends PayloadCollections>(
     collection: T,
     id: number | string,
     options?: FindByIDOptions<T>,

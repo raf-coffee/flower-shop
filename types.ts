@@ -43,7 +43,7 @@ export type ProductCollections = keyof Omit<
 
 export type InitialCollections = "tags" | "occasions" | "categories" | "whom";
 
-export type FindByIDOptions<T extends ProductCollections> = {
+export type FindByIDOptions<T extends PayloadCollections> = {
   context?: RequestContext;
   currentDepth?: number;
   depth?: number;
@@ -56,7 +56,7 @@ export type FindByIDOptions<T extends ProductCollections> = {
   overrideAccess?: boolean;
   populate?: PopulateType;
   req?: Partial<PayloadRequest>;
-  select?: PayloadSelectProductCollections[T];
+  select?: PayloadSelectAllCollection[T];
   showHiddenFields?: boolean;
   user?: Document;
 };
