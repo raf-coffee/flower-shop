@@ -40,7 +40,7 @@ export const Flowers: CollectionConfig = {
       name: "occasions",
       label: "Occasions",
       type: "relationship",
-      relationTo: ["occasions"],
+      relationTo: "occasions",
       hasMany: true,
     },
     {
@@ -48,14 +48,14 @@ export const Flowers: CollectionConfig = {
       label: "Tags",
       type: "relationship",
       hasMany: true,
-      relationTo: ["tags"],
+      relationTo: "tags",
     },
     {
       name: "categories",
       label: "Categories",
       type: "relationship",
       hasMany: true,
-      relationTo: ["categories"],
+      relationTo: "categories",
     },
     {
       name: "images",
@@ -63,6 +63,13 @@ export const Flowers: CollectionConfig = {
       type: "upload",
       hasMany: true,
       relationTo: "media",
+    },
+    {
+      name: "reviews",
+      label: "Reviews",
+      type: "relationship",
+      hasMany: true,
+      relationTo: "reviews",
     },
   ],
 };

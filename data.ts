@@ -9,6 +9,7 @@ import categories from "@/data/categories";
 import occasions from "@/data/occansions";
 import tags from "@/data/tags";
 import whom from "@/data/whom";
+import reviews from "@/data/reviews";
 
 const data = {
   accessories,
@@ -22,6 +23,7 @@ const data = {
   occasions,
   tags,
   whom,
+  reviews,
 };
 
 export default data;

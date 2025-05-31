@@ -14,6 +14,7 @@ import { Indoors } from "@/collections/Indoors";
 import { Gifts } from "@/collections/Gifts";
 import { Sweets } from "@/collections/Sweets";
 import { Whom } from "@/collections/Whom";
+import { Reviews } from "@/collections/Reviews";
 import { seed } from "@/seed";
 
 export default buildConfig({
@@ -31,6 +32,7 @@ export default buildConfig({
     Gifts,
     Sweets,
     Whom,
+    Reviews,
   ],
   secret: process.env.PAYLOAD_SECRET || "",
   db: postgresAdapter({

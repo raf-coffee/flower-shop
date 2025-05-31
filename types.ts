@@ -38,12 +38,12 @@ export type PayloadSelectAllCollection = Omit<
 
 export type ProductCollections = keyof Omit<
   typeof data,
-  "occasions" | "tags" | "whom" | "categories"
+  "occasions" | "tags" | "whom" | "categories" | "reviews"
 >;
 
 export type InitialCollections = "tags" | "occasions" | "categories" | "whom";
 
-export type FindByIDOptions<T extends ProductCollections> = {
+export type FindByIDOptions<T extends PayloadCollections> = {
   context?: RequestContext;
   currentDepth?: number;
   depth?: number;
@@ -56,7 +56,7 @@ export type FindByIDOptions<T extends ProductCollections> = {
   overrideAccess?: boolean;
   populate?: PopulateType;
   req?: Partial<PayloadRequest>;
-  select?: PayloadSelectProductCollections[T];
+  select?: PayloadSelectAllCollection[T];
   showHiddenFields?: boolean;
   user?: Document;
 };
@@ -106,3 +106,10 @@ export interface Crumb {
   title: string;
   href?: string;
 }
+
+export type GenerateDataOptions = {
+  count: number;
+  imageIds: number[];
+  reviewIds: number[];
+  extraRelationFields?: Record<string, number[]>;
+};

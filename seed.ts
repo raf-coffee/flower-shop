@@ -7,6 +7,7 @@ import {
 } from "@/utils";
 import data from "@/data";
 import type { InitialCollections, ProductCollections } from "@/types";
+import { createCollectionReviews } from "./utils/createCollectionReviews";
 
 const ITEMS_COUNT = 20;
 
@@ -36,16 +37,47 @@ export const seed = async (payload: Payload) => {
     }),
   );
 
-  const imageIds = await Promise.all(
+  const images = await Promise.all(
     PRODUCT_COLLECTIONS.map(async (collection) => {
       const ids = await uploadImages(payload, collection);
       return ids;
     }),
   );
 
+  const reviewsDoesNotExists = await collectionDoesNotExist(payload, "reviews");
+  let reviews: number[][];
+
+  if (reviewsDoesNotExists) {
+    reviews = await Promise.all(
+      PRODUCT_COLLECTIONS.map(async (collection) => {
+        const ids = await createCollectionReviews(payload, collection);
+        return ids;
+      }),
+    );
+  } else {
+    reviews = await Promise.all(
+      PRODUCT_COLLECTIONS.map(async (collection) => {
+        const data = await payload.find({
+          collection: "reviews",
+          where: {
+            collection: {
+              equals: collection,
+            },
+          },
+        });
+        const ids = data.docs.map((item) => item.id);
+        return ids;
+      }),
+    );
+  }
+
   const productData = PRODUCT_COLLECTIONS.map((collection, index) => ({
     collection,
-    items: generateData[collection](ITEMS_COUNT, imageIds[index]),
+    items: generateData(collection, {
+      count: ITEMS_COUNT,
+      imageIds: images[index],
+      reviewIds: reviews[index],
+    }),
   }));
 
   await Promise.all(

@@ -34,7 +34,7 @@ export const Gifts: CollectionConfig = {
       name: "occasions",
       label: "Occasions",
       type: "relationship",
-      relationTo: ["occasions"],
+      relationTo: "occasions",
       hasMany: true,
     },
     {
@@ -42,7 +42,7 @@ export const Gifts: CollectionConfig = {
       label: "Tags",
       type: "relationship",
       hasMany: true,
-      relationTo: ["tags"],
+      relationTo: "tags",
     },
     {
       name: "images",
@@ -50,6 +50,13 @@ export const Gifts: CollectionConfig = {
       type: "upload",
       hasMany: true,
       relationTo: "media",
+    },
+    {
+      name: "reviews",
+      label: "Reviews",
+      type: "relationship",
+      hasMany: true,
+      relationTo: "reviews",
     },
   ],
 };
