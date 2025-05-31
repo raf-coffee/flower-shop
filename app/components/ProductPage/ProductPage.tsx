@@ -1,10 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-
-import { getData } from "@/lib/getData";
-import { Label, ProductCollections } from "@/types";
 import { DataFromCollectionSlug } from "payload";
-import Hero from "@/app/components/Hero/Hero";
 import {
   Container,
   TextFont,
@@ -14,9 +10,13 @@ import {
   TextSize,
   LeadSectionContainer,
 } from "@/app/components/ui";
+import Sales from "@/app/components/Sales/Sales";
+import Breadcrumbs from "@/app/components/Breadcrumbs/Breadcrumbs";
+import Reviews from "@/app/components/Reviews/Reviews";
+import Hero from "@/app/components/Hero/Hero";
 import { deriveActiveLabels, getCoverImageUrl } from "@/utils";
-import Sales from "../Sales/Sales";
-import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
+import { getData } from "@/lib/getData";
+import { Label, ProductCollections } from "@/types";
 
 function ProductPageView({
   item,
@@ -43,7 +43,7 @@ function ProductPageView({
     <div className="bg-main-pink-300">
       <Hero heading={item.name} className="mb-14 lg:mb-0" />
       <LeadSectionContainer>
-        <Container>
+        <Container className="mb-4">
           <Breadcrumbs
             className="relative -top-14 lg:-top-12"
             tailCrumb={{
@@ -87,9 +87,9 @@ function ProductPageView({
                 ))}
               </ul>
               <div className="flex w-full justify-between md:mb-4 md:max-w-[310px]">
-                <Text>Отзывов (1)</Text>
+                <Text>Отзывов ({item.reviews ? item.reviews.length : 0})</Text>
                 <Text className="text-[#7EA048]">
-                  {item.available ? "Есть в наличие" : "Нет в наличии"}
+                  {item.available ? "Есть в наличии" : "Нет в наличии"}
                 </Text>
               </div>
               <div className="flex w-full flex-col md:mb-4">
@@ -123,7 +123,7 @@ function ProductPageView({
                   size={TextSize.LARGE}
                   className="text-[#7EA048]"
                 >
-                  3 500 р.
+                  {item.price} <small>&#8381;</small>
                 </Text>
               </div>
               <div className="mb-2 flex w-full flex-col gap-1">
@@ -140,29 +140,7 @@ function ProductPageView({
           </div>
         </Container>
 
-        <Container>
-          <div className="mb-2 flex w-full flex-col gap-1">
-            <Heading level={3}>Отзывы (1):</Heading>
-            <Text
-              font={TextFont.LATO}
-              weight={TextWeight.MEDIUM}
-              size={TextSize.NORMAL}
-              className="text-secondary-pink"
-            >
-              Отзыв от Лены Катиной:
-            </Text>
-            <Text
-              font={TextFont.LATO}
-              weight={TextWeight.MEDIUM}
-              size={TextSize.NORMAL}
-              className="pl-4"
-            >
-              Очень доволен покупкой — всё соответствует описанию. Качество на
-              высоте, доставка была быстрая, упаковка аккуратная. Пользуюсь с
-              удовольствием, могу смело рекомендовать другим!
-            </Text>
-          </div>
-        </Container>
+        <Reviews reviews={item.reviews} />
       </LeadSectionContainer>
 
       <div className="bg-main-pink-400">
