@@ -16,6 +16,7 @@ import {
 import { IconMailFilled, IconPhoneCall } from "@tabler/icons-react";
 import { AlarmIcon, MapMarkerIcon } from "@/static/icons";
 import FeedbackForm from "@/app/components/FeedbackForm/FeedbackForm";
+import { LeadSectionContainer } from "@/app/components/ui";
 
 export const metadata: Metadata = {
   title: "Контакты | Floristman - Яркие моменты вашей жизни",
@@ -29,9 +30,9 @@ export const metadata: Metadata = {
 export default function Contacts() {
   return (
     <div className="bg-main-pink-300">
-      <Hero heading="Контакты" hasBreadCrumbs />
+      <Hero heading="Контакты" />
 
-      <section className="bg-main-pink-400 p-4 lg:mt-[-65px]">
+      <LeadSectionContainer>
         <Container className="z-3 relative lg:rounded-2xl lg:bg-main-pink-300 lg:p-2">
           <div className="gap-4 lg:grid lg:min-h-[500px] lg:grid-cols-[1fr_1fr] lg:gap-x-16 lg:p-2">
             <div className="mb-5 lg:mb-0">
@@ -108,36 +109,47 @@ export default function Contacts() {
                 />
                 Город Москва, 4 сыромятнический переулок, дом 1/8с22
               </Text>
-              <Text
-                className="flex flex-row gap-x-2"
-                size={TextSize.NORMAL}
-                font={TextFont.LATO}
-                weight={TextWeight.MEDIUM}
-              >
-                <Image
-                  className="mt-1.5 h-[15px] w-[15px]"
-                  src={AlarmIcon.src}
-                  width={15}
-                  height={15}
-                  alt="Map marker."
-                />
-                Режим работы: Пн-пт: 00:00-00:00
-              </Text>
-              <Text
-                className="mb-2 pl-[135px] lg:pl-[192px]"
-                size={TextSize.NORMAL}
-                font={TextFont.LATO}
-                weight={TextWeight.MEDIUM}
-              >
-                Сб-вс: 00:00-00:00
-              </Text>
+              <div className="flex gap-1">
+                <Text
+                  className="flex flex-row gap-x-2"
+                  size={TextSize.NORMAL}
+                  font={TextFont.LATO}
+                  weight={TextWeight.MEDIUM}
+                >
+                  <Image
+                    className="mt-1.5 h-[15px] w-[15px]"
+                    src={AlarmIcon.src}
+                    width={15}
+                    height={15}
+                    alt="Map marker."
+                  />
+                  Режим работы:
+                </Text>
+                <div>
+                  <Text
+                    size={TextSize.NORMAL}
+                    font={TextFont.LATO}
+                    weight={TextWeight.MEDIUM}
+                  >
+                    Пн-пт: 08:00-23:00
+                  </Text>
+                  <Text
+                    size={TextSize.NORMAL}
+                    font={TextFont.LATO}
+                    weight={TextWeight.MEDIUM}
+                  >
+                    Сб-вс:&nbsp;
+                    <span className="relative left-[4px]">09:00-22:00</span>
+                  </Text>
+                </div>
+              </div>
             </div>
             <div className="mb-5 flex min-h-[350px] w-full min-w-[350px] items-center justify-center lg:order-1 lg:row-start-1 lg:row-end-3 lg:mb-0 lg:h-full">
               <YandexMap />
             </div>
           </div>
         </Container>
-      </section>
+      </LeadSectionContainer>
 
       <FeedbackForm title="Появились вопросы?" />
     </div>

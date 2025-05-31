@@ -17,24 +17,26 @@ export default function Footer() {
             <Logo />
           </div>
           <ul className="grid grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-4 lg:grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
-            {MENU_LINKS.map(({ title, href, img }) => (
-              <Link
-                className="relative min-h-[140px] bg-main-pink-400 lg:min-h-[360px]"
-                href={href}
-                key={title}
-              >
-                <li
-                  className="relative h-full w-full"
-                  style={{
-                    backgroundImage: `url(${img.src})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
+            {MENU_LINKS.filter((item) => !!item.img).map(
+              ({ title, href, img }) => (
+                <Link
+                  className="relative min-h-[140px] bg-main-pink-400 lg:min-h-[360px]"
+                  href={href}
+                  key={title}
                 >
-                  <CatalogCardOverlay>{title}</CatalogCardOverlay>
-                </li>
-              </Link>
-            ))}
+                  <li
+                    className="relative h-full w-full"
+                    style={{
+                      backgroundImage: `url(${img.src})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  >
+                    <CatalogCardOverlay>{title}</CatalogCardOverlay>
+                  </li>
+                </Link>
+              ),
+            )}
           </ul>
         </Container>
       </section>
