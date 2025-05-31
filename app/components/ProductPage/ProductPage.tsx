@@ -12,7 +12,7 @@ import {
 } from "@/app/components/ui";
 import Sales from "@/app/components/Sales/Sales";
 import Breadcrumbs from "@/app/components/Breadcrumbs/Breadcrumbs";
-import Reviews from "@/app/components/Reviews/Reviews";
+import ReviewList from "@/app/components/ReviewList/ReviewList";
 import Hero from "@/app/components/Hero/Hero";
 import { deriveActiveLabels, getCoverImageUrl } from "@/utils";
 import { getData } from "@/lib/getData";
@@ -140,7 +140,7 @@ function ProductPageView({
           </div>
         </Container>
 
-        <Reviews reviews={item.reviews} />
+        <ReviewList reviews={item.reviews} />
       </LeadSectionContainer>
 
       <div className="bg-main-pink-400">
