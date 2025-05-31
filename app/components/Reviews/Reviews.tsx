@@ -32,7 +32,7 @@ export default function Reviews({
             size={TextSize.NORMAL}
             className="text-secondary-pink"
           >
-            К сожалению отзывов пока что нет.
+            К сожалению, отзывов пока что нет.
           </Text>
         </div>
       </Container>
