@@ -4,8 +4,6 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { isValidPhoneNumber } from "libphonenumber-js/max";
-import { z } from "zod";
 import {
   Form,
   Input,
@@ -17,20 +15,7 @@ import {
 } from "@/app/components/ui";
 
 import img from "@/static/form/form.png";
-
-const schema = z.object({
-  name: z
-    .string()
-    .min(1, { message: "Имя должно содержать как минимум 1 символ" }),
-  phone: z.string().refine((value) => isValidPhoneNumber(value, "RU"), {
-    message: "Неправильный номер телефона",
-  }),
-  desc: z
-    .string()
-    .min(1, { message: "Сообщение должно содержать как минимум 1 символ" }),
-});
-
-type FormSchema = z.infer<typeof schema>;
+import { formSchema, FormSchema } from "@/constants";
 
 export default function OrderForm() {
   const {
@@ -39,7 +24,7 @@ export default function OrderForm() {
     reset,
     control,
   } = useForm({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(formSchema),
     defaultValues: { name: "", desc: "", phone: "" },
   });
 

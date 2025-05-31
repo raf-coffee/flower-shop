@@ -8,6 +8,8 @@ import {
   // ServicesCatalogCover,
   SweetsCatalogCover,
 } from "@/static/categories";
+import { isValidPhoneNumber } from "libphonenumber-js/max";
+import z from "zod";
 
 const rawMenuLinks = [
   { title: "Цветы", slug: "flowers", img: FlowersCatalogCover },
@@ -56,4 +58,18 @@ const PAGE_PATHS_TRANSLATIONS: Record<string, string> = {
 
 const BREADCRUMBS_SEPARATOR = "/";
 
-export { PAGE_PATHS_TRANSLATIONS, BREADCRUMBS_SEPARATOR };
+const formSchema = z.object({
+  name: z
+    .string()
+    .min(1, { message: "Имя должно содержать как минимум 1 символ" }),
+  phone: z.string().refine((value) => isValidPhoneNumber(value, "RU"), {
+    message: "Неправильный номер телефона",
+  }),
+  desc: z
+    .string()
+    .min(1, { message: "Сообщение должно содержать как минимум 1 символ" }),
+});
+
+export type FormSchema = z.infer<typeof formSchema>;
+
+export { PAGE_PATHS_TRANSLATIONS, BREADCRUMBS_SEPARATOR, formSchema };

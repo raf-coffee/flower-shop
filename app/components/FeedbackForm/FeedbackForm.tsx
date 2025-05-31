@@ -1,30 +1,123 @@
-import { Container, Heading, Input, TextArea, Button } from "../ui";
+"use client";
+
+import { useEffect } from "react";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import {
+  Container,
+  Heading,
+  Input,
+  TextArea,
+  Button,
+  Form,
+  Group,
+  Label,
+  ErrorMessage,
+} from "../ui";
+import { formSchema, FormSchema } from "@/constants";
 
 function FeedbackForm({ title }: { title: string }) {
+  const {
+    handleSubmit,
+    control,
+    formState: { errors, isSubmitSuccessful },
+    reset,
+  } = useForm<FormSchema>({
+    resolver: zodResolver(formSchema),
+    defaultValues: { name: "", phone: "", desc: "" },
+  });
+
+  const onSubmit: SubmitHandler<FormSchema> = (data) => {
+    console.log(data); // eslint-disable-line
+  };
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset(undefined, { keepIsValid: true });
+    }
+  }, [isSubmitSuccessful, reset]);
+
   return (
     <section className="bg-main-pink-400 p-4">
       <Container className="max-w-[770px] lg:mb-12">
         <Heading level={2} className="mb-4 text-center lg:mb-12">
           {title}
         </Heading>
-        <form className="flex flex-col items-center gap-2">
-          <Input
-            className="lg:h-[90px] lg:text-2xl"
-            type="text"
-            placeholder="Имя"
-          />
-          <Input
-            className="lg:h-[90px] lg:text-2xl"
-            type="phone"
-            placeholder="Телефон"
-          />
-          <TextArea
-            className="mb-3 lg:mb-12 lg:min-h-[320px] lg:text-2xl"
-            rows={6}
-            placeholder="Напишите свой вопрос"
-          />
+        <Form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col items-center gap-2"
+        >
+          <Group className="w-full">
+            <Label htmlFor="name" className="sr-only">
+              Имя
+            </Label>
+            <Controller
+              name="name"
+              control={control}
+              render={({ field }) => (
+                <Input
+                  className="lg:h-[90px] lg:text-2xl"
+                  type="text"
+                  placeholder="Имя"
+                  aria-invalid={!!errors.name}
+                  aria-describedby="name-error"
+                  {...field}
+                />
+              )}
+            />
+            {errors.name && (
+              <ErrorMessage id="name-error">{errors.name.message}</ErrorMessage>
+            )}
+          </Group>
+          <Group className="w-full">
+            <Label htmlFor="phone" className="sr-only">
+              Телефон
+            </Label>
+            <Controller
+              name="phone"
+              control={control}
+              render={({ field }) => (
+                <Input
+                  className="lg:h-[90px] lg:text-2xl"
+                  type="text"
+                  placeholder="Телефон"
+                  aria-invalid={!!errors.phone}
+                  aria-describedby="phone-error"
+                  {...field}
+                />
+              )}
+            />
+            {errors.phone && (
+              <ErrorMessage id="phone-error">
+                {errors.phone.message}
+              </ErrorMessage>
+            )}
+          </Group>
+          <Group className="mb-3 w-full lg:mb-12">
+            <Label htmlFor="desc" className="sr-only">
+              Сообщение
+            </Label>
+            <Controller
+              name="desc"
+              control={control}
+              render={({ field }) => (
+                <TextArea
+                  className="lg:min-h-[320px] lg:text-2xl"
+                  rows={6}
+                  placeholder="Напишите свой вопрос"
+                  aria-invalid={!!errors.desc}
+                  aria-describedby="desc-error"
+                  {...field}
+                />
+              )}
+            />
+            {errors.desc && (
+              <ErrorMessage id="desc-error">{errors.desc.message}</ErrorMessage>
+            )}
+          </Group>
           <Button size="large">Отправить</Button>
-        </form>
+        </Form>
       </Container>
     </section>
   );
