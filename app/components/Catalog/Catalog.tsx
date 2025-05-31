@@ -20,7 +20,7 @@ export default async function Catalog({ type }: { type: ProductCollections }) {
 
       <LeadSectionContainer>
         <Container>
-          <Breadcrumbs className="relative -top-14" />
+          <Breadcrumbs className="relative -top-14 lg:-top-12" />
           <CatalogView
             products={products}
             filters={{
