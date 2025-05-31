@@ -11,7 +11,7 @@ export async function createCollectionReviews(
   const collectionReviews = data.reviews[collection].map((review) => {
     return {
       review,
-      customer: `${fakerRU.person.firstName()} ${fakerRU.person.lastName()}`,
+      customer: fakerRU.person.fullName(),
       collection,
     };
   });
