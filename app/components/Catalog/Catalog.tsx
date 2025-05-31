@@ -3,6 +3,7 @@ import Hero from "@/app/components/Hero/Hero";
 import { Container, LeadSectionContainer } from "@/app/components/ui";
 import CatalogView from "../CatalogView/CatalogView";
 import { getData } from "@/lib/getData";
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 
 export default async function Catalog({ type }: { type: ProductCollections }) {
   const { docs: products } = await getData.findAll(type);
@@ -15,10 +16,11 @@ export default async function Catalog({ type }: { type: ProductCollections }) {
 
   return (
     <div className="bg-main-pink-300">
-      <Hero heading="Каталог" hasBreadCrumbs className="mb-14 lg:mb-0" />
+      <Hero heading="Каталог" />
 
       <LeadSectionContainer>
         <Container>
+          <Breadcrumbs className="relative -top-14" />
           <CatalogView
             products={products}
             filters={{
