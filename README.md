@@ -1,4 +1,4 @@
-<img src="./static/logo.png" align="right" alt="Florist shop logo" height="40">
+<img src="./static/readme/readme-logo.png" align="right" alt="Florist shop logo" height="40">
 
 # :mortar_board: Дипломный проект
 
