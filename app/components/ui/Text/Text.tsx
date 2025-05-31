@@ -55,6 +55,7 @@ type TextProps = {
   weight?: TextWeight;
   font?: TextFont;
   className?: string;
+  as?: "span" | "p";
   children: React.ReactNode;
 };
 
@@ -62,12 +63,15 @@ export default function Text({
   size = TextSize.NORMAL,
   weight = TextWeight.NORMAL,
   font = TextFont.MONTSERRAT,
+  as = "span",
   className = "",
   children,
   ...props
 }: TextProps) {
+  const Component = as;
+
   return (
-    <span
+    <Component
       className={twMerge(
         textStyles({ size, weight, font }),
         "block",
@@ -76,6 +80,6 @@ export default function Text({
       {...props}
     >
       {children}
-    </span>
+    </Component>
   );
 }
