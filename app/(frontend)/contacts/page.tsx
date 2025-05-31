@@ -17,6 +17,8 @@ import { IconMailFilled, IconPhoneCall } from "@tabler/icons-react";
 import { AlarmIcon, MapMarkerIcon } from "@/static/icons";
 import FeedbackForm from "@/app/components/FeedbackForm/FeedbackForm";
 import { LeadSectionContainer } from "@/app/components/ui";
+import ParallaxDecor from "@/app/components/ParallaxDecor/ParallaxDecor";
+import { Decor1 } from "@/static/decor";
 
 export const metadata: Metadata = {
   title: "Контакты | Floristman - Яркие моменты вашей жизни",
@@ -33,7 +35,14 @@ export default function Contacts() {
       <Hero heading="Контакты" />
 
       <LeadSectionContainer>
-        <Container className="z-3 relative lg:rounded-2xl lg:bg-main-pink-300 lg:p-2">
+        <ParallaxDecor
+          speed={0.2}
+          src={Decor1.src}
+          width={83}
+          height={107}
+          className="z-15 -left-10 top-4"
+        />
+        <Container className="z-3 relative bg-white lg:rounded-2xl lg:bg-main-pink-300 lg:p-2">
           <div className="gap-4 lg:grid lg:min-h-[500px] lg:grid-cols-[1fr_1fr] lg:gap-x-16 lg:p-2">
             <div className="mb-5 lg:mb-0">
               <Heading level={2} className="mb-4">

@@ -28,7 +28,7 @@ export default function ParallaxDecor({
 
   return (
     <div
-      className={`pointer-events-none absolute z-[-1] ${className}`}
+      className={`pointer-events-none absolute ${className}`}
       style={{ transform: `translateY(${offset}px)` }}
     >
       <Image
