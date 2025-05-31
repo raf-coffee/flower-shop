@@ -17,6 +17,8 @@ import {
   ErrorMessage,
 } from "@/app/components/ui";
 import { formSchema, FormSchema } from "@/constants";
+import ParallaxDecor from "../ParallaxDecor/ParallaxDecor";
+import { Decor3, Decor4 } from "@/static/decor";
 
 function FeedbackForm({ title }: { title: string }) {
   const router = useRouter();
@@ -52,16 +54,30 @@ function FeedbackForm({ title }: { title: string }) {
   }, [isSubmitSuccessful, reset]);
 
   return (
-    <section className="bg-main-pink-400 p-4">
+    <section className="relative bg-main-pink-400 p-4">
+      <ParallaxDecor
+        speed={0.2}
+        src={Decor4.src}
+        width={83}
+        height={107}
+        className="md:bloc z-15 bottom-[-20px] left-[50%] hidden"
+      />
       <Container className="max-w-[770px] lg:mb-12">
         <Heading level={2} className="mb-4 text-center lg:mb-12">
           {title}
         </Heading>
         <Form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col items-center gap-2"
+          className="relative flex flex-col items-center gap-2"
         >
-          <Group className="w-full">
+          <ParallaxDecor
+            speed={0.1}
+            src={Decor3.src}
+            width={164}
+            height={150}
+            className="z-1 left-[48%] top-[30px] hidden md:block"
+          />
+          <Group className="z-3 relative w-full">
             <Label htmlFor="name" className="sr-only">
               Имя
             </Label>
@@ -83,7 +99,7 @@ function FeedbackForm({ title }: { title: string }) {
               <ErrorMessage id="name-error">{errors.name.message}</ErrorMessage>
             )}
           </Group>
-          <Group className="w-full">
+          <Group className="z-3 relative w-full">
             <Label htmlFor="phone" className="sr-only">
               Телефон
             </Label>
@@ -107,7 +123,7 @@ function FeedbackForm({ title }: { title: string }) {
               </ErrorMessage>
             )}
           </Group>
-          <Group className="mb-3 w-full lg:mb-12">
+          <Group className="z-3 relative mb-3 w-full lg:mb-12">
             <Label htmlFor="desc" className="sr-only">
               Сообщение
             </Label>
