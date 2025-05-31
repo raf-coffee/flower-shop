@@ -47,7 +47,7 @@ export default function Contacts() {
           src={Decor2.src}
           width={83}
           height={107}
-          className="z-15 -right-10 top-[100px] hidden md:block"
+          className="z-15 -right-10 top-[200px] hidden md:block"
         />
         <Container className="z-3 relative bg-white lg:rounded-2xl lg:bg-main-pink-300 lg:p-2">
           <div className="gap-4 lg:grid lg:min-h-[500px] lg:grid-cols-[1fr_1fr] lg:gap-x-16 lg:p-2">
