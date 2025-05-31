@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${montserrat.className}`}>
-      <body>
+      <body className="overflow-x-hidden">
         <div className="flex min-h-dvh flex-col">
           <Header />
           <main className="flex-grow">{children}</main>
