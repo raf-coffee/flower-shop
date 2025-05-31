@@ -4,8 +4,6 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { isValidPhoneNumber } from "libphonenumber-js/max";
-import { z } from "zod";
 import {
   Form,
   Input,
@@ -17,34 +15,33 @@ import {
 } from "@/app/components/ui";
 
 import img from "@/static/form/form.png";
-
-const schema = z.object({
-  name: z
-    .string()
-    .min(1, { message: "Имя должно содержать как минимум 1 символ" }),
-  phone: z.string().refine((value) => isValidPhoneNumber(value, "RU"), {
-    message: "Неправильный номер телефона",
-  }),
-  desc: z
-    .string()
-    .min(1, { message: "Сообщение должно содержать как минимум 1 символ" }),
-});
-
-type FormSchema = z.infer<typeof schema>;
+import { formSchema, FormSchema } from "@/constants";
+import { useRouter } from "next/navigation";
 
 export default function OrderForm() {
+  const router = useRouter();
   const {
     handleSubmit,
     formState: { errors, isSubmitSuccessful },
     reset,
     control,
   } = useForm({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(formSchema),
     defaultValues: { name: "", desc: "", phone: "" },
   });
 
-  const onSubmit: SubmitHandler<FormSchema> = (data) => {
-    console.log(data); // eslint-disable-line
+  const onSubmit: SubmitHandler<FormSchema> = async (data) => {
+    const res = await fetch("/api/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      router.push("/success");
+    } else {
+      router.push("/error");
+    }
   };
 
   useEffect(() => {
@@ -120,7 +117,7 @@ export default function OrderForm() {
                   control={control}
                   render={({ field }) => (
                     <TextArea
-                      placeholder="Телефон"
+                      placeholder="Ваша идея"
                       aria-invalid={!!errors.desc}
                       aria-describedby="desc-error"
                       {...field}
@@ -138,7 +135,9 @@ export default function OrderForm() {
               <Image src={img} alt="" fill />
             </div>
           </div>
-          <Button className="mx-auto mt-4 block sm:mt-8">Отправить</Button>
+          <Button size="large" className="mx-auto mt-4 block sm:mt-8">
+            Отправить
+          </Button>
         </Form>
       </div>
     </section>

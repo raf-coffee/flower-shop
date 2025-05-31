@@ -7,7 +7,7 @@ type ButtonProps = VariantProps<typeof buttonVariants> &
   ComponentPropsWithoutRef<"button">;
 
 const buttonVariants = cva(
-  "rounded-full font-semibold text-white transition duration-300 px-3 lg:py-2",
+  "min-w-fit rounded-full font-semibold text-white transition duration-300 px-3 lg:py-2",
   {
     variants: {
       variant: {

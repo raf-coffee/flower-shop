@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Text, TextWeight } from "../ui";
+import { Text, TextSize, TextWeight } from "../ui";
 import { BREADCRUMBS_SEPARATOR, PAGE_PATHS_TRANSLATIONS } from "@/constants";
 import { Crumb } from "@/types";
 
@@ -32,7 +32,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ className, tailCrumb }) => {
 
   return (
     <div className={className}>
-      <nav className="text-muted-foreground flex flex-wrap items-center space-x-1 text-sm text-soft-olive">
+      <nav className="text-muted-foreground flex flex-wrap items-center space-x-1 text-soft-olive">
         {crumbs.map((crumb, i) => {
           const isLast = i === crumbs.length - 1;
 
@@ -44,9 +44,11 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ className, tailCrumb }) => {
                     href={crumb.href}
                     className="font-semibold text-foreground hover:underline"
                   >
-                    <Text weight={TextWeight.SEMIBOLD}>{crumb.title}</Text>
+                    <Text weight={TextWeight.SEMIBOLD} size={TextSize.SMALL}>
+                      {crumb.title}
+                    </Text>
                   </Link>
-                  <Text weight={TextWeight.SEMIBOLD}>
+                  <Text weight={TextWeight.SEMIBOLD} size={TextSize.SMALL}>
                     {BREADCRUMBS_SEPARATOR}
                   </Text>
                 </>
@@ -54,6 +56,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ className, tailCrumb }) => {
                 <Text
                   weight={TextWeight.SEMIBOLD}
                   className="whitespace-nowrap"
+                  size={TextSize.SMALL}
                 >
                   {crumb.title}
                 </Text>
