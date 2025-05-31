@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
@@ -47,8 +45,10 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 
+# Storybook
 *storybook.log
 
+# Payload
 /media
 test/media
 *payloadtests.db
