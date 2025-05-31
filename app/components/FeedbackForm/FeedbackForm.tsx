@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 
 import {
   Container,
@@ -18,6 +19,7 @@ import {
 import { formSchema, FormSchema } from "@/constants";
 
 function FeedbackForm({ title }: { title: string }) {
+  const router = useRouter();
   const {
     handleSubmit,
     control,
@@ -36,9 +38,10 @@ function FeedbackForm({ title }: { title: string }) {
     });
 
     if (res.ok) {
-      "Письмо отправлено!".toString();
+      router.push("/success");
     } else {
       "Ошибка при отправке".toString();
+      router.push("/error");
     }
   };
 

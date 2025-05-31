@@ -16,8 +16,10 @@ import {
 
 import img from "@/static/form/form.png";
 import { formSchema, FormSchema } from "@/constants";
+import { useRouter } from "next/navigation";
 
 export default function OrderForm() {
+  const router = useRouter();
   const {
     handleSubmit,
     formState: { errors, isSubmitSuccessful },
@@ -28,8 +30,18 @@ export default function OrderForm() {
     defaultValues: { name: "", desc: "", phone: "" },
   });
 
-  const onSubmit: SubmitHandler<FormSchema> = (data) => {
-    console.log(data); // eslint-disable-line
+  const onSubmit: SubmitHandler<FormSchema> = async (data) => {
+    const res = await fetch("/api/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      router.push("/success");
+    } else {
+      router.push("/error");
+    }
   };
 
   useEffect(() => {
