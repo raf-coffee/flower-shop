@@ -14,7 +14,7 @@ import {
   Group,
   Label,
   ErrorMessage,
-} from "../ui";
+} from "@/app/components/ui";
 import { formSchema, FormSchema } from "@/constants";
 
 function FeedbackForm({ title }: { title: string }) {
@@ -28,8 +28,18 @@ function FeedbackForm({ title }: { title: string }) {
     defaultValues: { name: "", phone: "", desc: "" },
   });
 
-  const onSubmit: SubmitHandler<FormSchema> = (data) => {
-    console.log(data); // eslint-disable-line
+  const onSubmit: SubmitHandler<FormSchema> = async (data) => {
+    const res = await fetch("/api/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      "Письмо отправлено!".toString();
+    } else {
+      "Ошибка при отправке".toString();
+    }
   };
 
   useEffect(() => {
