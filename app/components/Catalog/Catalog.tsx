@@ -1,9 +1,12 @@
+import Image from "next/image";
+
 import { ProductCollections } from "@/types";
 import Hero from "@/app/components/Hero/Hero";
 import { Container, LeadSectionContainer } from "@/app/components/ui";
 import CatalogView from "../CatalogView/CatalogView";
 import { getData } from "@/lib/getData";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
+import { Decor1, Decor2, Decor3 } from "@/static/decor";
 
 export default async function Catalog({ type }: { type: ProductCollections }) {
   const { docs: products } = await getData.findAll(type);
@@ -19,6 +22,21 @@ export default async function Catalog({ type }: { type: ProductCollections }) {
       <Hero heading="Каталог" />
 
       <LeadSectionContainer>
+        <Image
+          src={Decor1}
+          className="absolute -left-10 top-[20px] hidden md:block"
+          alt="Декоративный элемент."
+        />
+        <Image
+          src={Decor2}
+          className="absolute -right-10 top-[360px] hidden md:block"
+          alt="Декоративный элемент."
+        />
+        <Image
+          src={Decor3}
+          className="absolute -left-20 top-3/4 hidden md:block"
+          alt="Декоративный элемент."
+        />
         <Container>
           <Breadcrumbs className="relative -top-14 lg:-top-12" />
           <CatalogView
