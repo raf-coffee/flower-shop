@@ -6,37 +6,55 @@ import Image from "next/image";
 type Props = {
   src: string;
   speed?: number;
-  className?: string;
   width?: number;
   height?: number;
+  className?: string;
+  container: HTMLElement;
 };
 
 export default function ParallaxDecor({
   src,
-  speed = 0.5,
-  className = "",
+  speed = 30,
   width = 150,
   height = 150,
+  className = "",
+  container,
 }: Props) {
-  const [offset, setOffset] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => setOffset(window.scrollY * speed);
+    if (!container) return;
+
+    const handleScroll = () => {
+      const rect = container.getBoundingClientRect();
+
+      const windowHeight = window.innerHeight;
+      const start = windowHeight;
+      const end = -rect.height;
+
+      const scrollProgress = Math.min(
+        1,
+        Math.max(0, (start - rect.top) / (start - end)),
+      );
+      setProgress(scrollProgress);
+    };
+
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll, { passive: true });
+
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [speed]);
+  }, [container]);
 
   return (
     <div
       className={`pointer-events-none absolute ${className}`}
-      style={{ transform: `translateY(${offset}px)` }}
+      style={{
+        transform: `translateY(${progress * speed}px)`,
+        transition: "transform 0.05s linear",
+      }}
     >
-      <Image
-        src={src}
-        alt="Оформление в виде лепестка."
-        width={width}
-        height={height}
-      />
+      <Image src={src} alt="decor" width={width} height={height} />
     </div>
   );
 }

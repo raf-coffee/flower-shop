@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
@@ -21,6 +21,7 @@ import ParallaxDecor from "../ParallaxDecor/ParallaxDecor";
 import { Decor3, Decor4 } from "@/static/decor";
 
 function FeedbackForm({ title }: { title: string }) {
+  const sectionRef = useRef<HTMLElement>(null);
   const router = useRouter();
   const {
     handleSubmit,
@@ -54,14 +55,17 @@ function FeedbackForm({ title }: { title: string }) {
   }, [isSubmitSuccessful, reset]);
 
   return (
-    <section className="relative bg-main-pink-400 p-4">
-      <ParallaxDecor
-        speed={0.2}
-        src={Decor4.src}
-        width={83}
-        height={107}
-        className="md:bloc z-15 bottom-[-20px] left-[50%] hidden"
-      />
+    <section className="relative bg-main-pink-400 p-4" ref={sectionRef}>
+      {!!sectionRef.current && (
+        <ParallaxDecor
+          speed={50}
+          src={Decor4.src}
+          width={83}
+          height={107}
+          className="bottom-[-40px] left-[20%] z-10 hidden md:block"
+          container={sectionRef.current}
+        />
+      )}
       <Container className="max-w-[770px] lg:mb-12">
         <Heading level={2} className="mb-4 text-center lg:mb-12">
           {title}
@@ -70,13 +74,16 @@ function FeedbackForm({ title }: { title: string }) {
           onSubmit={handleSubmit(onSubmit)}
           className="relative flex flex-col items-center gap-2"
         >
-          <ParallaxDecor
-            speed={0.1}
-            src={Decor3.src}
-            width={164}
-            height={150}
-            className="z-1 left-[48%] top-[30px] hidden md:block"
-          />
+          {!!sectionRef.current && (
+            <ParallaxDecor
+              speed={50}
+              src={Decor3.src}
+              width={164}
+              height={150}
+              container={sectionRef.current}
+              className="z-1 left-[48%] top-[20px] hidden md:block"
+            />
+          )}
           <Group className="z-3 relative w-full">
             <Label htmlFor="name" className="sr-only">
               Имя
