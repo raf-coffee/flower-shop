@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import {
   BalloonsCatalogCover,
@@ -11,6 +12,7 @@ import {
 import { Container, Heading } from "../ui";
 import { twMerge } from "tailwind-merge";
 import CatalogCardOverlay from "../CatalogCardOverlay/CatalogCardOverlay";
+import { Decor1, Decor2 } from "@/static/decor";
 
 const CATALOG_SECTION_ITEMS = [
   {
@@ -56,7 +58,17 @@ const CATALOG_SECTION_ITEMS = [
 
 function CatalogSection() {
   return (
-    <section className="bg-main-pink-400 p-4 lg:p-6">
+    <section className="relative bg-main-pink-400 p-4 lg:p-6">
+      <Image
+        src={Decor1}
+        className="absolute -left-10 top-[150px] hidden md:block"
+        alt="Декоративный элемент."
+      />
+      <Image
+        src={Decor2}
+        className="absolute -right-10 top-[710px] hidden md:block"
+        alt="Декоративный элемент."
+      />
       <Container>
         <Heading level={2} className="mb-6">
           Каталог

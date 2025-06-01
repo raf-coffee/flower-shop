@@ -10,7 +10,7 @@ import { MENU_LINKS } from "@/constants";
 
 export default function Footer() {
   return (
-    <footer className="bg-main-pink-300">
+    <footer className="relative z-20 bg-main-pink-300">
       <section>
         <Container className="py-5">
           <div className="mb-5 flex items-center justify-center">

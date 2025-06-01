@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
@@ -17,8 +17,11 @@ import {
   ErrorMessage,
 } from "@/app/components/ui";
 import { formSchema, FormSchema } from "@/constants";
+import ParallaxDecor from "../ParallaxDecor/ParallaxDecor";
+import { Decor3, Decor4 } from "@/static/decor";
 
 function FeedbackForm({ title }: { title: string }) {
+  const sectionRef = useRef<HTMLElement>(null);
   const router = useRouter();
   const {
     handleSubmit,
@@ -52,16 +55,36 @@ function FeedbackForm({ title }: { title: string }) {
   }, [isSubmitSuccessful, reset]);
 
   return (
-    <section className="bg-main-pink-400 p-4">
+    <section className="relative bg-main-pink-400 p-4" ref={sectionRef}>
+      {!!sectionRef.current && (
+        <ParallaxDecor
+          speed={50}
+          src={Decor4.src}
+          width={83}
+          height={107}
+          className="bottom-[-40px] left-[20%] z-10 hidden md:block"
+          container={sectionRef.current}
+        />
+      )}
       <Container className="max-w-[770px] lg:mb-12">
         <Heading level={2} className="mb-4 text-center lg:mb-12">
           {title}
         </Heading>
         <Form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col items-center gap-2"
+          className="relative flex flex-col items-center gap-2"
         >
-          <Group className="w-full">
+          {!!sectionRef.current && (
+            <ParallaxDecor
+              speed={50}
+              src={Decor3.src}
+              width={164}
+              height={150}
+              container={sectionRef.current}
+              className="z-1 left-[48%] top-[20px] hidden md:block"
+            />
+          )}
+          <Group className="z-3 relative w-full">
             <Label htmlFor="name" className="sr-only">
               Имя
             </Label>
@@ -83,7 +106,7 @@ function FeedbackForm({ title }: { title: string }) {
               <ErrorMessage id="name-error">{errors.name.message}</ErrorMessage>
             )}
           </Group>
-          <Group className="w-full">
+          <Group className="z-3 relative w-full">
             <Label htmlFor="phone" className="sr-only">
               Телефон
             </Label>
@@ -107,7 +130,7 @@ function FeedbackForm({ title }: { title: string }) {
               </ErrorMessage>
             )}
           </Group>
-          <Group className="mb-3 w-full lg:mb-12">
+          <Group className="z-3 relative mb-3 w-full lg:mb-12">
             <Label htmlFor="desc" className="sr-only">
               Сообщение
             </Label>
