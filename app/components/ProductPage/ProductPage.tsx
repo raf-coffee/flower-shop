@@ -17,6 +17,7 @@ import Hero from "@/app/components/Hero/Hero";
 import { deriveActiveLabels, getCoverImageUrl } from "@/utils";
 import { getData } from "@/lib/getData";
 import { Label, ProductCollections } from "@/types";
+import { Decor1, Decor2, Decor3 } from "@/static/decor";
 
 function ProductPageView({
   item,
@@ -43,6 +44,16 @@ function ProductPageView({
     <div className="bg-main-pink-300">
       <Hero heading={item.name} className="mb-14 lg:mb-0" />
       <LeadSectionContainer>
+        <Image
+          src={Decor1}
+          className="absolute -left-10 top-[20px] hidden md:block"
+          alt="Декоративный элемент."
+        />
+        <Image
+          src={Decor2}
+          className="absolute -right-14 top-[360px] hidden md:block"
+          alt="Декоративный элемент."
+        />
         <Container className="mb-4">
           <Breadcrumbs
             className="relative -top-14 lg:-top-12"
@@ -144,7 +155,12 @@ function ProductPageView({
       </LeadSectionContainer>
 
       <div className="bg-main-pink-400">
-        <Container className="p-0">
+        <Container className="relative p-0">
+          <Image
+            src={Decor3}
+            className="z-5 absolute left-[160px] top-[-50px] hidden md:block"
+            alt="Декоративный элемент."
+          />
           <Sales title={"Вместе покупают"} />
         </Container>
       </div>
