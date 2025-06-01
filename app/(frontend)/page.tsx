@@ -7,6 +7,8 @@ import { Button } from "@/app/components/ui";
 import CatalogSection from "@/app/components/CatalogSection/CatalogSection";
 import { Metadata } from "next";
 import { LeadSectionContainer } from "@/app/components/ui";
+import { Decor1, Decor2 } from "@/static/decor";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Главная | Floristman - Яркие моменты вашей жизни",
@@ -25,6 +27,16 @@ export default function Home() {
         </a>
       </Hero>
       <LeadSectionContainer>
+        <Image
+          src={Decor1}
+          className="absolute -left-10 top-[20px] hidden md:block"
+          alt="Декоративный элемент."
+        />
+        <Image
+          src={Decor2}
+          className="absolute -right-10 top-[360px] hidden md:block"
+          alt="Декоративный элемент."
+        />
         <Sales />
       </LeadSectionContainer>
       <WhyUs />

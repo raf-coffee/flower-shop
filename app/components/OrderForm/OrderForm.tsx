@@ -17,6 +17,7 @@ import {
 import img from "@/static/form/form.png";
 import { formSchema, FormSchema } from "@/constants";
 import { useRouter } from "next/navigation";
+import { Decor2 } from "@/static/decor";
 
 export default function OrderForm() {
   const router = useRouter();
@@ -51,7 +52,12 @@ export default function OrderForm() {
   }, [reset, isSubmitSuccessful]);
 
   return (
-    <section className="bg-main-pink-400">
+    <section className="relative bg-main-pink-400">
+      <Image
+        src={Decor2}
+        className="absolute bottom-[-40px] left-1/4 hidden md:block"
+        alt="Декоративный элемент."
+      />
       <div className="mx-auto max-w-7xl px-4 py-10 lg:pt-20">
         <h2 className="mb-4 text-center text-lg font-bold md:text-2xl lg:text-4xl">
           Предложи свой букет

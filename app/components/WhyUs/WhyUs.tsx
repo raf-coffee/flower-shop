@@ -5,10 +5,26 @@ import image2 from "@/static/whyus/rec-02.png";
 import image3 from "@/static/whyus/rec-03.png";
 
 import { TextFont, TextSize, TextWeight, Text } from "@/app/components/ui";
+import { Decor3, Decor4 } from "@/static/decor";
 
 export default function WhyUs() {
   return (
-    <section className="bg-main-pink-300 p-4">
+    <section className="relative bg-main-pink-300 p-4">
+      <Image
+        src={Decor3}
+        className="w-[164px absolute left-1/3 top-[60px] hidden h-auto md:block"
+        alt="Декоративный элемент."
+      />
+      <Image
+        src={Decor4}
+        className="w-[164px absolute left-4 top-[400px] hidden h-auto md:block"
+        alt="Декоративный элемент."
+      />
+      <Image
+        src={Decor4}
+        className="w-[164px absolute right-10 top-[590px] hidden h-auto md:block"
+        alt="Декоративный элемент."
+      />
       <div className="mx-auto max-w-7xl">
         <h2 className="mb-4 text-center text-lg font-bold md:text-start md:text-2xl">
           Почему именно мы?
