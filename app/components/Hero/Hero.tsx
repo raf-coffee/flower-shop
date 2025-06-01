@@ -18,7 +18,7 @@ export default function Hero({
   return (
     <section
       className={twMerge(
-        "z-2 relative w-full bg-cover bg-bottom bg-no-repeat",
+        "pointer-events-none relative z-10 w-full bg-cover bg-bottom bg-no-repeat",
         className,
       )}
       style={{ backgroundImage: `url(${hero2.src})` }}

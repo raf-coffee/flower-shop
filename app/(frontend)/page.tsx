@@ -22,7 +22,10 @@ export default function Home() {
         heading="Собираем букеты, созданные для Вас"
         description="Подарите ощущение праздника"
       >
-        <a href={"/catalog/flowers"} className="hidden w-fit lg:block">
+        <a
+          href={"/catalog/flowers"}
+          className="pointer-events-auto hidden w-fit lg:block"
+        >
           <Button size="large">Выбрать букет</Button>
         </a>
       </Hero>
