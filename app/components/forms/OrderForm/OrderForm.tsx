@@ -4,20 +4,19 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Form,
-  Input,
-  Label,
-  Group,
-  ErrorMessage,
-  TextArea,
-  Button,
-} from "@/app/components/ui";
 
 import img from "@/static/form/form.png";
 import { formSchema, FormSchema } from "@/constants";
 import { useRouter } from "next/navigation";
 import { Decor2 } from "@/static/decor";
+
+import Form from "@/app/components/ui/Form";
+import Label from "@/app/components/ui/Label";
+import Input from "@/app/components/ui/Input";
+import Button from "@/app/components/ui/Button";
+import ErrorMessage from "@/app/components/ui/ErrorMassage";
+import Group from "@/app/components/ui/Group";
+import TextArea from "@/app/components/ui/TextArea";
 
 export default function OrderForm() {
   const router = useRouter();

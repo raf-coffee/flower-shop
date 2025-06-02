@@ -3,23 +3,17 @@
 import Image from "next/image";
 import { useRef } from "react";
 
-import {
-  Container,
-  Heading,
-  Text,
-  TextFont,
-  TextSize,
-  TextWeight,
-  SocialList,
-  YandexMap,
-} from "@/app/components/ui";
-
 import { IconMailFilled, IconPhoneCall } from "@tabler/icons-react";
 import { AlarmIcon, MapMarkerIcon } from "@/static/icons";
-
-import { LeadSection } from "@/app/components/ui";
-import ParallaxDecor from "@/app/components/ui/ParallaxDecor/ParallaxDecor";
 import { Decor1, Decor2 } from "@/static/decor";
+
+import LeadSection from "@/app/components/ui/LeadSection";
+import ParallaxDecor from "@/app/components/ui/ParallaxDecor";
+import Container from "@/app/components/ui/Container";
+import Heading from "@/app/components/ui/Heading";
+import YandexMap from "@/app/components/ui/Map";
+import SocialList from "@/app/components/ui/SocialList";
+import Text, { TextSize, TextFont, TextWeight } from "@/app/components/ui/Text";
 
 function Contacts() {
   const wrapperRef = useRef<HTMLDivElement>(null);

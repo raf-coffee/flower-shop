@@ -1,8 +1,10 @@
 import hero2 from "@/static/hero-lg.png";
-import { Container, Text, TextSize } from "..";
 
 import { twMerge } from "tailwind-merge";
 import React, { ReactNode } from "react";
+
+import Container from "../Container";
+import Text, { TextSize } from "../Text";
 
 export default function Hero({
   heading,

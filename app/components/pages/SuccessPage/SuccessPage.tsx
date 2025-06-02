@@ -1,5 +1,5 @@
 import Hero from "@/app/components/ui/Hero/Hero";
-import { Button } from "@/app/components/ui";
+import Button from "@/app/components/ui/Button";
 
 export default function SuccessPage() {
   return (

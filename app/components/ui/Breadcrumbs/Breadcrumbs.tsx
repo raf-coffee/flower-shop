@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Text, TextSize, TextWeight } from "..";
+import Text, { TextSize, TextWeight } from "@/app/components/ui/Text";
 import { BREADCRUMBS_SEPARATOR, PAGE_PATHS_TRANSLATIONS } from "@/constants";
 import { Crumb } from "@/types";
 

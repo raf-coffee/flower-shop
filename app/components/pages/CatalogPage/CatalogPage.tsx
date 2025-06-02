@@ -1,12 +1,15 @@
 import Image from "next/image";
 
 import { ProductCollections } from "@/types";
-import Hero from "@/app/components/ui/Hero/Hero";
-import { Container, LeadSection } from "@/app/components/ui";
+
 import CatalogView from "./CatalogView/CatalogView";
 import { getData } from "@/lib/getData";
-import { Breadcrumbs } from "@/app/components/ui";
 import { Decor1, Decor2, Decor3 } from "@/static/decor";
+
+import Container from "@/app/components/ui/Container";
+import Hero from "@/app/components/ui/Hero";
+import Breadcrumbs from "@/app/components/ui/Breadcrumbs";
+import LeadSection from "@/app/components/ui/LeadSection";
 
 export default async function CatalogPage({
   type,

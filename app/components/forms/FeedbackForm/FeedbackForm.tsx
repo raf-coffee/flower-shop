@@ -5,20 +5,19 @@ import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 
-import {
-  Container,
-  Heading,
-  Input,
-  TextArea,
-  Button,
-  Form,
-  Group,
-  Label,
-  ErrorMessage,
-} from "@/app/components/ui";
 import { formSchema, FormSchema } from "@/constants";
-import { ParallaxDecor } from "@/app/components/ui";
+import ParallaxDecor from "@/app/components/ui/ParallaxDecor";
 import { Decor3, Decor4 } from "@/static/decor";
+
+import Form from "@/app/components/ui/Form";
+import Container from "@/app/components/ui/Container";
+import Label from "@/app/components/ui/Label";
+import Input from "@/app/components/ui/Input";
+import Button from "@/app/components/ui/Button";
+import ErrorMessage from "@/app/components/ui/ErrorMassage";
+import Group from "@/app/components/ui/Group";
+import Heading from "@/app/components/ui/Heading";
+import TextArea from "@/app/components/ui/TextArea";
 
 export default function FeedbackForm({ title }: { title: string }) {
   const sectionRef = useRef<HTMLElement>(null);

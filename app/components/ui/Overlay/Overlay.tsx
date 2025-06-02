@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { TextSize, Text } from "@/app/components/ui";
+import Text, { TextSize } from "@/app/components/ui/Text";
 import { OverlayCatalogDecor } from "@/static/categories";
 import { cva } from "class-variance-authority";
 

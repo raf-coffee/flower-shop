@@ -1,8 +1,9 @@
 import { Montserrat } from "next/font/google";
 
-import { Header, Footer } from "@/app/components/ui";
-
 import "./globals.css";
+
+import Header from "@/app/components/ui/Header";
+import Footer from "@/app/components/ui/Footer";
 
 const montserrat = Montserrat({
   weight: "variable",

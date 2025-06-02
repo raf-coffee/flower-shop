@@ -2,23 +2,19 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { DataFromCollectionSlug } from "payload";
 
-import {
-  Container,
-  TextFont,
-  TextWeight,
-  Text,
-  Heading,
-  TextSize,
-  LeadSection,
-  Breadcrumbs,
-  Sales,
-  ReviewList,
-  Hero,
-} from "@/app/components/ui";
 import { deriveActiveLabels, getCoverImageUrl } from "@/utils";
 import { getData } from "@/lib/getData";
 import { Label, ProductCollections } from "@/types";
 import { Decor1, Decor2, Decor3 } from "@/static/decor";
+
+import Container from "@/app/components/ui/Container";
+import Breadcrumbs from "@/app/components/ui/Breadcrumbs";
+import Heading from "@/app/components/ui/Heading";
+import Hero from "@/app/components/ui/Hero";
+import LeadSection from "@/app/components/ui/LeadSection";
+import ReviewList from "@/app/components/ui/ReviewList";
+import Sales from "@/app/components/ui/Sales";
+import Text, { TextFont, TextWeight, TextSize } from "@/app/components/ui/Text";
 
 function ProductPageView({
   item,

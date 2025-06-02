@@ -1,19 +1,18 @@
 "use client";
 
 import { Dispatch, SetStateAction, useRef, useState } from "react";
-import {
-  Button,
-  Heading,
-  Checkbox,
-  Text,
-  Range,
-  TextWeight,
-  TextFont,
-} from "@/app/components/ui";
+
 import { Category, Occasion, Whom } from "@/payload-types";
-import { DataFromCollectionSlug } from "payload";
-import { ProductCard } from "@/app/components/ui";
+
 import { ProductCollections } from "@/types";
+import { DataFromCollectionSlug } from "payload";
+
+import Range from "@/app/components/ui/Range";
+import Button from "@/app/components/ui/Button";
+import Checkbox from "@/app/components/ui/Checkbox";
+import Heading from "@/app/components/ui/Heading";
+import ProductCard from "@/app/components/ui/ProductCard";
+import Text, { TextWeight, TextFont } from "@/app/components/ui/Text";
 
 export default function CatalogView({
   products,

@@ -1,6 +1,7 @@
-import { Carousel } from "@/app/components/ui";
 import { getData } from "@/lib/getData";
 import { twMerge } from "tailwind-merge";
+
+import Carousel from "@/app/components/ui/Carousel";
 
 export default async function Sales({
   title,

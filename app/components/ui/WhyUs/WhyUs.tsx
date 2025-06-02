@@ -4,7 +4,7 @@ import image1 from "@/static/whyus/rec-01.png";
 import image2 from "@/static/whyus/rec-02.png";
 import image3 from "@/static/whyus/rec-03.png";
 
-import { TextFont, TextSize, TextWeight, Text } from "@/app/components/ui";
+import Text, { TextFont, TextSize, TextWeight } from "@/app/components/ui/Text";
 import { Decor3, Decor4 } from "@/static/decor";
 
 export default function WhyUs() {

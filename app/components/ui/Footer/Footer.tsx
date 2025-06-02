@@ -1,9 +1,13 @@
 import { IconPhoneCall, IconMailFilled } from "@tabler/icons-react";
 
 import Link from "next/link";
-import { Container, SocialList, Logo } from "@/app/components/ui";
 
-import { Overlay } from "@/app/components/ui";
+import Container from "@/app/components/ui/Container";
+import Overlay from "@/app/components/ui/Overlay";
+
+import Logo from "@/app/components/ui/Logo";
+import SocialList from "@/app/components/ui/SocialList";
+
 import { MENU_LINKS } from "@/constants";
 
 export default function Footer() {

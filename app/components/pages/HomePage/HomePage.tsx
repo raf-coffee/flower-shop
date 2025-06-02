@@ -1,13 +1,15 @@
+import Image from "next/image";
+
+import { Decor1, Decor2 } from "@/static/decor";
+
 import Hero from "@/app/components/ui/Hero/Hero";
 import Sales from "@/app/components/ui/Sales/Sales";
 import WhyUs from "@/app/components/ui/WhyUs/WhyUs";
 import OrderForm from "@/app/components/forms/OrderForm/OrderForm";
 import Delivery from "@/app/components/ui/Delivery/Delivery";
-import { Button } from "@/app/components/ui";
+import Button from "@/app/components/ui/Button";
 import CatalogSection from "@/app/components/ui/ProductList/ProductList";
-import { LeadSection } from "@/app/components/ui";
-import { Decor1, Decor2 } from "@/static/decor";
-import Image from "next/image";
+import LeadSection from "@/app/components/ui/LeadSection";
 
 export default function HomePage() {
   return (

@@ -1,15 +1,9 @@
 import Image from "next/image";
 
 import deliveryImg from "@/static/delivery/delivery.png";
-
-import {
-  TextFont,
-  TextSize,
-  TextWeight,
-  Text,
-  Container,
-  Heading,
-} from "@/app/components/ui";
+import Container from "@/app/components/ui/Container";
+import Heading from "@/app/components/ui/Heading";
+import Text, { TextFont, TextWeight, TextSize } from "@/app/components/ui/Text";
 
 export default function Delivery() {
   return (

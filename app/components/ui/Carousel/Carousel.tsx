@@ -4,9 +4,10 @@ import "swiper/css/pagination";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import { ProductCard } from "@/app/components/ui";
 import { ProductCollections } from "@/types";
 import { Config } from "@/payload-types";
+
+import ProductCard from "@/app/components/ui/ProductCard";
 
 export default function Carousel<T extends ProductCollections>({
   items,

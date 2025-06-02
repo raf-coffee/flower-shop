@@ -1,14 +1,11 @@
-import {
-  Container,
-  Heading,
-  Text,
-  TextFont,
-  TextSize,
-  TextWeight,
-} from "@/app/components/ui";
+import React from "react";
+
 import { getData } from "@/lib/getData";
 import { Review } from "@/payload-types";
-import React from "react";
+
+import Container from "@/app/components/ui/Container";
+import Heading from "@/app/components/ui/Heading";
+import Text, { TextFont, TextWeight, TextSize } from "@/app/components/ui/Text";
 
 const isNumbers = (arr: (number | Review)[]): arr is number[] => {
   return typeof arr[0] === "number";

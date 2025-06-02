@@ -1,10 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { Container, Heading } from "..";
 import { twMerge } from "tailwind-merge";
-import { Overlay } from "@/app/components/ui";
 import { Decor1, Decor2 } from "@/static/decor";
+
+import Container from "@/app/components/ui/Container";
+import Heading from "@/app/components/ui/Heading";
+import Overlay from "@/app/components/ui/Overlay";
 
 import CATEGORIES_LIST from "./constants";
 
