@@ -1,8 +1,10 @@
 "use client";
 
 import { ReactifiedModule } from "@yandex/ymaps3-types/reactify";
+import MapTemplate from "@/static/map-template.jpg";
 
 import Script from "next/script";
+import Image from "next/image";
 import React from "react";
 import { useState } from "react";
 import ReactDOM from "react-dom";
@@ -59,7 +61,14 @@ function MapInitializer({ mapHeight }: { mapHeight?: number }) {
       {reactifyApi ? (
         <MapView reactifyApi={reactifyApi} height={mapHeight} />
       ) : (
-        <div>Загрузка карты…</div>
+        <div className="h-full w-full">
+          <Image
+            src={MapTemplate}
+            width={741}
+            height={611}
+            alt="Местонахождение магазина."
+          />
+        </div>
       )}
     </>
   );
