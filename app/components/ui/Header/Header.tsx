@@ -1,7 +1,7 @@
 import DesktopMenu from "../DesktopMenu/DesktopMenu";
 import Logo from "../Logo/Logo";
 import MobileMenu from "../MobileMenu/MobileMenu";
-import { Container } from "../ui";
+import { Container } from "..";
 
 export default function Header() {
   return (

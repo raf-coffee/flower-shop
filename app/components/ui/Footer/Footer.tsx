@@ -1,11 +1,9 @@
 import { IconPhoneCall, IconMailFilled } from "@tabler/icons-react";
-import SocialList from "../ui/SocialList/SocialList";
 
 import Link from "next/link";
-import Logo from "../Logo/Logo";
-import { Container } from "../ui";
+import { Container, SocialList, Logo } from "@/app/components";
 
-import CatalogCardOverlay from "../CatalogCardOverlay/CatalogCardOverlay";
+import Overlay from "./Overlay";
 import { MENU_LINKS } from "@/constants";
 
 export default function Footer() {
@@ -32,7 +30,7 @@ export default function Footer() {
                       backgroundPosition: "center",
                     }}
                   >
-                    <CatalogCardOverlay>{title}</CatalogCardOverlay>
+                    <Overlay>{title}</Overlay>
                   </li>
                 </Link>
               ),

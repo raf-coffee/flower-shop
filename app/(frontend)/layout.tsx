@@ -1,7 +1,6 @@
 import { Montserrat } from "next/font/google";
 
-import Header from "@/app/components/Header/Header";
-import Footer from "@/app/components/Footer/Footer";
+import { Header, Footer } from "@/app/components";
 
 import "./globals.css";
 

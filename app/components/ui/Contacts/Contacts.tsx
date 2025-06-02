@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 
-import YandexMap from "@/app/components/Map/YandexMap";
+import YandexMap from "@/app/components/ui/Map/YandexMap";
 
 import SocialList from "@/app/components/ui/SocialList/SocialList";
 import {

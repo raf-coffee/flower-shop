@@ -13,7 +13,7 @@ import {
 import Sales from "@/app/components/ui/Sales/Sales";
 import { Breadcrumbs } from "@/app/components";
 import ReviewList from "@/app/components/ui/ReviewList/ReviewList";
-import Hero from "@/app/components/Hero/Hero";
+import Hero from "@/app/components/ui/Hero/Hero";
 import { deriveActiveLabels, getCoverImageUrl } from "@/utils";
 import { getData } from "@/lib/getData";
 import { Label, ProductCollections } from "@/types";

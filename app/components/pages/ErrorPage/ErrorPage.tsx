@@ -1,4 +1,4 @@
-import Hero from "@/app/components/Hero/Hero";
+import Hero from "@/app/components/ui/Hero/Hero";
 import { Button } from "@/app/components/ui";
 
 export default function ErrorPage() {

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { TextSize, Text } from "../ui";
+import { TextSize, Text } from "@/app/components";
 import { OverlayCatalogDecor } from "@/static/categories";
 import { cva } from "class-variance-authority";
 
@@ -19,7 +19,7 @@ const overlayContainer = cva("absolute bg-soft-white-transparent", {
   },
 });
 
-function CatalogCardOverlay({
+export default function Overlay({
   children,
   type = "horizontal",
 }: {
@@ -62,5 +62,3 @@ function CatalogCardOverlay({
     </div>
   );
 }
-
-export default CatalogCardOverlay;

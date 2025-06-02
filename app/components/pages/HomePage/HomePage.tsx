@@ -1,8 +1,8 @@
-import Hero from "@/app/components/Hero/Hero";
+import Hero from "@/app/components/ui/Hero/Hero";
 import Sales from "@/app/components/ui/Sales/Sales";
 import WhyUs from "@/app/components/ui/WhyUs/WhyUs";
-import OrderForm from "@/app/components/OrderForm/OrderForm";
-import Delivery from "@/app/components/Delivery/Delivery";
+import OrderForm from "@/app/components/forms/OrderForm/OrderForm";
+import Delivery from "@/app/components/ui/Delivery/Delivery";
 import { Button } from "@/app/components/ui";
 import CatalogSection from "@/app/components/ui/ProductList/ProductList";
 import { LeadSection } from "@/app/components";

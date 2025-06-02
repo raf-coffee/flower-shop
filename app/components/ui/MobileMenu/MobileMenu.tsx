@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { IconMenu2, IconX } from "@tabler/icons-react";
-import NavLink from "../ui/NavLink/NavLink";
+import NavLink from "../NavLink/NavLink";
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);

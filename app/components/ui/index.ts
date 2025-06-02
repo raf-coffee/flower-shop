@@ -5,7 +5,13 @@ export { default as Input } from "./Input";
 export { default as TextArea } from "./TextArea";
 export { default as ErrorMessage } from "./ErrorMassage";
 
+export { default as Header } from "./Header";
+export { default as Footer } from "./Footer";
 export { default as LeadSection } from "./LeadSection";
+export { default as ProductCard } from "./ProductCard";
+export { default as SocialList } from "./SocialList";
+export { default as Contacts } from "./Contacts";
+export { default as Logo } from "./Logo";
 export { default as Breadcrumbs } from "./Breadcrumbs";
 export { TextFont, TextSize, TextWeight } from "./Text";
 export { default as Checkbox } from "./Checkbox";

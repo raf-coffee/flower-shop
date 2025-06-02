@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { ProductCollections } from "@/types";
-import Hero from "@/app/components/Hero/Hero";
+import Hero from "@/app/components/ui/Hero/Hero";
 import { Container, LeadSection } from "@/app/components";
 import CatalogView from "./CatalogView/CatalogView";
 import { getData } from "@/lib/getData";

@@ -1,5 +1,5 @@
 import hero2 from "@/static/hero-lg.png";
-import { Container, Text, TextSize } from "../ui";
+import { Container, Text, TextSize } from "..";
 
 import { twMerge } from "tailwind-merge";
 import React, { ReactNode } from "react";

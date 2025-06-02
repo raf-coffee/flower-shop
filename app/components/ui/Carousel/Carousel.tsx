@@ -4,7 +4,7 @@ import "swiper/css/pagination";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import Card from "../Card/Card";
+import { ProductCard } from "@/app/components";
 import { ProductCollections } from "@/types";
 import { Config } from "@/payload-types";
 
@@ -42,7 +42,7 @@ export default function Carousel<T extends ProductCollections>({
       >
         {items.map((item) => (
           <SwiperSlide key={item.id}>
-            <Card item={item} collection={collection} />
+            <ProductCard item={item} collection={collection} />
           </SwiperSlide>
         ))}
       </Swiper>
