@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import NavLink from "../ui/NavLink/NavLink";
+import { NavLink } from "@/app/components/ui";
 
 import { MENU_LINKS } from "@/constants";
 

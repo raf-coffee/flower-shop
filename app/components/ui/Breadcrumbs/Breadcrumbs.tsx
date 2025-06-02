@@ -11,7 +11,10 @@ interface BreadcrumbsProps {
   tailCrumb?: Crumb;
 }
 
-const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ className, tailCrumb }) => {
+export default function Breadcrumbs({
+  className,
+  tailCrumb,
+}: BreadcrumbsProps) {
   const pathname = usePathname();
 
   const items: Crumb[] = pathname
@@ -67,6 +70,4 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ className, tailCrumb }) => {
       </nav>
     </div>
   );
-};
-
-export default Breadcrumbs;
+}

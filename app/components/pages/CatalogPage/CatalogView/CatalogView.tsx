@@ -12,10 +12,10 @@ import {
 } from "@/app/components/ui";
 import { Category, Occasion, Whom } from "@/payload-types";
 import { DataFromCollectionSlug } from "payload";
-import Card from "@/app/components/Card/Card";
+import { ProductCard } from "@/app/components/ui";
 import { ProductCollections } from "@/types";
 
-function CatalogView({
+export default function CatalogView({
   products,
   filters,
   minPrice,
@@ -199,7 +199,7 @@ function CatalogView({
           {!!filteredProducts.length &&
             filteredProducts.map((item) => (
               <li key={item.id}>
-                <Card item={item} collection={type} />
+                <ProductCard item={item} collection={type} />
               </li>
             ))}
         </ul>
@@ -211,5 +211,3 @@ function CatalogView({
     </div>
   );
 }
-
-export default CatalogView;

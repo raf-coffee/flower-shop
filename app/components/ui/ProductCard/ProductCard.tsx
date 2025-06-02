@@ -2,7 +2,13 @@ import Image from "next/image";
 import { ProductCollections } from "@/types";
 import { Config } from "@/payload-types";
 import Link from "next/link";
-import { TextFont, TextWeight, Text, TextSize, Button } from "@/app/components";
+import {
+  TextFont,
+  TextWeight,
+  Text,
+  TextSize,
+  Button,
+} from "@/app/components/ui";
 import { getCoverImageUrl, deriveActiveLabels } from "@/utils";
 
 export default function ProductCard<T extends ProductCollections>({

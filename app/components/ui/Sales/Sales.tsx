@@ -1,4 +1,4 @@
-import Carousel from "@/app/components/Carousel/Carousel";
+import { Carousel } from "@/app/components/ui";
 import { getData } from "@/lib/getData";
 import { twMerge } from "tailwind-merge";
 

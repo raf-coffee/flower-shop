@@ -5,6 +5,13 @@ export { default as Input } from "./Input";
 export { default as TextArea } from "./TextArea";
 export { default as ErrorMessage } from "./ErrorMassage";
 
+export { default as YandexMap } from "./Map";
+export { default as ReviewList } from "./ReviewList";
+export { default as Sales } from "./Sales";
+export { default as Hero } from "./Hero";
+export { default as Carousel } from "./Carousel";
+export { default as Overlay } from "./Overlay";
+export { default as ParallaxDecor } from "./ParallaxDecor";
 export { default as Header } from "./Header";
 export { default as Footer } from "./Footer";
 export { default as LeadSection } from "./LeadSection";

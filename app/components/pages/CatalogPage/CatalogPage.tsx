@@ -2,10 +2,10 @@ import Image from "next/image";
 
 import { ProductCollections } from "@/types";
 import Hero from "@/app/components/ui/Hero/Hero";
-import { Container, LeadSection } from "@/app/components";
+import { Container, LeadSection } from "@/app/components/ui";
 import CatalogView from "./CatalogView/CatalogView";
 import { getData } from "@/lib/getData";
-import { Breadcrumbs } from "@/app/components";
+import { Breadcrumbs } from "@/app/components/ui";
 import { Decor1, Decor2, Decor3 } from "@/static/decor";
 
 export default async function CatalogPage({

@@ -17,10 +17,10 @@ import {
   ErrorMessage,
 } from "@/app/components/ui";
 import { formSchema, FormSchema } from "@/constants";
-import ParallaxDecor from "../ui/ParallaxDecor/ParallaxDecor";
+import { ParallaxDecor } from "@/app/components/ui";
 import { Decor3, Decor4 } from "@/static/decor";
 
-function FeedbackForm({ title }: { title: string }) {
+export default function FeedbackForm({ title }: { title: string }) {
   const sectionRef = useRef<HTMLElement>(null);
   const router = useRouter();
   const {
@@ -43,7 +43,6 @@ function FeedbackForm({ title }: { title: string }) {
     if (res.ok) {
       router.push("/success");
     } else {
-      "Ошибка при отправке".toString();
       router.push("/error");
     }
   };
@@ -158,5 +157,3 @@ function FeedbackForm({ title }: { title: string }) {
     </section>
   );
 }
-
-export default FeedbackForm;

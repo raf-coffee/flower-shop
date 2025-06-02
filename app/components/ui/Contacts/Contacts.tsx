@@ -3,9 +3,6 @@
 import Image from "next/image";
 import { useRef } from "react";
 
-import YandexMap from "@/app/components/ui/Map/YandexMap";
-
-import SocialList from "@/app/components/ui/SocialList/SocialList";
 import {
   Container,
   Heading,
@@ -13,12 +10,14 @@ import {
   TextFont,
   TextSize,
   TextWeight,
+  SocialList,
+  YandexMap,
 } from "@/app/components/ui";
 
 import { IconMailFilled, IconPhoneCall } from "@tabler/icons-react";
 import { AlarmIcon, MapMarkerIcon } from "@/static/icons";
 
-import { LeadSection } from "@/app/components";
+import { LeadSection } from "@/app/components/ui";
 import ParallaxDecor from "@/app/components/ui/ParallaxDecor/ParallaxDecor";
 import { Decor1, Decor2 } from "@/static/decor";
 

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { HomePage } from "@/app/components";
+import { HomePage } from "@/app/components/pages";
 
 export const metadata: Metadata = {
   title: "Главная | Floristman - Яркие моменты вашей жизни",

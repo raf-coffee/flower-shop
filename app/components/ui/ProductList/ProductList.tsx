@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { Container, Heading } from "..";
 import { twMerge } from "tailwind-merge";
-import CatalogCardOverlay from "../../CatalogCardOverlay/CatalogCardOverlay";
+import { Overlay } from "@/app/components/ui";
 import { Decor1, Decor2 } from "@/static/decor";
 
 import CATEGORIES_LIST from "./constants";
@@ -44,11 +44,9 @@ export default function ProductList() {
                     backgroundPosition: "center",
                   }}
                 >
-                  <CatalogCardOverlay
-                    type={overlayStyle as "vertical" | "verticalRight"}
-                  >
+                  <Overlay type={overlayStyle as "vertical" | "verticalRight"}>
                     {text}
-                  </CatalogCardOverlay>
+                  </Overlay>
                 </li>
               </Link>
             ),

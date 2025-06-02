@@ -5,7 +5,7 @@ import OrderForm from "@/app/components/forms/OrderForm/OrderForm";
 import Delivery from "@/app/components/ui/Delivery/Delivery";
 import { Button } from "@/app/components/ui";
 import CatalogSection from "@/app/components/ui/ProductList/ProductList";
-import { LeadSection } from "@/app/components";
+import { LeadSection } from "@/app/components/ui";
 import { Decor1, Decor2 } from "@/static/decor";
 import Image from "next/image";
 

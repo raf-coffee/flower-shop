@@ -1,4 +1,4 @@
-import { ProductPage } from "@/app/components";
+import { ProductPage } from "@/app/components/pages";
 import { redirect } from "next/navigation";
 
 export default async function BalloonsProductRoute(props: {

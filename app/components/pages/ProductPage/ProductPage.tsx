@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { DataFromCollectionSlug } from "payload";
+
 import {
   Container,
   TextFont,
@@ -9,11 +10,11 @@ import {
   Heading,
   TextSize,
   LeadSection,
-} from "@/app/components";
-import Sales from "@/app/components/ui/Sales/Sales";
-import { Breadcrumbs } from "@/app/components";
-import ReviewList from "@/app/components/ui/ReviewList/ReviewList";
-import Hero from "@/app/components/ui/Hero/Hero";
+  Breadcrumbs,
+  Sales,
+  ReviewList,
+  Hero,
+} from "@/app/components/ui";
 import { deriveActiveLabels, getCoverImageUrl } from "@/utils";
 import { getData } from "@/lib/getData";
 import { Label, ProductCollections } from "@/types";

@@ -4,7 +4,7 @@ import "swiper/css/pagination";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import { ProductCard } from "@/app/components";
+import { ProductCard } from "@/app/components/ui";
 import { ProductCollections } from "@/types";
 import { Config } from "@/payload-types";
 

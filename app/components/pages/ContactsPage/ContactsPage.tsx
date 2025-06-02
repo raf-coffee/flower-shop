@@ -1,7 +1,5 @@
-import Hero from "@/app/components/ui/Hero/Hero";
-
-import {} from "@/app/components";
-import { Contacts, FeedbackForm } from "@/app/components";
+import { Contacts, Hero } from "@/app/components/ui";
+import { FeedbackForm } from "@/app/components/forms";
 
 export default function ContactsPage() {
   return (
