@@ -17,7 +17,7 @@ import {
   ErrorMessage,
 } from "@/app/components/ui";
 import { formSchema, FormSchema } from "@/constants";
-import ParallaxDecor from "../ParallaxDecor/ParallaxDecor";
+import ParallaxDecor from "../ui/ParallaxDecor/ParallaxDecor";
 import { Decor3, Decor4 } from "@/static/decor";
 
 function FeedbackForm({ title }: { title: string }) {

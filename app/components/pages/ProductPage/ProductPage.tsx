@@ -8,11 +8,11 @@ import {
   Text,
   Heading,
   TextSize,
-  LeadSectionContainer,
-} from "@/app/components/ui";
-import Sales from "@/app/components/Sales/Sales";
-import Breadcrumbs from "@/app/components/Breadcrumbs/Breadcrumbs";
-import ReviewList from "@/app/components/ReviewList/ReviewList";
+  LeadSection,
+} from "@/app/components";
+import Sales from "@/app/components/ui/Sales/Sales";
+import { Breadcrumbs } from "@/app/components";
+import ReviewList from "@/app/components/ui/ReviewList/ReviewList";
 import Hero from "@/app/components/Hero/Hero";
 import { deriveActiveLabels, getCoverImageUrl } from "@/utils";
 import { getData } from "@/lib/getData";
@@ -43,7 +43,7 @@ function ProductPageView({
   return (
     <div className="bg-main-pink-300">
       <Hero heading={item.name} className="mb-14 lg:mb-0" />
-      <LeadSectionContainer>
+      <LeadSection>
         <Image
           src={Decor1}
           className="absolute -left-10 top-[20px] hidden md:block"
@@ -152,7 +152,7 @@ function ProductPageView({
         </Container>
 
         <ReviewList reviews={item.reviews} />
-      </LeadSectionContainer>
+      </LeadSection>
 
       <div className="bg-main-pink-400">
         <Container className="relative p-0">

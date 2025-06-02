@@ -1,5 +1,5 @@
 import { IconPhoneCall, IconMailFilled } from "@tabler/icons-react";
-import SocialList from "../SocialList/SocialList";
+import SocialList from "../ui/SocialList/SocialList";
 
 import Link from "next/link";
 import Logo from "../Logo/Logo";

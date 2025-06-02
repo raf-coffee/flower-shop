@@ -5,7 +5,7 @@ import { useRef } from "react";
 
 import YandexMap from "@/app/components/Map/YandexMap";
 
-import SocialList from "@/app/components/SocialList/SocialList";
+import SocialList from "@/app/components/ui/SocialList/SocialList";
 import {
   Container,
   Heading,
@@ -18,8 +18,8 @@ import {
 import { IconMailFilled, IconPhoneCall } from "@tabler/icons-react";
 import { AlarmIcon, MapMarkerIcon } from "@/static/icons";
 
-import { LeadSectionContainer } from "@/app/components/ui";
-import ParallaxDecor from "@/app/components/ParallaxDecor/ParallaxDecor";
+import { LeadSection } from "@/app/components";
+import ParallaxDecor from "@/app/components/ui/ParallaxDecor/ParallaxDecor";
 import { Decor1, Decor2 } from "@/static/decor";
 
 function Contacts() {
@@ -27,7 +27,7 @@ function Contacts() {
 
   return (
     <div className="relative" ref={wrapperRef}>
-      <LeadSectionContainer>
+      <LeadSection>
         {!!wrapperRef.current && (
           <ParallaxDecor
             speed={150}
@@ -164,7 +164,7 @@ function Contacts() {
             </div>
           </div>
         </Container>
-      </LeadSectionContainer>
+      </LeadSection>
     </div>
   );
 }

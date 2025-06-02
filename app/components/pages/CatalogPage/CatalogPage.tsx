@@ -2,10 +2,10 @@ import Image from "next/image";
 
 import { ProductCollections } from "@/types";
 import Hero from "@/app/components/Hero/Hero";
-import { Container, LeadSectionContainer } from "@/app/components/ui";
+import { Container, LeadSection } from "@/app/components";
 import CatalogView from "./CatalogView/CatalogView";
 import { getData } from "@/lib/getData";
-import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
+import { Breadcrumbs } from "@/app/components";
 import { Decor1, Decor2, Decor3 } from "@/static/decor";
 
 export default async function CatalogPage({
@@ -25,7 +25,7 @@ export default async function CatalogPage({
     <div className="bg-main-pink-300">
       <Hero heading="Каталог" />
 
-      <LeadSectionContainer>
+      <LeadSection>
         <Image
           src={Decor1}
           className="absolute -left-10 top-[20px] hidden md:block"
@@ -55,7 +55,7 @@ export default async function CatalogPage({
             type={type}
           />
         </Container>
-      </LeadSectionContainer>
+      </LeadSection>
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { Container, Heading } from "../ui";
+import { Container, Heading } from "..";
 import { twMerge } from "tailwind-merge";
-import CatalogCardOverlay from "../CatalogCardOverlay/CatalogCardOverlay";
+import CatalogCardOverlay from "../../CatalogCardOverlay/CatalogCardOverlay";
 import { Decor1, Decor2 } from "@/static/decor";
 
 import CATEGORIES_LIST from "./constants";

@@ -14,7 +14,7 @@ type RangeProps = {
   onChange: (range: PriceRange) => void;
 };
 
-const Range: React.FC<RangeProps> = ({ min, max, step = 10, onChange }) => {
+export default function Range({ min, max, step = 10, onChange }: RangeProps) {
   const [range, setRange] = useState<PriceRange>({ min, max });
 
   useEffect(() => {
@@ -63,6 +63,4 @@ const Range: React.FC<RangeProps> = ({ min, max, step = 10, onChange }) => {
       </div>
     </div>
   );
-};
-
-export default Range;
+}

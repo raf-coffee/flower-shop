@@ -1,11 +1,11 @@
 import Hero from "@/app/components/Hero/Hero";
-import Sales from "@/app/components/Sales/Sales";
-import WhyUs from "@/app/components/WhyUs/WhyUs";
+import Sales from "@/app/components/ui/Sales/Sales";
+import WhyUs from "@/app/components/ui/WhyUs/WhyUs";
 import OrderForm from "@/app/components/OrderForm/OrderForm";
 import Delivery from "@/app/components/Delivery/Delivery";
 import { Button } from "@/app/components/ui";
-import CatalogSection from "@/app/components/ProductList/ProductList";
-import { LeadSectionContainer } from "@/app/components/ui";
+import CatalogSection from "@/app/components/ui/ProductList/ProductList";
+import { LeadSection } from "@/app/components";
 import { Decor1, Decor2 } from "@/static/decor";
 import Image from "next/image";
 
@@ -23,7 +23,7 @@ export default function HomePage() {
           <Button size="large">Выбрать букет</Button>
         </a>
       </Hero>
-      <LeadSectionContainer>
+      <LeadSection>
         <Image
           src={Decor1}
           className="absolute -left-10 top-[20px] hidden md:block"
@@ -35,7 +35,7 @@ export default function HomePage() {
           alt="Декоративный элемент."
         />
         <Sales />
-      </LeadSectionContainer>
+      </LeadSection>
       <WhyUs />
       <CatalogSection />
       <Delivery />
