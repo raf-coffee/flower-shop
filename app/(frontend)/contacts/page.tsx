@@ -1,9 +1,5 @@
+import ContactsPage from "@/app/components/pages/ContactsPage/ContactsPage";
 import { Metadata } from "next";
-
-import Hero from "@/app/components/Hero/Hero";
-
-import FeedbackForm from "@/app/components/FeedbackForm/FeedbackForm";
-import Contacts from "@/app/components/Contacts/Contacts";
 
 export const metadata: Metadata = {
   title: "Контакты | Floristman - Яркие моменты вашей жизни",
@@ -14,12 +10,6 @@ export const metadata: Metadata = {
 где мы поможем вам собрать идеальную цветочную композицию",
 };
 
-export default function ContactsPage() {
-  return (
-    <div className="bg-main-pink-300">
-      <Hero heading="Контакты" />
-      <Contacts />
-      <FeedbackForm title="Появились вопросы?" />
-    </div>
-  );
+export default function ContactsRoute() {
+  return <ContactsPage />;
 }
