@@ -1,4 +1,4 @@
-import Catalog from "@/app/components/Catalog/Catalog";
+import Catalog from "@/app/components/CatalogPage/CatalogPage";
 
 export default function BalloonsPage() {
   return <Catalog type="baloons" />;

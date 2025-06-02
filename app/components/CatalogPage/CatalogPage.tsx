@@ -3,12 +3,16 @@ import Image from "next/image";
 import { ProductCollections } from "@/types";
 import Hero from "@/app/components/Hero/Hero";
 import { Container, LeadSectionContainer } from "@/app/components/ui";
-import CatalogView from "../CatalogView/CatalogView";
+import CatalogView from "./CatalogView/CatalogView";
 import { getData } from "@/lib/getData";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import { Decor1, Decor2, Decor3 } from "@/static/decor";
 
-export default async function Catalog({ type }: { type: ProductCollections }) {
+export default async function CatalogPage({
+  type,
+}: {
+  type: ProductCollections;
+}) {
   const { docs: products } = await getData.findAll(type);
 
   const { docs: categories } = await getData.findAll("categories");

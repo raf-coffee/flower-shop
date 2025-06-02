@@ -4,7 +4,7 @@ import WhyUs from "@/app/components/WhyUs/WhyUs";
 import OrderForm from "@/app/components/OrderForm/OrderForm";
 import Delivery from "@/app/components/Delivery/Delivery";
 import { Button } from "@/app/components/ui";
-import CatalogSection from "@/app/components/CatalogSection/CatalogSection";
+import CatalogSection from "@/app/components/ProductList/ProductList";
 import { Metadata } from "next";
 import { LeadSectionContainer } from "@/app/components/ui";
 import { Decor1, Decor2 } from "@/static/decor";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: "Идеальные букеты для любого повода и бюджета.",
 };
 
-export default function Home() {
+export default function HomeRoute() {
   return (
     <div className="bg-main-pink-300">
       <Hero
