@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { IconMenu2, IconX } from "@tabler/icons-react";
-import NavLink from "../NavLink/NavLink";
+
+import NavLink from "@/app/components/ui/NavLink";
+import { MENU_LINKS } from "@/constants";
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,46 +23,18 @@ export default function MobileMenu() {
         {isOpen ? <IconX /> : <IconMenu2 />}
       </button>
       {isOpen && (
-        <div className="absolute left-0 right-0 top-16 z-10 bg-main-pink-400">
-          <NavLink href={"/"} variant="mobile" isActive={path === "/"}>
-            Главная
-          </NavLink>
-          <NavLink
-            href={"/catalog/flowers"}
-            variant="mobile"
-            isActive={path === ""}
-          >
-            Цветы
-          </NavLink>
-          <NavLink
-            href={"/catalog/sweets"}
-            variant="mobile"
-            isActive={path === ""}
-          >
-            Сладости
-          </NavLink>
-          <NavLink
-            href={"/catalog/gifts"}
-            variant="mobile"
-            isActive={path === ""}
-          >
-            Подарки
-          </NavLink>
-          <NavLink
-            href={"/catalog/balloons"}
-            variant="mobile"
-            isActive={path === ""}
-          >
-            Воздушные шарики
-          </NavLink>
-          <NavLink
-            href="/contacts"
-            variant="mobile"
-            isActive={path === "/contacts"}
-          >
-            Контакты
-          </NavLink>
-        </div>
+        <ul className="absolute left-0 right-0 top-16 z-30 bg-main-pink-400">
+          {MENU_LINKS.map(({ href, title }) => (
+            <NavLink
+              href={href}
+              variant="mobile"
+              isActive={path === href}
+              key={title}
+            >
+              {title}
+            </NavLink>
+          ))}
+        </ul>
       )}
     </nav>
   );
