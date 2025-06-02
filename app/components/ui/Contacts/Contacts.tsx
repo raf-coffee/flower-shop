@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useState } from "react";
 
 import { IconMailFilled, IconPhoneCall } from "@tabler/icons-react";
 import { AlarmIcon, MapMarkerIcon } from "@/static/icons";
@@ -16,28 +16,28 @@ import SocialList from "@/app/components/ui/SocialList";
 import Text, { TextSize, TextFont, TextWeight } from "@/app/components/ui/Text";
 
 function Contacts() {
-  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [wrapperRef, setWrapperRef] = useState<HTMLDivElement | null>(null);
 
   return (
-    <div className="relative" ref={wrapperRef}>
+    <div className="relative" ref={(el) => setWrapperRef(el)}>
       <LeadSection>
-        {!!wrapperRef.current && (
+        {wrapperRef && (
           <ParallaxDecor
             speed={150}
             src={Decor1.src}
             width={83}
             height={107}
-            container={wrapperRef.current}
+            container={wrapperRef}
             className="z-15 -left-10 top-1 hidden md:block"
           />
         )}
-        {!!wrapperRef.current && (
+        {wrapperRef && (
           <ParallaxDecor
             speed={150}
             src={Decor2.src}
             width={83}
             height={107}
-            container={wrapperRef.current}
+            container={wrapperRef}
             className="z-15 -right-10 top-[200px] hidden md:block"
           />
         )}
