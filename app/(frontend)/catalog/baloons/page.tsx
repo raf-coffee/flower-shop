@@ -1,5 +1,5 @@
-import Catalog from "@/app/components/CatalogPage/CatalogPage";
+import { CatalogPage } from "@/app/components";
 
-export default function BalloonsPage() {
-  return <Catalog type="baloons" />;
+export default function BalloonsRoute() {
+  return <CatalogPage type="baloons" />;
 }
