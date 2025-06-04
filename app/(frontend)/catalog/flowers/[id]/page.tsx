@@ -1,7 +1,7 @@
-import ProductPage from "@/app/components/ProductPage/ProductPage";
+import { ProductPage } from "@/app/components/pages";
 import { redirect } from "next/navigation";
 
-export default async function FlowersProductPage(props: {
+export default async function FlowersProductRoute(props: {
   params: Promise<{ id: string }>;
 }) {
   const params = await props.params;

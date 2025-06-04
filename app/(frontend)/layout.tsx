@@ -1,9 +1,9 @@
 import { Montserrat } from "next/font/google";
 
-import Header from "@/app/components/Header/Header";
-import Footer from "@/app/components/Footer/Footer";
-
 import "./globals.css";
+
+import Header from "@/app/components/ui/Header";
+import Footer from "@/app/components/ui/Footer";
 
 const montserrat = Montserrat({
   weight: "variable",
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${montserrat.className}`}>
-      <body>
+      <body className="overflow-x-hidden">
         <div className="flex min-h-dvh flex-col">
           <Header />
           <main className="flex-grow">{children}</main>

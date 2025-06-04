@@ -1,3 +1,3 @@
-import Catalog from "@/app/components/Catalog/Catalog";
-
-export default Catalog;
+export default function CatalogRoute() {
+  return null;
+}

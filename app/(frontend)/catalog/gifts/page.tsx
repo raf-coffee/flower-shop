@@ -1,5 +1,5 @@
-import Catalog from "@/app/components/Catalog/Catalog";
+import { CatalogPage } from "@/app/components/pages";
 
-export default function FlowersPage() {
-  return <Catalog type="gifts" />;
+export default function GiftsRoute() {
+  return <CatalogPage type="gifts" />;
 }

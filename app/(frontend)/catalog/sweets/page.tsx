@@ -1,5 +1,5 @@
-import Catalog from "@/app/components/Catalog/Catalog";
+import { CatalogPage } from "@/app/components/pages";
 
-export default function SweetsPage() {
-  return <Catalog type="sweets" />;
+export default function SweetsRoute() {
+  return <CatalogPage type="sweets" />;
 }
