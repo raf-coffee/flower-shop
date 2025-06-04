@@ -50,13 +50,22 @@ export const generateData = (
 ) => {
   return faker.helpers.multiple(
     () => {
+      if (collection === "flowers") {
+        return {
+          ...generateCommonFields(
+            collection,
+            options.imageIds,
+            options.reviewIds,
+          ),
+          categories: generateRelation(data.categories.ids, 1),
+        };
+      }
       return {
         ...generateCommonFields(
           collection,
           options.imageIds,
           options.reviewIds,
         ),
-        ...options.extraRelationFields,
       };
     },
     { count: options.count },
