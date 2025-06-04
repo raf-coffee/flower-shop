@@ -111,5 +111,4 @@ export type GenerateDataOptions = {
   count: number;
   imageIds: number[];
   reviewIds: number[];
-  extraRelationFields?: Record<string, number[]>;
 };
