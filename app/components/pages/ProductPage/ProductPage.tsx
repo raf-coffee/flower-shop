@@ -30,12 +30,13 @@ function ProductPageView({
   const occasionsText = item?.occasions?.map((occ) =>
     typeof occ !== "number" ? `${occ.name}. ` : "",
   );
+
   const whomsText =
-    "whoms" in item && Array.isArray(item.whoms)
-      ? item?.whoms?.map((occ) =>
-          typeof occ.value !== "number" ? `${occ.value.name}. ` : "",
-        )
-      : null;
+    item.whom && item.whom.length
+      ? item.whom
+          .map((occ) => (typeof occ !== "number" ? `${occ.name}.` : ""))
+          .join(" ")
+      : "-";
 
   return (
     <div className="bg-main-pink-300">
@@ -121,7 +122,7 @@ function ProductPageView({
                   weight={TextWeight.MEDIUM}
                   size={TextSize.NORMAL}
                 >
-                  {whomsText || "-"}
+                  {whomsText}
                 </Text>
               </div>
               <div className="w-full md:mb-6">
