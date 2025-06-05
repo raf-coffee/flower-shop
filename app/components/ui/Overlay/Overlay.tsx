@@ -32,28 +32,28 @@ export default function Overlay({
         {children}
       </Text>
       <Image
-        className="absolute left-1 top-1.5 lg:h-[39px] lg:w-[39px]"
+        className="absolute left-1 top-0.5 lg:top-1.5 lg:h-[39px] lg:w-[39px]"
         src={OverlayCatalogDecor.src}
         width={16}
         height={21}
         alt="Вензель с золотистым цветом."
       />
       <Image
-        className="absolute bottom-1.5 left-1 rotate-180 -scale-x-100 lg:h-[39px] lg:w-[39px]"
+        className="absolute bottom-0.5 left-1 rotate-180 -scale-x-100 lg:bottom-1.5 lg:h-[39px] lg:w-[39px]"
         src={OverlayCatalogDecor.src}
         width={16}
         height={21}
         alt="Вензель с золотистым цветом."
       />
       <Image
-        className="absolute right-1 top-1.5 -scale-x-100 lg:h-[39px] lg:w-[39px]"
+        className="absolute right-1 top-0.5 -scale-x-100 lg:top-1.5 lg:h-[39px] lg:w-[39px]"
         src={OverlayCatalogDecor.src}
         width={16}
         height={21}
         alt="Вензель с золотистым цветом."
       />
       <Image
-        className="absolute bottom-1.5 right-1 rotate-180 lg:h-[39px] lg:w-[39px]"
+        className="absolute bottom-0.5 right-1 rotate-180 lg:bottom-1.5 lg:h-[39px] lg:w-[39px]"
         src={OverlayCatalogDecor.src}
         width={16}
         height={21}
