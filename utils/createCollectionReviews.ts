@@ -7,7 +7,6 @@ export async function createCollectionReviews(
   payload: Payload,
   collection: ProductCollections,
 ) {
-  const ids: number[] = [];
   const collectionReviews = data.reviews[collection].map((review) => {
     return {
       review,
@@ -15,16 +14,12 @@ export async function createCollectionReviews(
       collection,
     };
   });
-  await Promise.all(
+  return await Promise.all(
     collectionReviews.map(async (review) => {
-      const result = await payload.create({
+      return await payload.create({
         collection: "reviews",
         data: review,
       });
-
-      ids.push(result.id);
     }),
   );
-
-  return ids;
 }
