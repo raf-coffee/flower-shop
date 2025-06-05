@@ -174,6 +174,7 @@ export interface Flower {
   categories?: (number | Category)[] | null;
   images?: (number | Media)[] | null;
   reviews?: (number | Review)[] | null;
+  whom?: (number | Whom)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -221,6 +222,16 @@ export interface Review {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "whom".
+ */
+export interface Whom {
+  id: number;
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "baloons".
  */
 export interface Baloon {
@@ -233,6 +244,7 @@ export interface Baloon {
   tags?: (number | Tag)[] | null;
   images?: (number | Media)[] | null;
   reviews?: (number | Review)[] | null;
+  whom?: (number | Whom)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -250,6 +262,7 @@ export interface FruitCart {
   tags?: (number | Tag)[] | null;
   images?: (number | Media)[] | null;
   reviews?: (number | Review)[] | null;
+  whom?: (number | Whom)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -267,6 +280,7 @@ export interface Accessory {
   tags?: (number | Tag)[] | null;
   images?: (number | Media)[] | null;
   reviews?: (number | Review)[] | null;
+  whom?: (number | Whom)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -284,6 +298,7 @@ export interface Indoor {
   tags?: (number | Tag)[] | null;
   images?: (number | Media)[] | null;
   reviews?: (number | Review)[] | null;
+  whom?: (number | Whom)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -301,6 +316,7 @@ export interface Gift {
   tags?: (number | Tag)[] | null;
   images?: (number | Media)[] | null;
   reviews?: (number | Review)[] | null;
+  whom?: (number | Whom)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -318,16 +334,7 @@ export interface Sweet {
   tags?: (number | Tag)[] | null;
   images?: (number | Media)[] | null;
   reviews?: (number | Review)[] | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "whom".
- */
-export interface Whom {
-  id: number;
-  name: string;
+  whom?: (number | Whom)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -488,6 +495,7 @@ export interface FlowersSelect<T extends boolean = true> {
   categories?: T;
   images?: T;
   reviews?: T;
+  whom?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -531,6 +539,7 @@ export interface BaloonsSelect<T extends boolean = true> {
   tags?: T;
   images?: T;
   reviews?: T;
+  whom?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -547,6 +556,7 @@ export interface FruitCartsSelect<T extends boolean = true> {
   tags?: T;
   images?: T;
   reviews?: T;
+  whom?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -563,6 +573,7 @@ export interface AccessoriesSelect<T extends boolean = true> {
   tags?: T;
   images?: T;
   reviews?: T;
+  whom?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -579,6 +590,7 @@ export interface IndoorsSelect<T extends boolean = true> {
   tags?: T;
   images?: T;
   reviews?: T;
+  whom?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -595,6 +607,7 @@ export interface GiftsSelect<T extends boolean = true> {
   tags?: T;
   images?: T;
   reviews?: T;
+  whom?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -611,6 +624,7 @@ export interface SweetsSelect<T extends boolean = true> {
   tags?: T;
   images?: T;
   reviews?: T;
+  whom?: T;
   updatedAt?: T;
   createdAt?: T;
 }

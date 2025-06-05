@@ -58,5 +58,12 @@ export const FruitCarts: CollectionConfig = {
       hasMany: true,
       relationTo: "reviews",
     },
+    {
+      name: "whom",
+      label: "Whom",
+      type: "relationship",
+      hasMany: true,
+      relationTo: "whom",
+    },
   ],
 };
