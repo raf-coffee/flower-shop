@@ -72,13 +72,9 @@ export default function CatalogView({
       }
 
       // === Кому ===
-      if (
-        whomIds.length > 0 &&
-        "whoms" in product &&
-        Array.isArray(product.whoms)
-      ) {
-        const productWhomIds = product.whoms?.map((whom) =>
-          typeof whom.value === "number" ? whom.value : whom.value.id,
+      if (product.whom?.length) {
+        const productWhomIds = product.whom?.map((item) =>
+          typeof item !== "number" ? item.id : item,
         );
 
         if (!productWhomIds?.some((id) => whomIds.includes(id))) {
