@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-
-import { ErrorPage } from "@/app/components";
+import { ErrorPage } from "@/app/components/pages";
 
 export const metadata: Metadata = {
   title: "Что-то пошло не так... | Floristman - Яркие моменты вашей жизни",
