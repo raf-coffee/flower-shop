@@ -1,18 +1,12 @@
 import React from "react";
 
-import { getData } from "@/lib/getData";
 import { Review } from "@/payload-types";
+import { getData } from "@/lib/getData";
 
 import Container from "@/app/components/ui/Container";
 import Heading from "@/app/components/ui/Heading";
 import Text, { TextFont, TextWeight, TextSize } from "@/app/components/ui/Text";
-
-const isNumbers = (arr: (number | Review)[]): arr is number[] => {
-  return typeof arr[0] === "number";
-};
-const isReviews = (arr: (number | Review)[]): arr is Review[] => {
-  return typeof arr[0] === "object";
-};
+import { isNumbers, isReviews } from "@/utils/typeGuards";
 
 export default async function ReviewList({
   reviews,

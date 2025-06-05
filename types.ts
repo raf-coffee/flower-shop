@@ -8,7 +8,15 @@ import {
   Where,
   WhereField,
 } from "payload";
-import { Config } from "@/payload-types";
+import {
+  Category,
+  Config,
+  Media,
+  Occasion,
+  Review,
+  Tag,
+  Whom,
+} from "@/payload-types";
 import data from "@/data";
 
 export type PayloadCollections = keyof Omit<
@@ -109,6 +117,12 @@ export interface Crumb {
 
 export type GenerateDataOptions = {
   count: number;
-  imageIds: number[];
-  reviewIds: number[];
+  reviewSet: Review[];
+  imageIds: Media[];
+  tagSet: Tag[];
+  occasionSet: Occasion[];
+  whomSet: Whom[];
+  categoriesSet: Category[];
 };
+
+export type Flowers = keyof typeof data.flowers.imageNames;

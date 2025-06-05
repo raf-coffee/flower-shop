@@ -144,6 +144,8 @@ export interface UserAuthOperations {
 export interface Media {
   id: number;
   alt?: string | null;
+  collection?: string | null;
+  type?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -457,6 +459,8 @@ export interface PayloadMigration {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  collection?: T;
+  type?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
