@@ -15,5 +15,16 @@ export const Media: CollectionConfig = {
       label: "Alt text",
       type: "text",
     },
+    {
+      name: "collection",
+      label: "Collection",
+      type: "text",
+    },
+    {
+      name: "type",
+      label: "Flower Type",
+      type: "text",
+      required: false,
+    },
   ],
 };

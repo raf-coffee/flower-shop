@@ -7,7 +7,7 @@ const uploadImages = async <T extends ProductCollections>(
   payload: Payload,
   collection: T,
 ) => {
-  const uploadedImageIds = [];
+  const uploadedImages = [];
 
   for (const imageName of data[collection].imageNames) {
     const { docs } = await payload.find({
@@ -24,23 +24,22 @@ const uploadImages = async <T extends ProductCollections>(
           }
         });
       }
-
       const media = await payload.create({
         collection: "media",
         data: {
           alt: ``,
           filename: imageName,
+          collection,
+          type: imageName.split("-")[0],
         },
         filePath: `${process.cwd()}/static/${collection}/${imageName}`,
       });
-      if (media.id) {
-        uploadedImageIds.push(media.id);
-      }
+      uploadedImages.push(media);
     } else {
-      uploadedImageIds.push(docs[0].id);
+      uploadedImages.push(docs[0]);
     }
   }
-  return uploadedImageIds;
+  return uploadedImages;
 };
 
 export default uploadImages;

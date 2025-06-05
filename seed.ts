@@ -8,6 +8,7 @@ import {
 import data from "@/data";
 import type { InitialCollections, ProductCollections } from "@/types";
 import { createCollectionReviews } from "./utils/createCollectionReviews";
+import { Review } from "./payload-types";
 
 const ITEMS_COUNT = 20;
 
@@ -32,7 +33,11 @@ export const seed = async (payload: Payload) => {
   await Promise.all(
     INITIAL_COLLECTIONS.map(async (collection) => {
       if (await collectionDoesNotExist(payload, collection)) {
-        await createCollection(payload, collection, data[collection].names);
+        return await createCollection(
+          payload,
+          collection,
+          data[collection].names,
+        );
       }
     }),
   );
@@ -45,13 +50,12 @@ export const seed = async (payload: Payload) => {
   );
 
   const reviewsDoesNotExists = await collectionDoesNotExist(payload, "reviews");
-  let reviews: number[][];
+  let reviews: Review[][];
 
   if (reviewsDoesNotExists) {
     reviews = await Promise.all(
       PRODUCT_COLLECTIONS.map(async (collection) => {
-        const ids = await createCollectionReviews(payload, collection);
-        return ids;
+        return await createCollectionReviews(payload, collection);
       }),
     );
   } else {
@@ -65,20 +69,48 @@ export const seed = async (payload: Payload) => {
             },
           },
         });
-        const ids = data.docs.map((item) => item.id);
-        return ids;
+        return data.docs;
       }),
     );
   }
 
-  const productData = PRODUCT_COLLECTIONS.map((collection, index) => ({
-    collection,
-    items: generateData(collection, {
-      count: ITEMS_COUNT,
-      imageIds: images[index],
-      reviewIds: reviews[index],
+  const productData = await Promise.all(
+    PRODUCT_COLLECTIONS.map(async (collection, index) => {
+      const tags = await payload.find({
+        collection: "tags",
+      });
+      const occasions = await payload.find({
+        collection: "occasions",
+      });
+      const whom = await payload.find({
+        collection: "whom",
+      });
+      const categories = await payload.find({
+        collection: "categories",
+      });
+      return {
+        collection,
+        items: generateData(collection, {
+          count: ITEMS_COUNT,
+          imageIds: images[index],
+          reviewSet: reviews[index],
+          tagSet: tags.docs,
+          occasionSet: occasions.docs,
+          whomSet: whom.docs,
+          categoriesSet: categories.docs,
+        }),
+      };
     }),
-  }));
+  );
+
+  // const productData = PRODUCT_COLLECTIONS.map((collection, index) => ({
+  //   collection,
+  //   items: generateData(collection, {
+  //     count: ITEMS_COUNT,
+  //     imageIds: images[index],
+  //     reviewSet: reviews[index],
+  //   }),
+  // }));
 
   await Promise.all(
     productData.map(async (product) => {

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import deliveryImg from "@/static/delivery/delivery.png";
+import deliveryImg from "@/static/delivery/delivery.webp";
 import Container from "@/app/components/ui/Container";
 import Heading from "@/app/components/ui/Heading";
 import Text, { TextFont, TextWeight, TextSize } from "@/app/components/ui/Text";

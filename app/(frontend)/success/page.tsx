@@ -1,5 +1,5 @@
+import { SuccessPage } from "@/app/components/pages";
 import { Metadata } from "next";
-import { SuccessPage } from "@/app/components";
 
 export const metadata: Metadata = {
   title: "Успешно отправлено! | Floristman - Яркие моменты вашей жизни",
