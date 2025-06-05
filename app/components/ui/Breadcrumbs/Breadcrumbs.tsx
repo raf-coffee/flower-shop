@@ -4,20 +4,20 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Text, { TextSize, TextWeight } from "@/app/components/ui/Text";
 import { BREADCRUMBS_SEPARATOR, PAGE_PATHS_TRANSLATIONS } from "@/constants";
-import { Crumb } from "@/types";
+import { Breadcrumb } from "@/types";
 
 interface BreadcrumbsProps {
   className?: string;
-  tailCrumb?: Crumb;
+  tailBreadcrumb?: Breadcrumb;
 }
 
 export default function Breadcrumbs({
   className,
-  tailCrumb,
+  tailBreadcrumb,
 }: BreadcrumbsProps) {
   const pathname = usePathname();
 
-  const items: Crumb[] = pathname
+  const items: Breadcrumb[] = pathname
     .split("/")
     .filter(Boolean)
     .map((segment, i, arr) => {
@@ -27,10 +27,10 @@ export default function Breadcrumbs({
       return { title: PAGE_PATHS_TRANSLATIONS[translationKey], href };
     });
 
-  let crumbs: Crumb[] = [{ title: "Главная", href: "/" }, ...items];
+  let crumbs: Breadcrumb[] = [{ title: "Главная", href: "/" }, ...items];
 
-  if (tailCrumb) {
-    crumbs = [...crumbs.slice(0, -1), tailCrumb];
+  if (tailBreadcrumb) {
+    crumbs = [...crumbs.slice(0, -1), tailBreadcrumb];
   }
 
   return (

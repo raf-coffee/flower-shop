@@ -55,7 +55,7 @@ function ProductPageView({
         <Container className="mb-4">
           <Breadcrumbs
             className="relative -top-14 lg:-top-12"
-            tailCrumb={{
+            tailBreadcrumb={{
               href: `/catalog/${collection}/${item.id}`,
               title: item.name,
             }}
@@ -156,7 +156,8 @@ function ProductPageView({
         <Container className="relative p-0">
           <Image
             src={Decor3}
-            className="z-5 absolute left-[160px] top-[-50px] hidden md:block"
+            className="z-5 absolute left-[225px] top-[-10px] hidden md:block"
+            width={150}
             alt="Декоративный элемент."
           />
           <Sales title={"Вместе покупают"} className="p-8 xl:p-4" />

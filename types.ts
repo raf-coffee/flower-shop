@@ -110,7 +110,7 @@ export interface Label {
   color?: string;
 }
 
-export interface Crumb {
+export interface Breadcrumb {
   title: string;
   href?: string;
 }

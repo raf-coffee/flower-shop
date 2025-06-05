@@ -8,7 +8,7 @@ export default function SuccessPage() {
         heading="Письмо успешно отправлено"
         description="Мы свяжемся с вами в течение 15 минут."
       >
-        <a href={"/"} className="hidden w-fit lg:block">
+        <a href={"/"} className="pointer-events-auto mt-4 block w-fit">
           <Button size="large">Вернуться на главную</Button>
         </a>
       </Hero>
