@@ -55,7 +55,7 @@ function ProductPageView({
         <Container className="mb-4">
           <Breadcrumbs
             className="relative -top-14 lg:-top-12"
-            tailCrumb={{
+            tailBreadcrumb={{
               href: `/catalog/${collection}/${item.id}`,
               title: item.name,
             }}
