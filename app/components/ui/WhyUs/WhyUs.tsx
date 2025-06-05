@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import image1 from "@/static/whyus/rec-01.png";
-import image2 from "@/static/whyus/rec-02.png";
-import image3 from "@/static/whyus/rec-03.png";
+import image1 from "@/static/whyus/rec-01.webp";
+import image2 from "@/static/whyus/rec-02.webp";
+import image3 from "@/static/whyus/rec-03.webp";
 
 import Text, { TextFont, TextSize, TextWeight } from "@/app/components/ui/Text";
 import { Decor3, Decor4 } from "@/static/decor";

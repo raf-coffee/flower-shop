@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import img from "@/static/form/form.png";
+import img from "@/static/form/form.webp";
 import { formSchema, FormSchema } from "@/constants";
 import { useRouter } from "next/navigation";
 import { Decor2 } from "@/static/decor";
