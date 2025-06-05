@@ -19,6 +19,7 @@
     "@hookform/resolvers": "^5.0.1",
     "@payloadcms/db-postgres": "^3.39.1",
     "@payloadcms/next": "^3.39.1",
+    "@payloadcms/plugin-seo": "^3.41.0",
     "@payloadcms/richtext-lexical": "^3.39.1",
     "@tabler/icons-react": "^3.31.0",
     "class-variance-authority": "^0.7.1",
