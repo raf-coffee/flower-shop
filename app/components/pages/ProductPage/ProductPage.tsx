@@ -159,7 +159,7 @@ function ProductPageView({
             className="z-5 absolute left-[160px] top-[-50px] hidden md:block"
             alt="Декоративный элемент."
           />
-          <Sales title={"Вместе покупают"} />
+          <Sales title={"Вместе покупают"} className="p-8 xl:p-4" />
         </Container>
       </div>
     </div>
