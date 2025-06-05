@@ -191,12 +191,11 @@ export default function CatalogView({
 
       {!!filteredProducts.length ? (
         <ul className="grid w-full grid-cols-2 gap-3 lg:grid-cols-3">
-          {!!filteredProducts.length &&
-            filteredProducts.map((item) => (
-              <li key={item.id}>
-                <ProductCard item={item} collection={type} />
-              </li>
-            ))}
+          {filteredProducts.map((item) => (
+            <li key={item.id}>
+              <ProductCard item={item} collection={type} />
+            </li>
+          ))}
         </ul>
       ) : (
         <div className="flex w-full items-center justify-center p-4">
