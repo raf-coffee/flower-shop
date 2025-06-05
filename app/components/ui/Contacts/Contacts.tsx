@@ -11,7 +11,6 @@ import LeadSection from "@/app/components/ui/LeadSection";
 import ParallaxDecor from "@/app/components/ui/ParallaxDecor";
 import Container from "@/app/components/ui/Container";
 import Heading from "@/app/components/ui/Heading";
-import YandexMap from "@/app/components/ui/Map";
 import SocialList from "@/app/components/ui/SocialList";
 import Text, { TextSize, TextFont, TextWeight } from "@/app/components/ui/Text";
 
@@ -153,7 +152,17 @@ function Contacts() {
               </div>
             </div>
             <div className="mb-5 flex min-h-[350px] w-full min-w-[350px] items-center justify-center lg:order-1 lg:row-start-1 lg:row-end-3 lg:mb-0 lg:h-full">
-              <YandexMap />
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?um=constructor%3A757a10719595080b7579648184d5859cf8f04624c3a910a208eb856235fecad8&amp;source=constructor"
+                width="350"
+                height="350"
+                style={{
+                  border: "none",
+                  width: "100%",
+                  height: "100%",
+                  minHeight: "350px",
+                }}
+              />
             </div>
           </div>
         </Container>
