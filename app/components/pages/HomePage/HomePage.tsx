@@ -28,7 +28,7 @@ export default function HomePage() {
       <LeadSection>
         <Image
           src={Decor1}
-          className="absolute -left-10 top-[20px] hidden md:block"
+          className="absolute -left-10 top-[40px] hidden md:block"
           alt="Декоративный элемент."
         />
         <Image
