@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { generateRelation } from "@/utils/generateRelations";
+import { generateRelation } from "@/utils";
 import data from "@/data";
 import type { GenerateDataOptions, ProductCollections } from "@/types";
 import { Media, Occasion, Review, Whom, Tag } from "@/payload-types";

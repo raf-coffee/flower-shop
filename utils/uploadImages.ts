@@ -1,15 +1,15 @@
 import { Payload } from "payload";
 import fs from "fs";
-import data from "@/data";
 import type { ProductCollections } from "@/types";
 
 const uploadImages = async <T extends ProductCollections>(
   payload: Payload,
   collection: T,
+  imageNames: string[],
 ) => {
   const uploadedImages = [];
 
-  for (const imageName of data[collection].imageNames) {
+  for (const imageName of imageNames) {
     const { docs } = await payload.find({
       collection: "media",
       where: { filename: { equals: imageName } },
