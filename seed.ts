@@ -111,15 +111,6 @@ export const seed = async (payload: Payload) => {
     }),
   );
 
-  // const productData = PRODUCT_COLLECTIONS.map((collection, index) => ({
-  //   collection,
-  //   items: generateData(collection, {
-  //     count: ITEMS_COUNT,
-  //     imageIds: images[index],
-  //     reviewSet: reviews[index],
-  //   }),
-  // }));
-
   await Promise.all(
     productData.map(async (product) => {
       if (await collectionDoesNotExist(payload, product.collection)) {
