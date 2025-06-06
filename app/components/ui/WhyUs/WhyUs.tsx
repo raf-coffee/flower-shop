@@ -12,17 +12,17 @@ export default function WhyUs() {
     <section className="relative bg-main-pink-300 p-4">
       <Image
         src={Decor3}
-        className="w-[164px absolute left-1/3 top-[60px] hidden h-auto md:block"
+        className="absolute left-1/3 top-[60px] hidden h-auto w-[164px] md:block"
         alt="Декоративный элемент."
       />
       <Image
         src={Decor4}
-        className="w-[164px absolute left-4 top-[400px] hidden h-auto md:block"
+        className="absolute left-4 top-[400px] hidden h-auto w-[84px] md:block"
         alt="Декоративный элемент."
       />
       <Image
         src={Decor4}
-        className="w-[164px absolute right-10 top-[590px] hidden h-auto md:block"
+        className="absolute right-10 top-[590px] hidden h-auto w-[84px] md:block"
         alt="Декоративный элемент."
       />
       <div className="mx-auto max-w-7xl">
@@ -33,9 +33,9 @@ export default function WhyUs() {
           <Image
             src={image1}
             alt=""
-            className="col-start-5 col-end-9 row-start-1 row-end-13 h-full w-full lg:col-start-8 lg:col-end-13"
+            className="relative z-30 col-start-5 col-end-9 row-start-1 row-end-13 h-full w-full lg:col-start-8 lg:col-end-13"
           />
-          <p className="col-start-2 col-end-7 row-start-9 row-end-10 self-center rounded-xl bg-white px-4 py-8 leading-3 sm:col-start-3 sm:col-end-7 sm:row-start-8 sm:row-end-9 lg:col-start-6 lg:col-end-10 lg:py-12">
+          <p className="relative z-30 col-start-2 col-end-7 row-start-9 row-end-10 self-center rounded-xl bg-white px-4 py-8 leading-3 sm:col-start-3 sm:col-end-7 sm:row-start-8 sm:row-end-9 lg:col-start-6 lg:col-end-10 lg:py-12">
             <Text
               font={TextFont.LATO}
               weight={TextWeight.MEDIUM}
@@ -50,9 +50,9 @@ export default function WhyUs() {
           <Image
             src={image2}
             alt=""
-            className="col-start-1 col-end-7 row-start-1 row-end-11 h-full w-full sm:col-end-6 lg:col-end-9 lg:row-end-12"
+            className="relative z-30 col-start-1 col-end-7 row-start-1 row-end-11 h-full w-full sm:col-end-6 lg:col-end-9 lg:row-end-12"
           />
-          <p className="col-start-4 col-end-9 row-start-8 row-end-10 self-center rounded-xl bg-white px-4 py-8 text-xxs leading-3 sm:col-end-7 sm:text-sm md:col-start-3 md:col-end-7 md:row-start-9 md:row-end-11 lg:col-start-6 lg:col-end-10 lg:row-start-10 lg:row-end-13">
+          <p className="relative z-30 col-start-4 col-end-9 row-start-8 row-end-10 self-center rounded-xl bg-white px-4 py-8 text-xxs leading-3 sm:col-end-7 sm:text-sm md:col-start-3 md:col-end-7 md:row-start-9 md:row-end-11 lg:col-start-6 lg:col-end-10 lg:row-start-10 lg:row-end-13">
             <Text
               font={TextFont.LATO}
               weight={TextWeight.MEDIUM}
@@ -67,9 +67,9 @@ export default function WhyUs() {
           <Image
             src={image3}
             alt=""
-            className="col-start-5 col-end-9 row-start-1 row-end-13 h-full w-full lg:col-start-8 lg:col-end-13"
+            className="relative z-30 col-start-5 col-end-9 row-start-1 row-end-13 h-full w-full lg:col-start-8 lg:col-end-13"
           />
-          <p className="col-start-2 col-end-7 row-start-9 row-end-10 self-center rounded-xl bg-white px-4 py-8 text-xxs leading-3 sm:col-start-3 sm:col-end-7 sm:row-start-8 sm:row-end-9 sm:text-sm lg:col-start-6 lg:col-end-10 lg:py-12">
+          <p className="relative z-30 col-start-2 col-end-7 row-start-9 row-end-10 self-center rounded-xl bg-white px-4 py-8 text-xxs leading-3 sm:col-start-3 sm:col-end-7 sm:row-start-8 sm:row-end-9 sm:text-sm lg:col-start-6 lg:col-end-10 lg:py-12">
             <Text
               font={TextFont.LATO}
               weight={TextWeight.MEDIUM}
