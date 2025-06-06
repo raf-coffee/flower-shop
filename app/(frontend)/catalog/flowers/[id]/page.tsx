@@ -1,5 +1,6 @@
 import { ProductPage } from "@/app/components/pages";
 import { redirect } from "next/navigation";
+import { generatePageMetadata } from "@/lib/generatePageMetada";
 
 export default async function FlowersProductRoute(props: {
   params: Promise<{ id: string }>;
@@ -12,4 +13,14 @@ export default async function FlowersProductRoute(props: {
   }
 
   return <ProductPage collection={"flowers"} id={id} />;
+}
+
+type Params = {
+  params: Promise<{ id: string }>;
+};
+
+export async function generateMetadata({ params }: Params) {
+  const { id } = await params;
+
+  return generatePageMetadata("flowers", id);
 }

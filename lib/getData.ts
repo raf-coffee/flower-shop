@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { getPayload } from "payload";
 import config from "@/payload.config";
 import type {
@@ -9,34 +10,26 @@ import type {
 const payload = await getPayload({ config });
 
 export const getData = {
-  findAll: async <T extends PayloadCollections>(
-    collection: T,
-    options?: FindAllOptions<T>,
-  ) => {
-    try {
-      const data = await payload.find({
+  findAll: cache(
+    async <T extends PayloadCollections>(
+      collection: T,
+      options?: FindAllOptions<T>,
+    ) =>
+      await payload.find({
         collection,
         ...options,
-      });
-      return data;
-    } catch (error) {
-      throw error;
-    }
-  },
-  findById: async <T extends PayloadCollections>(
-    collection: T,
-    id: number | string,
-    options?: FindByIDOptions<T>,
-  ) => {
-    try {
-      const data = await payload.findByID({
+      }),
+  ),
+  findById: cache(
+    async <T extends PayloadCollections>(
+      collection: T,
+      id: number | string,
+      options?: FindByIDOptions<T>,
+    ) =>
+      await payload.findByID({
         collection,
         id,
         ...options,
-      });
-      return data;
-    } catch (error) {
-      throw error;
-    }
-  },
+      }),
+  ),
 };
