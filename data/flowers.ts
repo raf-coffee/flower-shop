@@ -128,15 +128,6 @@ const imageNames = [
   "bouquets-10.webp",
 ];
 
-// const imageNames = [
-//   "buq-1.jpg",
-//   "buq-2.jpg",
-//   "buq-3.jpg",
-//   "buq-4.jpg",
-//   "buq-5.jpg",
-//   "buq-6.jpg",
-// ];
-
 const flowersGenitive = [
   "ромашки",
   "розы",

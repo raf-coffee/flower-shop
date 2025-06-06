@@ -1,5 +1,4 @@
 import sharp from "sharp";
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import { buildConfig } from "payload";
 import { Tags } from "@/collections/Tags";
@@ -18,7 +17,6 @@ import { Reviews } from "@/collections/Reviews";
 import { seed } from "@/seed";
 
 export default buildConfig({
-  editor: lexicalEditor(),
   collections: [
     Media,
     Flowers,
