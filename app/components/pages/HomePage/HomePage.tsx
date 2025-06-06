@@ -8,7 +8,7 @@ import WhyUs from "@/app/components/ui/WhyUs/WhyUs";
 import OrderForm from "@/app/components/forms/OrderForm/OrderForm";
 import Delivery from "@/app/components/ui/Delivery/Delivery";
 import Button from "@/app/components/ui/Button";
-import CatalogSection from "@/app/components/ui/ProductList/ProductList";
+import ProductList from "@/app/components/ui/ProductList/ProductList";
 import LeadSection from "@/app/components/ui/LeadSection";
 
 export default function HomePage() {
@@ -39,7 +39,7 @@ export default function HomePage() {
         <Sales />
       </LeadSection>
       <WhyUs />
-      <CatalogSection />
+      <ProductList />
       <Delivery />
       <OrderForm />
     </div>
