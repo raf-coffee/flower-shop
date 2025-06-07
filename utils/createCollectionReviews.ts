@@ -1,13 +1,13 @@
 import { fakerRU } from "@faker-js/faker";
 import { ProductCollections } from "@/types";
 import { Payload } from "payload";
-import data from "@/data";
 
-export async function createCollectionReviews(
+export default async function createCollectionReviews(
   payload: Payload,
   collection: ProductCollections,
+  reviews: string[],
 ) {
-  const collectionReviews = data.reviews[collection].map((review) => {
+  const collectionReviews = reviews.map((review) => {
     return {
       review,
       customer: fakerRU.person.fullName(),
