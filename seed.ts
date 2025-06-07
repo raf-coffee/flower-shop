@@ -7,8 +7,8 @@ import {
 } from "@/utils";
 import data from "@/data";
 import type { InitialCollections, ProductCollections } from "@/types";
-import { createCollectionReviews } from "./utils/createCollectionReviews";
-import { Review } from "./payload-types";
+import { createCollectionReviews } from "@/utils";
+import { Review } from "@/payload-types";
 
 const ITEMS_COUNT = 20;
 
@@ -44,7 +44,11 @@ export const seed = async (payload: Payload) => {
 
   const images = await Promise.all(
     PRODUCT_COLLECTIONS.map(async (collection) => {
-      const ids = await uploadImages(payload, collection);
+      const ids = await uploadImages(
+        payload,
+        collection,
+        data[collection].imageNames,
+      );
       return ids;
     }),
   );
@@ -55,7 +59,11 @@ export const seed = async (payload: Payload) => {
   if (reviewsDoesNotExists) {
     reviews = await Promise.all(
       PRODUCT_COLLECTIONS.map(async (collection) => {
-        return await createCollectionReviews(payload, collection);
+        return await createCollectionReviews(
+          payload,
+          collection,
+          data.reviews[collection],
+        );
       }),
     );
   } else {
@@ -98,6 +106,8 @@ export const seed = async (payload: Payload) => {
           occasionSet: occasions.docs,
           whomSet: whom.docs,
           categoriesSet: categories.docs,
+          names: data[collection].names,
+          descriptions: data[collection].descriptions,
         }),
       };
     }),
