@@ -1,8 +1,11 @@
 import { faker } from "@faker-js/faker";
 import { generateRelation } from "@/utils";
-import data from "@/data";
-import type { GenerateDataOptions, ProductCollections } from "@/types";
-import { Media, Occasion, Review, Whom, Tag } from "@/payload-types";
+import type {
+  GenerateDataOptions,
+  ProductCollections,
+  GenerateCommonFields,
+} from "@/types";
+import type { Media } from "@/payload-types";
 
 const categoryMap = {
   roses: "Розы",
@@ -11,7 +14,7 @@ const categoryMap = {
   tulips: "Тюльпаны",
 };
 
-const generate = {
+export const generate = {
   name: (data: string[]) => faker.helpers.arrayElement(data),
   description: (data: string[]) => faker.helpers.arrayElement(data),
   images: (data: Media[], count: number) =>
@@ -22,25 +25,24 @@ const generate = {
   reviewsCount: (min = 0, max = 8) => faker.number.int({ min, max }),
 };
 
-const generateCommonFields = <T extends ProductCollections>(
-  collection: T,
-  options: {
-    imageIds: Media[];
-    reviewSet: Review[];
-    tagSet: Tag[];
-    occasionSet: Occasion[];
-    whomSet: Whom[];
-  },
-) => {
-  const name = generate.name(data[collection].names);
-  const description = generate.description(data[collection].descriptions);
+const generateCommonFields = ({
+  imageIds,
+  reviewSet,
+  tagSet,
+  occasionSet,
+  whomSet,
+  names,
+  descriptions,
+}: GenerateCommonFields) => {
+  const name = generate.name(names);
+  const description = generate.description(descriptions);
   const price = generate.price();
-  const images = generate.images(options.imageIds, 1);
+  const images = generate.images(imageIds, 1);
   const sale = generate.sale();
-  const occasions = generateRelation(options.occasionSet, 4);
-  const tags = generateRelation(options.tagSet, 4);
-  const whom = generateRelation(options.whomSet, 4);
-  const reviews = generateRelation(options.reviewSet, generate.reviewsCount());
+  const occasions = generateRelation(occasionSet, 4);
+  const tags = generateRelation(tagSet, 4);
+  const whom = generateRelation(whomSet, 4);
+  const reviews = generateRelation(reviewSet, generate.reviewsCount());
   const available = true;
 
   return {
@@ -77,16 +79,11 @@ export const generateData = (
           (category) => category.name === categoryMap[type],
         );
         return {
-          ...generateCommonFields(collection, {
-            ...options,
-            imageIds: filteredMedia,
-          }),
+          ...generateCommonFields({ ...options, imageIds: filteredMedia }),
           categories: generateRelation(category, 1),
         };
       }
-      return {
-        ...generateCommonFields(collection, options),
-      };
+      return generateCommonFields(options);
     },
     { count: options.count },
   );

@@ -106,6 +106,8 @@ export const seed = async (payload: Payload) => {
           occasionSet: occasions.docs,
           whomSet: whom.docs,
           categoriesSet: categories.docs,
+          names: data[collection].names,
+          descriptions: data[collection].descriptions,
         }),
       };
     }),

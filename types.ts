@@ -123,6 +123,18 @@ export type GenerateDataOptions = {
   occasionSet: Occasion[];
   whomSet: Whom[];
   categoriesSet: Category[];
+  names: string[];
+  descriptions: string[];
 };
 
 export type Flowers = keyof typeof data.flowers.imageNames;
+
+export type GenerateCommonFields = {
+  imageIds: Media[];
+  reviewSet: Review[];
+  tagSet: Tag[];
+  occasionSet: Occasion[];
+  whomSet: Whom[];
+  names: string[];
+  descriptions: string[];
+};
