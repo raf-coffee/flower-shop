@@ -1,4 +1,3 @@
-import { vi, describe, it, expect, beforeEach } from "vitest";
 import { Payload } from "payload";
 import fs from "fs";
 import { uploadImages } from "@/utils";
