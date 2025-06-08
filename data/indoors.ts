@@ -26,6 +26,10 @@ const imageNames = [
   "indoors-04.webp",
   "indoors-05.webp",
   "indoors-06.webp",
+  "indoors-07.webp",
+  "indoors-08.webp",
+  "indoors-09.webp",
+  "indoors-10.webp",
 ];
 
 const data = {

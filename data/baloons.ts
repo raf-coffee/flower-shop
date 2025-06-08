@@ -27,6 +27,10 @@ const imageNames = [
   "baloons-4.webp",
   "baloons-5.webp",
   "baloons-6.webp",
+  "baloons-7.webp",
+  "baloons-8.webp",
+  "baloons-9.webp",
+  "baloons-10.webp",
 ];
 
 const data = {
