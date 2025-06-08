@@ -1,4 +1,3 @@
-import sharp from "sharp";
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import { buildConfig } from "payload";
 import { Tags } from "@/collections/Tags";
@@ -43,5 +42,4 @@ export default buildConfig({
       await seed(payload);
     }
   },
-  sharp,
 });
