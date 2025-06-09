@@ -26,11 +26,13 @@ type Story = StoryObj<typeof meta>;
 export const Unchecked: Story = {
   args: {
     checked: false,
+    onChange: () => undefined,
   },
 };
 
 export const Checked: Story = {
   args: {
     checked: true,
+    onChange: () => undefined,
   },
 };

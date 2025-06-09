@@ -26,6 +26,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  args: {
+    min: 100,
+    max: 1000,
+    step: 50,
+  },
   render: (args) => {
     const [current, setCurrent] = useState({ min: args.min, max: args.max });
 
