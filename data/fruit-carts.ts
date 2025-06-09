@@ -26,6 +26,10 @@ const imageNames = [
   "fruit-carts-04.webp",
   "fruit-carts-05.webp",
   "fruit-carts-06.webp",
+  "fruit-carts-07.webp",
+  "fruit-carts-08.webp",
+  "fruit-carts-09.webp",
+  "fruit-carts-10.webp",
 ];
 
 const data = {

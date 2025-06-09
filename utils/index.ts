@@ -5,4 +5,5 @@ export { default as deriveActiveLabels } from "./deriveActiveLabels";
 export { default as generateData } from "./generateData";
 export { default as generateRelation } from "./generateRelation";
 export { default as getCoverImageUrl } from "./getCoverImageUrl";
+export { default as normalizeCollectionForURL } from "./normalizeCollectionForURL";
 export { default as uploadImages } from "./uploadImages";

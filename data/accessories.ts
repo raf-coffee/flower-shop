@@ -26,6 +26,10 @@ const imageNames = [
   "accessories-4.webp",
   "accessories-5.webp",
   "accessories-6.webp",
+  "accessories-7.webp",
+  "accessories-8.webp",
+  "accessories-9.webp",
+  "accessories-10.webp",
 ];
 
 const data = {

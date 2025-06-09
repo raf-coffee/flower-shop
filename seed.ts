@@ -15,8 +15,8 @@ const ITEMS_COUNT = 20;
 const INITIAL_COLLECTIONS: InitialCollections[] = [
   "tags",
   "occasions",
-  "categories",
   "whom",
+  "categories",
 ];
 
 const PRODUCT_COLLECTIONS: ProductCollections[] = [
@@ -82,46 +82,38 @@ export const seed = async (payload: Payload) => {
     );
   }
 
-  const productData = await Promise.all(
-    PRODUCT_COLLECTIONS.map(async (collection, index) => {
-      const tags = await payload.find({
-        collection: "tags",
-      });
-      const occasions = await payload.find({
-        collection: "occasions",
-      });
-      const whom = await payload.find({
-        collection: "whom",
-      });
-      const categories = await payload.find({
-        collection: "categories",
-      });
-      return {
-        collection,
-        items: generateData(collection, {
-          count: ITEMS_COUNT,
-          imageIds: images[index],
-          reviewSet: reviews[index],
-          tagSet: tags.docs,
-          occasionSet: occasions.docs,
-          whomSet: whom.docs,
-          categoriesSet: categories.docs,
-          names: data[collection].names,
-          descriptions: data[collection].descriptions,
-        }),
-      };
-    }),
+  const [tags, occasions, whom, categories] = await Promise.all(
+    INITIAL_COLLECTIONS.map((collection) => payload.find({ collection })),
   );
+
+  const productData = PRODUCT_COLLECTIONS.map((collection, index) => {
+    return {
+      collection,
+      items: generateData(collection, {
+        count: ITEMS_COUNT,
+        imageIds: images[index],
+        reviewSet: reviews[index],
+        tagSet: tags.docs,
+        occasionSet: occasions.docs,
+        whomSet: whom.docs,
+        categoriesSet: categories.docs,
+        names: data[collection].names,
+        descriptions: data[collection].descriptions,
+      }),
+    };
+  });
 
   await Promise.all(
     productData.map(async (product) => {
       if (await collectionDoesNotExist(payload, product.collection)) {
-        product.items.map(async (item) => {
-          await payload.create({
-            collection: product.collection,
-            data: item,
-          });
-        });
+        await Promise.all(
+          product.items.map((item) => {
+            payload.create({
+              collection: product.collection,
+              data: item,
+            });
+          }),
+        );
       }
     }),
   );

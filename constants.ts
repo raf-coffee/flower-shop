@@ -2,10 +2,10 @@ import {
   BalloonsCatalogCover,
   FlowersCatalogCover,
   GiftsCatalogCover,
-  // AccsessoriesCatalogCover,
-  // FruitSweetsCatalogCover,
-  // IndoorPlantsCatalogCover,
-  // ServicesCatalogCover,
+  AccsessoriesCatalogCover,
+  FruitSweetsCatalogCover,
+  IndoorPlantsCatalogCover,
+  ServicesCatalogCover,
   SweetsCatalogCover,
 } from "@/static/categories";
 import { isValidPhoneNumber } from "libphonenumber-js/max";
@@ -16,35 +16,33 @@ const rawMenuLinks = [
   { title: "Сладости", slug: "sweets", img: SweetsCatalogCover },
   { title: "Воздушные шары", slug: "baloons", img: BalloonsCatalogCover },
   { title: "Подарки", slug: "gifts", img: GiftsCatalogCover },
+  {
+    title: "Фруктовые корзины",
+    slug: "fruit-carts",
+    img: FruitSweetsCatalogCover,
+  },
+  {
+    title: "Комнатные растения",
+    slug: "indoor-plants",
+    img: IndoorPlantsCatalogCover,
+  },
+  {
+    title: "Аксессуары",
+    slug: "accessories",
+    img: AccsessoriesCatalogCover,
+  },
+  {
+    title: "Услуги",
+    slug: "services",
+    img: ServicesCatalogCover,
+  },
   { title: "Контакты", slug: "contacts", img: null },
-  // {
-  //   title: "Аксессуары",
-  //   slug: "accessories",
-  //   img: AccsessoriesCatalogCover,
-  // },
-  // {
-  //   title: "Услуги",
-  //   slug: "services",
-  //   img: ServicesCatalogCover,
-  // },
-  // {
-  //   title: "Фруктовые сладости",
-  //   slug: "fruit-sweets",
-  //   img: FruitSweetsCatalogCover,
-  // },
-  //   {
-  //     title: "Комнатные растения",
-  //     slug: "indoor-plants",
-  //     img: IndoorPlantsCatalogCover,
-  //   },
 ];
 
 export const MENU_LINKS = rawMenuLinks.map((item) => ({
   ...item,
   href: item.img ? `/catalog/${item.slug}` : `/${item.slug}`,
 }));
-
-export const API_LINK = `${process.env.NEXT_PUBLIC_API_URL}`;
 
 const PAGE_PATHS_TRANSLATIONS: Record<string, string> = {
   "/": "Главная",
@@ -54,6 +52,10 @@ const PAGE_PATHS_TRANSLATIONS: Record<string, string> = {
   sweets: "Сладости",
   baloons: "Воздушные шары",
   gifts: "Подарки",
+  accessories: "Аксессуары",
+  services: "Услуги",
+  "fruit-carts": "Фруктовые корзины",
+  "indoor-plants": "Комнатные растения",
 };
 
 const BREADCRUMBS_SEPARATOR = "/";

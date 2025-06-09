@@ -3,7 +3,11 @@ import { ProductCollections } from "@/types";
 import { Config } from "@/payload-types";
 import Link from "next/link";
 
-import { getCoverImageUrl, deriveActiveLabels } from "@/utils";
+import {
+  getCoverImageUrl,
+  deriveActiveLabels,
+  normalizeCollectionForURL,
+} from "@/utils";
 import Text, { TextFont, TextSize, TextWeight } from "@/app/components/ui/Text";
 import Button from "@/app/components/ui/Button";
 
@@ -16,7 +20,7 @@ export default function ProductCard<T extends ProductCollections>({
 }) {
   const imageCoverUrl = getCoverImageUrl(item);
   const labels = deriveActiveLabels(item);
-
+  const normalizedCollection = normalizeCollectionForURL(collection);
   const basicLabels = labels.filter((label) => label.title !== "Скидка 50%");
   const saleLabel = labels.find((label) => label.title === "Скидка 50%");
 
@@ -63,7 +67,7 @@ export default function ProductCard<T extends ProductCollections>({
           </Text>
         </div>
       )}
-      <Link href={`/catalog/${collection}/${item.id}`}>
+      <Link href={`/catalog/${normalizedCollection}/${item.id}`}>
         <div>
           <div className="mb-2 h-[148px] overflow-hidden rounded-tr-xl bg-pink-200 md:h-[200px] lg:h-60 lg:rounded-tr-3xl">
             {imageCoverUrl && (
