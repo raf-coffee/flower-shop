@@ -25,7 +25,7 @@
     "libphonenumber-js": "^1.12.7",
     "next": "^15.3.3",
     "nodemailer": "^7.0.3",
-    "payload": "^3.38.0",
+    "payload": "^3.42.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
