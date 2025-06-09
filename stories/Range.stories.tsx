@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { useState } from "react";
 
 import Range from "@/app/components/ui/Range";
+import { PriceRange } from "@/app/components/ui/Range/Range";
 
 const meta = {
   title: "UI/Range",
@@ -30,6 +31,7 @@ export const Default: Story = {
     min: 100,
     max: 1000,
     step: 50,
+    onChange: (range: PriceRange) => range && undefined,
   },
   render: (args) => {
     const [current, setCurrent] = useState({ min: args.min, max: args.max });

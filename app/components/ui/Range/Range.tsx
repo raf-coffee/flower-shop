@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 
-type PriceRange = {
+export type PriceRange = {
   min: number;
   max: number;
 };
