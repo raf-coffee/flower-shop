@@ -17,7 +17,7 @@
     "test:unit": "vitest run"
   },
   "dependencies": {
-    "@hookform/resolvers": "^5.1.0",
+    "@hookform/resolvers": "^5.1.1",
     "@payloadcms/db-postgres": "^3.41.0",
     "@payloadcms/next": "^3.41.0",
     "@tabler/icons-react": "^3.31.0",
