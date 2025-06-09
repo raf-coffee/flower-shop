@@ -72,7 +72,7 @@ export default function CatalogView({
       }
 
       // === Кому ===
-      if (product.whom?.length) {
+      if (whomIds.length > 0) {
         const productWhomIds = product.whom?.map((item) =>
           typeof item !== "number" ? item.id : item,
         );
