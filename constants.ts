@@ -5,7 +5,7 @@ import {
   AccsessoriesCatalogCover,
   FruitSweetsCatalogCover,
   IndoorPlantsCatalogCover,
-  ServicesCatalogCover,
+  // ServicesCatalogCover,
   SweetsCatalogCover,
 } from "@/static/categories";
 import { isValidPhoneNumber } from "libphonenumber-js/max";
@@ -31,11 +31,11 @@ const rawMenuLinks = [
     slug: "accessories",
     img: AccsessoriesCatalogCover,
   },
-  {
-    title: "Услуги",
-    slug: "services",
-    img: ServicesCatalogCover,
-  },
+  // {
+  //   title: "Услуги",
+  //   slug: "services",
+  //   img: ServicesCatalogCover,
+  // },
   { title: "Контакты", slug: "contacts", img: null },
 ];
 
