@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.0",
-    "@payloadcms/db-postgres": "^3.41.0",
+    "@payloadcms/db-postgres": "^3.43.0",
     "@payloadcms/next": "^3.41.0",
     "@tabler/icons-react": "^3.31.0",
     "class-variance-authority": "^0.7.1",
