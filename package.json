@@ -24,7 +24,7 @@
     "class-variance-authority": "^0.7.1",
     "libphonenumber-js": "^1.12.7",
     "next": "^15.3.3",
-    "nodemailer": "^7.0.3",
+    "nodemailer": "^7.0.7",
     "payload": "^3.38.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "react": "^19.1.0",
