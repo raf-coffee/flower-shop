@@ -23,7 +23,7 @@
     "@tabler/icons-react": "^3.31.0",
     "class-variance-authority": "^0.7.1",
     "libphonenumber-js": "^1.12.7",
-    "next": "^15.3.3",
+    "next": "^15.5.5",
     "nodemailer": "^7.0.3",
     "payload": "^3.38.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
